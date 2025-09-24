@@ -2,95 +2,94 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Global iPhone Export</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-      background-color: #f9f9f9;
-    }
-    header {
-      background: #222;
-      color: #fff;
-      padding: 20px;
-    }
-    nav a {
-      margin: 0 15px;
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    section {
-      padding: 40px;
-    }
-    .products {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-top: 30px;
-    }
-    .product-card {
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 20px;
-      width: 180px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .product-card h3 {
-      margin-top: 0;
-      color: #222;
-    }
-    footer {
-      background: #222;
-      color: #fff;
-      padding: 10px;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-    }
+    body { font-family: Arial, sans-serif; margin:0; padding:0; line-height:1.6; }
+    header, footer { background:#333; color:#fff; text-align:center; padding:1em; }
+    nav a { color:#fff; margin:0 15px; text-decoration:none; }
+    section { padding:2em; }
+    h1,h2 { color:#333; }
+    .product { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
+    .product div { border:1px solid #ccc; padding:1em; flex:1 1 250px; text-align:center; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
+    .product img { max-width:100%; height:auto; border-radius:5px; }
+    footer p { margin:0; }
+    form input, form textarea { width:100%; padding:0.5em; margin-bottom:1em; border:1px solid #ccc; border-radius:5px; }
+    form button { padding:0.7em 1.5em; background:#333; color:#fff; border:none; border-radius:5px; cursor:pointer; }
+    .map img { max-width:100%; height:auto; margin-top:1em; border-radius:8px; }
   </style>
 </head>
 <body>
 
+  <!-- Header -->
   <header>
     <h1>Global iPhone Export</h1>
     <nav>
-      <a href="#">Home</a>
-      <a href="#">About Us</a>
-      <a href="#">Contact</a>
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <section>
-    <h2>Trusted Partner in Pre-Owned iPhone Export</h2>
-    <p>
-      We specialize in sourcing, grading, and exporting high-quality used iPhones from Hong Kong to markets worldwide.  
-      Our mission is to deliver reliable supply, competitive pricing, and professional service for international buyers.
-    </p>
+  <!-- Home Section -->
+  <section id="home">
+    <h2>Reliable Used iPhone Export Worldwide</h2>
+    <p>We source high-quality used iPhones in Hong Kong, refurbish them, and export globally. Fast, secure, and professional service for bulk buyers and distributors.</p>
+  </section>
 
-    <div class="products">
-      <div class="product-card">
-        <h3>iPhone 14</h3>
-        <p>High-quality used iPhone 14, tested and graded for export.</p>
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>With over 20 years of entrepreneurship experience and 30 years in international trade, our company specializes in global distribution of premium used iPhones. We focus on quality control, fast turnaround, and trusted shipping.</p>
+    <div class="map">
+      <h3>Global Export Reach</h3>
+      <img src="world-map.png" alt="Global Export Map">
+      <p>We export to multiple regions including Middle East, Africa, South America, and Asia.</p>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products">
+    <h2>Our Products</h2>
+    <div class="product">
+      <div>
+        <img src="iphone14.jpg" alt="iPhone 14 Pro Max">
+        <h3>iPhone 14 Pro Max</h3>
+        <p>High-quality used units, 100% functional, export-ready.</p>
       </div>
-      <div class="product-card">
-        <h3>iPhone 15</h3>
-        <p>Reliable and fully functional iPhone 15 units for international buyers.</p>
+      <div>
+        <img src="iphone15.jpg" alt="iPhone 15 Series">
+        <h3>iPhone 15 Series</h3>
+        <p>As-is or refurbished, wholesale quantities for global buyers.</p>
       </div>
-      <div class="product-card">
-        <h3>iPhone 16</h3>
-        <p>Top-grade pre-owned iPhone 16, carefully sourced from Hong Kong suppliers.</p>
+      <div>
+        <img src="iphone13.jpg" alt="iPhone 13 Series">
+        <h3>iPhone 13 Series</h3>
+        <p>Trusted condition and verified IMEI, ideal for distributors.</p>
       </div>
     </div>
   </section>
 
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: info@globaliphoneexport.com</p>
+    <p>WhatsApp: +852 1234 5678</p>
+    <p>Location: Hong Kong</p>
+    <p>Or send us a message:</p>
+    <form>
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Message" rows="4" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>© 2025 Global iPhone Export | Email: sales@globaliphone.com</p>
+    <p>&copy; 2025 Global iPhone Export. All rights reserved.</p>
   </footer>
 
 </body>
 </html>
+
