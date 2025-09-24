@@ -12,11 +12,10 @@
     h1,h2 { color:#333; }
     .product { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
     .product div { border:1px solid #ccc; padding:1em; flex:1 1 250px; text-align:center; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
-    .product img { max-width:100%; height:auto; border-radius:5px; }
+    .product img, .map img { max-width:100%; height:auto; border-radius:5px; }
     footer p { margin:0; }
     form input, form textarea { width:100%; padding:0.5em; margin-bottom:1em; border:1px solid #ccc; border-radius:5px; }
     form button { padding:0.7em 1.5em; background:#333; color:#fff; border:none; border-radius:5px; cursor:pointer; }
-    .map img { max-width:100%; height:auto; margin-top:1em; border-radius:8px; }
   </style>
 </head>
 <body>
@@ -43,7 +42,8 @@
     <p>With over 20 years of entrepreneurship experience and 30 years in international trade, our company specializes in global distribution of premium used iPhones. We focus on quality control, fast turnaround, and trusted shipping.</p>
     <div class="map">
       <h3>Global Export Reach</h3>
-      <img src="world-map.png" alt="Global Export Map">
+      <!-- Base64 世界地圖示意圖 -->
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAYAAABtLkffAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAB3RJTUUH5QgECiEm2a4/7wAAAB1pVFh0Q29tbWVudAAAAAAAVGlua2Vyc3RhbGwgd2Vic2l0ZSBtYXA8L2ltYWdlPjwvc3ZnPg==" alt="Global Export Map">
       <p>We export to multiple regions including Middle East, Africa, South America, and Asia.</p>
     </div>
   </section>
@@ -53,17 +53,20 @@
     <h2>Our Products</h2>
     <div class="product">
       <div>
-        <img src="iphone14.jpg" alt="iPhone 14 Pro Max">
+        <!-- iPhone 14 示例圖 -->
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACt..." alt="iPhone 14 Pro Max">
         <h3>iPhone 14 Pro Max</h3>
         <p>High-quality used units, 100% functional, export-ready.</p>
       </div>
       <div>
-        <img src="iphone15.jpg" alt="iPhone 15 Series">
+        <!-- iPhone 15 示例圖 -->
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACt..." alt="iPhone 15 Series">
         <h3>iPhone 15 Series</h3>
         <p>As-is or refurbished, wholesale quantities for global buyers.</p>
       </div>
       <div>
-        <img src="iphone13.jpg" alt="iPhone 13 Series">
+        <!-- iPhone 13 示例圖 -->
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACt..." alt="iPhone 13 Series">
         <h3>iPhone 13 Series</h3>
         <p>Trusted condition and verified IMEI, ideal for distributors.</p>
       </div>
