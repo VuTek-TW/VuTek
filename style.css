@@ -1,3 +1,4 @@
+/* style.css */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -9,7 +10,6 @@ header {
   padding: 15px 30px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   border-bottom: 1px solid #ddd;
 }
 
@@ -18,7 +18,7 @@ header {
   font-size: 24px;
   font-weight: bold;
   text-decoration: none; /* 去掉底線 */
-  margin-left: 10px; /* 手機版 VuTek 與漢堡距離 */
+  margin-right: 50px; /* 桌面版 VuTek 與第一個標籤距離 = 2.5 倍 */
 }
 
 nav {
@@ -31,7 +31,7 @@ nav ul {
   padding: 0;
   display: flex;
   justify-content: center; /* 桌面版標籤置中 */
-  gap: 20px;
+  gap: 30px; /* 標籤間距加大 */
 }
 
 nav a {
@@ -62,23 +62,22 @@ nav a:hover {
 @media screen and (max-width: 768px) {
   header {
     flex-direction: row; /* 漢堡 + VuTek 同一行 */
-    justify-content: flex-start; /* 漢堡左，VuTek 右 */
     align-items: center;
-  }
-  .logo {
-    order: 2; /* VuTek 排在漢堡右邊 */
-    margin-left: 10px; /* 距離漢堡 */
+    justify-content: flex-start; /* 整個導航列靠左 */
   }
   .hamburger {
     display: flex;
-    order: 1; /* 漢堡在左邊 */
+    order: 1;
+  }
+  .logo {
+    order: 2;
+    margin-left: 10px; /* VuTek 與漢堡距離 */
   }
   nav ul {
     display: none;
     flex-direction: column;
     gap: 15px;
     margin-top: 10px;
-    width: 100%;
   }
   nav.active ul {
     display: flex;
@@ -89,3 +88,4 @@ main {
   padding: 40px;
   text-align: center;
 }
+
