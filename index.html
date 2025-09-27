@@ -2,19 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>VuTek - Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VuTek - Home</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <div class="hamburger" onclick="toggleNav()">
+    <div class="hamburger" onclick="document.querySelector('nav').classList.toggle('active')">
       <div></div>
       <div></div>
       <div></div>
     </div>
     <a href="index.html" class="logo">VuTek</a>
-    <nav id="nav">
+    <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="products.html">Products</a></li>
@@ -24,17 +24,24 @@
       </ul>
     </nav>
   </header>
+
   <main>
     <h1>Welcome to VuTek</h1>
-    <p>We export premium second-hand iPhones worldwide.</p>
+    <p>Your trusted partner for global second-hand iPhone export.</p>
   </main>
-  <script>
-    function toggleNav() {
-      document.getElementById('nav').classList.toggle('active');
-    }
-  </script>
+
+  <footer>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </footer>
 </body>
 </html>
+
 
 
 
