@@ -1,4 +1,4 @@
-/* 一般樣式 */
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -8,7 +8,7 @@ body {
     color: #333;
 }
 
-/* 標題區 */
+/* Header */
 header {
     background-color: #004080;
     color: white;
@@ -16,7 +16,7 @@ header {
     text-align: center;
 }
 
-/* 主要內容 */
+/* Main */
 main {
     padding: 20px;
     max-width: 900px;
@@ -34,13 +34,14 @@ h2 {
     color: #004080;
 }
 
-/* 頁尾 */
+/* Footer */
 footer {
     text-align: center;
     padding: 15px;
     background-color: #222;
     color: white;
 }
+
 
 
 
