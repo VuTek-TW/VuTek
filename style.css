@@ -1,3 +1,4 @@
+/* style.css */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -16,10 +17,10 @@ header {
   color: blue;
   font-size: 24px;
   font-weight: bold;
-  text-decoration: none;
+  text-decoration: none; /* 去掉底線 */
+  margin-right: 75px; /* VuTek 與第一個標籤距離 = 2.5倍 gap */
 }
 
-/* 桌面版 */
 nav {
   flex: 1;
 }
@@ -30,12 +31,7 @@ nav ul {
   padding: 0;
   display: flex;
   justify-content: center;
-  gap: 30px; /* 其他標籤間距 */
-}
-
-/* VuTek 與第一個標籤距離 = 2.5 倍 gap */
-nav ul li:first-child {
-  margin-left: 75px; /* 30px * 2.5 = 75px */
+  gap: 30px; /* 標籤間距 */
 }
 
 nav a {
@@ -65,9 +61,7 @@ nav a:hover {
 /* 手機版 */
 @media screen and (max-width: 768px) {
   header {
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start; /* 整個導航列靠左 */
+    justify-content: flex-start; /* 導航列靠左 */
   }
 
   .hamburger {
@@ -77,7 +71,8 @@ nav a:hover {
 
   .logo {
     order: 2;
-    margin-left: 10px; /* VuTek 與漢堡間距 */
+    margin-left: 10px; /* VuTek 與漢堡距離 */
+    margin-right: 0;   /* 移除桌面版的右邊距 */
   }
 
   nav ul {
@@ -97,5 +92,32 @@ main {
   padding: 40px;
   text-align: center;
 }
+
+footer {
+  background-color: #f8f8f8;
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #ddd;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+footer a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+footer a:hover {
+  color: blue;
+}
+
 
 
