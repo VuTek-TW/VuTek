@@ -1,123 +1,47 @@
-/* style.css */
+/* 一般樣式 */
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
+/* 標題區 */
 header {
-  background-color: #f8f8f8;
-  padding: 15px 30px;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #ddd;
+    background-color: #004080;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
 }
 
-.logo {
-  color: blue;
-  font-size: 24px;
-  font-weight: bold;
-  text-decoration: none; /* 去掉底線 */
-  margin-right: 75px; /* VuTek 與第一個標籤距離 = 2.5倍 gap */
-}
-
-nav {
-  flex: 1;
-}
-
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  gap: 30px; /* 標籤間距 */
-}
-
-nav a {
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
-}
-
-nav a:hover {
-  color: blue;
-}
-
-/* 漢堡選單 */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 5px;
-}
-
-.hamburger div {
-  width: 25px;
-  height: 3px;
-  background-color: #333;
-}
-
-/* 手機版 */
-@media screen and (max-width: 768px) {
-  header {
-    justify-content: flex-start; /* 導航列靠左 */
-  }
-
-  .hamburger {
-    display: flex;
-    order: 1;
-  }
-
-  .logo {
-    order: 2;
-    margin-left: 10px; /* VuTek 與漢堡距離 */
-    margin-right: 0;   /* 移除桌面版的右邊距 */
-  }
-
-  nav ul {
-    display: none;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 10px;
-    width: 100%;
-  }
-
-  nav.active ul {
-    display: flex;
-  }
-}
-
+/* 主要內容 */
 main {
-  padding: 40px;
-  text-align: center;
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
 }
 
+section {
+    background: white;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+h2 {
+    color: #004080;
+}
+
+/* 頁尾 */
 footer {
-  background-color: #f8f8f8;
-  padding: 20px;
-  text-align: center;
-  border-top: 1px solid #ddd;
+    text-align: center;
+    padding: 15px;
+    background-color: #222;
+    color: white;
 }
 
-footer ul {
-  list-style: none;
-  padding: 0;
-  margin: 10px 0 0;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-}
-
-footer a {
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
-}
-
-footer a:hover {
-  color: blue;
-}
 
 
 
