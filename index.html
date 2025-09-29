@@ -1,47 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Company</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>VuTek - Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Company</h1>
-    </header>
+  <header>
+    <div class="hamburger" onclick="toggleNav()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <a href="index.html" class="logo">VuTek</a>
+    <nav id="nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1>Welcome to VuTek</h1>
+    <p>We export premium second-hand iPhones worldwide.</p>
+  </main>
+  <script>
+    function toggleNav() {
+      document.getElementById('nav').classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
 
-    <main>
-        <section class="intro">
-            <h2>About Us</h2>
-            <p>We provide high-quality services and products to our customers worldwide.</p>
-        </section>
 
-        <section class="services">
-            <h2>Our Services</h2>
-            <ul>
-                <li>Service 1</li>
-                <li>Service 2</li>
-                <li>Service 3</li>
-            </ul>
-        </section>
 
-        <section class="products">
-            <h2>Our Products</h2>
-            <p>Details about products go here...</p>
-        </section>
 
-        <section class="clients">
-            <h2>Clients</h2>
-            <p>Information about clients goes here...</p>
-        </section>
 
-        <section class="contact">
-            <h2>Contact Us</h2>
-            <p>Email: info@mycompany.com</p>
-            <p>Phone: +123 456 7890</p>
-        </section>
-    </main>
 
     <footer>
         <p>&copy; 2025 My Company. All rights reserved.</p>
