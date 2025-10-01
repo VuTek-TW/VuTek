@@ -7,7 +7,6 @@ body {
 /* Navbar */
 .navbar {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
   background-color: #f5f5f5;
   padding: 10px 20px;
@@ -17,15 +16,15 @@ body {
   font-size: 22px;
   font-weight: bold;
   color: blue;
-  text-decoration: none; /* 去底線 */
+  text-decoration: none;
   margin-left: 10px;
-  margin-right: 90px; /* 與第一個標籤距離 = 3 倍 gap (30px * 3) */
+  margin-right: 90px; /* 與第一個標籤距離 = 3 倍 gap */
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 30px; /* 標籤間距 */
+  gap: 30px;
   margin: 0;
   padding: 0;
 }
@@ -45,6 +44,7 @@ body {
   display: none;
   font-size: 24px;
   cursor: pointer;
+  margin-left: 10px;
 }
 
 /* 響應式設計 */
@@ -70,7 +70,7 @@ body {
   }
 
   .navbar {
-    justify-content: flex-start; /* 全部靠左 */
+    justify-content: flex-start; /* 整體靠左 */
   }
 
   .logo {
@@ -79,26 +79,9 @@ body {
   }
 }
 
-/* Footer */
-footer {
-  margin-top: 50px;
-  padding: 20px;
-  background-color: #eee;
-  text-align: center;
-}
-
-.footer-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-}
-
-.footer-links li a {
-  text-decoration: none;
-  color: black;
+/* Main */
+main {
+  padding: 40px 20px;
 }
 
 
