@@ -3,37 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VuTek - Support</title>
+  <title>VuTek - Supports</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
-      <a href="index.html" class="logo">VuTek</a>
-      <ul class="nav-links" id="nav-links">
-        <li><a href="products.html">Products</a></li>
-        <li><a href="support.html" class="active">Support</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <main>
-    <h1>Support</h1>
-    <p>Find FAQs, documentation, and customer support options.</p>
-  </main>
+<header>
+  <div class="logo"><a href="Home.html">VuTek</a></div>
+  <nav>
+    <ul>
+      <li><a href="Products.html">Products</a></li>
+      <li><a href="Supports.html">Supports</a></li>
+      <li><a href="About.html">About Us</a></li>
+      <li><a href="Contact.html">Contact Us</a></li>
+    </ul>
+    <div class="hamburger">&#9776;</div>
+  </nav>
+</header>
 
-  <script>
-    const toggle = document.getElementById('menu-toggle');
-    const navLinks = document.getElementById('nav-links');
-    toggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-  </script>
+<section>
+  <h1>FAQ</h1>
+  <div class="faq-section">
+    <div class="faq-box">
+      <h3>Q1: When did your company start the iPhone business?</h3>
+      <p>We have been in the iPhone business since the very first generation (2007). We still have shipment photos from 2009 for iPhone 3Gs as a testament to our long-term experience.</p>
+    </div>
+    <div class="faq-box">
+      <h3>Q2: How do you conduct Quality Control (QC) for devices?</h3>
+      <p>Our SOP ensures that every device meets high standards. We do our best to support you with consistent quality and reliable service.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-info">
+    <p>VuTek Co., Ltd. | Address: 123 Business St, Hong Kong | Phone: +852 1234 5678 | Email: info@vutek.com</p>
+    <ul>
+      <li><a href="Products.html">Products</a></li>
+      <li><a href="Supports.html">Supports</a></li>
+      <li><a href="About.html">About Us</a></li>
+      <li><a href="Contact.html">Contact Us</a></li>
+    </ul>
+  </div>
+  <p>© 2025 VuTek. All rights reserved.</p>
+</footer>
+
+<script>
+const hamburger = document.querySelector('.hamburger');
+const navUl = document.querySelector('nav ul');
+hamburger.addEventListener('click', () => {
+  navUl.classList.toggle('show');
+});
+</script>
+
 </body>
 </html>
+
 
 
 
