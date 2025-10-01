@@ -9,13 +9,13 @@
 <body>
 
 <header>
-  <div class="logo"><a href="Home.html">VuTek</a></div>
+  <div class="logo"><a href="index.html">VuTek</a></div>
   <nav>
     <ul>
-      <li><a href="Products.html">Products</a></li>
-      <li><a href="Supports.html">Supports</a></li>
-      <li><a href="About.html">About Us</a></li>
-      <li><a href="Contact.html">Contact Us</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
     </ul>
     <div class="hamburger">&#9776;</div>
   </nav>
@@ -23,40 +23,36 @@
 
 <section>
   <h1>Contact Us</h1>
-  <p>We welcome you to tell us how we can support your business success. Thank you!</p>
-
+  <p>We are here to support your success. Please fill out the form below:</p>
   <form action="#" method="post">
-    <label>Company</label><br>
-    <input type="text" name="company" required><br><br>
+    <label for="company">Company</label><br>
+    <input type="text" id="company" name="company"><br><br>
 
-    <label>Your Name</label><br>
-    <input type="text" name="name" required><br><br>
+    <label for="name">Your Name</label><br>
+    <input type="text" id="name" name="name"><br><br>
 
-    <label>Email</label><br>
-    <input type="email" name="email" required><br><br>
+    <label for="email">Email</label><br>
+    <input type="email" id="email" name="email"><br><br>
 
-    <label>WhatsApp (optional)</label><br>
-    <input type="text" name="whatsapp"><br><br>
+    <label for="whatsapp">WhatsApp (optional)</label><br>
+    <input type="text" id="whatsapp" name="whatsapp"><br><br>
 
-    <label>Message</label><br>
-    <textarea name="message" rows="5" required></textarea><br><br>
+    <label for="message">Message</label><br>
+    <textarea id="message" name="message"></textarea><br><br>
 
     <button type="submit" class="cta">Send Message</button>
   </form>
-
-  <p>Reach us directly via:</p>
-  <p>Email: info@vutek.com</p>
-  <p>WhatsApp: +852 1234 5678</p>
+  <p>Or contact us directly via email or WhatsApp.</p>
 </section>
 
 <footer>
   <div class="footer-info">
     <p>VuTek Co., Ltd. | Address: 123 Business St, Hong Kong | Phone: +852 1234 5678 | Email: info@vutek.com</p>
     <ul>
-      <li><a href="Products.html">Products</a></li>
-      <li><a href="Supports.html">Supports</a></li>
-      <li><a href="About.html">About Us</a></li>
-      <li><a href="Contact.html">Contact Us</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
     </ul>
   </div>
   <p>© 2025 VuTek. All rights reserved.</p>
@@ -72,6 +68,7 @@ hamburger.addEventListener('click', () => {
 
 </body>
 </html>
+
 
 
 
