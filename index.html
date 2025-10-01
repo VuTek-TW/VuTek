@@ -2,33 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VuTek - Home</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-    header { background-color: #f0f0f0; padding: 15px; }
-    nav a {
-      margin: 0 15px; text-decoration: none; color: black; font-weight: bold;
-    }
-    nav a:hover { color: blue; }
-    .logo { color: blue; font-size: 20px; font-weight: bold; }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <a href="index.html" class="logo">VuTek</a>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="products.html">Products</a>
-      <a href="support.html">Support</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact Us</a>
+    <nav class="navbar">
+      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+      <a href="index.html" class="logo">VuTek</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="products.html">Products</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
     </nav>
   </header>
+
   <main>
     <h1>Welcome to VuTek</h1>
-    <p>This is the homepage. Add your main company introduction here.</p>
+    <p>Your technology partner.</p>
   </main>
+
+  <footer>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+      document.getElementById('nav-links').classList.toggle('active');
+    });
+  </script>
 </body>
 </html>
+
 
 
