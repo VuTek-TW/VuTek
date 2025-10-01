@@ -2,38 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>VuTek - Support</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VuTek - Support</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <div class="hamburger" onclick="toggleNav()">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-    <a href="index.html" class="logo">VuTek</a>
-    <nav id="nav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
+    <nav class="navbar">
+      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+      <a href="index.html" class="logo">VuTek</a>
+      <ul class="nav-links" id="nav-links">
         <li><a href="products.html">Products</a></li>
-        <li><a href="support.html">Support</a></li>
+        <li><a href="support.html" class="active">Support</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="contact.html">Contact Us</a></li>
       </ul>
     </nav>
   </header>
+
   <main>
     <h1>Support</h1>
-    <p>FAQs, shipping, and payment info can go here.</p>
+    <p>Find FAQs, documentation, and customer support options.</p>
   </main>
+
+  <footer>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </footer>
+
   <script>
-    function toggleNav() {
-      document.getElementById('nav').classList.toggle('active');
-    }
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+      document.getElementById('nav-links').classList.toggle('active');
+    });
   </script>
 </body>
 </html>
+
 
 
