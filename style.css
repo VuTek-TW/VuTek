@@ -77,16 +77,22 @@ section {
   margin-bottom: 15px;
 }
 
+/* Hero Section bullet 修正：👉 左對齊 */
 .hero ul {
   list-style: none;
-  margin-bottom: 20px;
+  padding: 0;
+  margin: 20px auto;
+  display: inline-block; /* 列表在置中的容器中靠左排列 */
+  text-align: left;      /* bullet 左對齊 */
 }
 
 .hero ul li {
   font-size: 18px;
   margin-bottom: 10px;
+  line-height: 1.6;
 }
 
+/* CTA */
 .cta {
   display: inline-block;
   padding: 12px 25px;
@@ -174,6 +180,7 @@ footer ul li a {
     font-size: 16px;
   }
 }
+
 
 
 
