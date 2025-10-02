@@ -3,106 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Products</title>
+  <title>VuTek - Products</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* 內容區域樣式 */
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-    h1 {
-      color: #000000; /* 標題改黑色 */
-      margin-bottom: 30px;
-    }
-    p {
-      margin-bottom: 20px;
-      font-size: 1.1em;
-      color: #333;
-    }
-    .stock-section {
-      text-align: center;
-      margin: 40px 0;
-    }
-    .stock-section img,
-    .stock-section video {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .stock-section p {
-      margin-top: 15px;
-      font-weight: bold;
-      font-size: 1.1em;
-    }
-    .cta {
-      display: block;
-      width: max-content;
-      margin: 40px auto 0;
-      padding: 15px 40px;
-      background-color: #007BFF;
-      color: #fff;
-      text-decoration: none;
-      font-size: 1.2em;
-      border-radius: 8px;
-      transition: background-color 0.3s;
-    }
-    .cta:hover {
-      background-color: #0056b3;
-    }
-    @media (max-width: 768px) {
-      .container {
-        padding: 20px 15px;
-      }
-    }
-  </style>
 </head>
 <body>
 
-  <!-- Header 保留原始網站 head -->
-  <header>
-    <!-- 假設原本 head 內容，保持不動 -->
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<header>
+  <div class="logo"><a href="index.html">VuTek</a></div>
+  <nav>
+    <ul>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <div class="hamburger">&#9776;</div>
+  </nav>
+</header>
 
-  <!-- 內容區 -->
-  <div class="container">
-    <h1>Products</h1>
+<section>
+  <h1>Products</h1>
 
-    <p>Since the first iPhone in 2007, we have been in the iPhone business.</p>
+  <p>Since the first iPhone in 2007, we have been in the iPhone business.</p>
 
-    <p>For your pre-owned iPhone business, provide the models, quantities, and grades you require — we’ll handle the rest.</p>
+  <p>For your pre-owned iPhone business, provide the models, quantities, and grades you require — we’ll handle the rest.</p>
 
-    <p>We are here to help you succeed. Our ready stock is prepared for global shipment — see below for reference.</p>
+  <p>We are here to help you succeed. Our ready stock is prepared for global shipment — see below for reference.</p>
 
-    <div class="stock-section">
-      <!-- Example image -->
-      <img src="images/stock-sample.jpg" alt="Pre-owned iPhone stock">
-      <!-- Example video (optional) -->
-      <!-- <video src="videos/stock-sample.mp4" controls></video> -->
-      <p>Ready stock for global shipment</p>
-    </div>
-
-    <a href="contact.html" class="cta">Get Started Today</a>
+  <div class="stock-section">
+    <!-- Example image -->
+    <img src="images/stock-sample.jpg" alt="Pre-owned iPhone stock">
+    <!-- Example video (optional) -->
+    <!-- <video src="videos/stock-sample.mp4" controls></video> -->
+    <p>Ready stock for global shipment</p>
   </div>
 
-  <!-- Footer 保留原始網站 footer -->
-  <footer>
-    <!-- 假設原本 footer 內容，保持不動 -->
-    <p>&copy; 2025 VuTek. All rights reserved.</p>
-  </footer>
+  <a href="contact.html" class="cta">Get Started Today</a>
+</section>
+
+<footer>
+  <div class="footer-info">
+    <p>
+      Address: <a href="https://www.google.com/maps?q=123+Business+St,+Hong+Kong" target="_blank">123 Business St, Hong Kong</a> | 
+      Email: <a href="mailto:info@vutek.com">info@vutek.com</a> | 
+      WhatsApp: <a href="https://wa.me/886907903072" target="_blank">+886 907903072</a>
+    </p>
+  </div>
+  <p>© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
+</footer>
+
+<script>
+const hamburger = document.querySelector('.hamburger');
+const navUl = document.querySelector('nav ul');
+hamburger.addEventListener('click', () => {
+  navUl.classList.toggle('show');
+});
+</script>
 
 </body>
 </html>
+
 
 
 
