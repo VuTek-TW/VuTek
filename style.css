@@ -63,7 +63,7 @@ section {
 
 /* Hero Section */
 .hero {
-  background: #e6f0ff;
+  background: #e6f0ff; /* 可淡化為 #f0f5ff 視覺更柔和 */
   text-align: center;
 }
 
@@ -77,34 +77,44 @@ section {
   margin-bottom: 15px;
 }
 
-/* Hero Section bullet 修正：👉 左對齊 */
+/* Hero Section bullet 左對齊，前面加 👉 */
 .hero ul {
   list-style: none;
   padding: 0;
   margin: 20px auto;
-  display: inline-block; /* 列表在置中的容器中靠左排列 */
-  text-align: left;      /* bullet 左對齊 */
+  display: inline-block; /* 在置中區塊內靠左排列 */
+  text-align: left;
 }
 
 .hero ul li {
   font-size: 18px;
   margin-bottom: 10px;
   line-height: 1.6;
+  font-weight: bold;        /* 文字粗體 */
 }
 
-/* CTA */
+.hero ul li::before {
+  content: "👉";
+  display: inline-block;
+  margin-right: 8px;        /* emoji 與文字間距 */
+  font-size: 18px;          /* emoji 尺寸與文字一致 */
+  vertical-align: middle;
+}
+
+/* CTA 按鈕 */
 .cta {
   display: inline-block;
   padding: 12px 25px;
-  background: #007BFF;
+  background: #3399FF;       /* 淡藍色 */
   color: white;
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
+  margin-top: 40px;          /* 距離文字加倍 */
 }
 
 .cta:hover {
-  background: #0056b3;
+  background: #007BFF;
 }
 
 /* Advantages / FAQ Boxes */
@@ -180,6 +190,7 @@ footer ul li a {
     font-size: 16px;
   }
 }
+
 
 
 
