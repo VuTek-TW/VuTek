@@ -63,7 +63,7 @@ section {
 
 /* Hero Section */
 .hero {
-  background: #e6f0ff; /* 可淡化為 #f0f5ff 視覺更柔和 */
+  background: #f0f5ff; /* 淡藍色背景 */
   text-align: center;
 }
 
@@ -98,6 +98,7 @@ section {
   display: inline-block;
   margin-right: 8px;        /* emoji 與文字間距 */
   font-size: 18px;          /* emoji 尺寸與文字一致 */
+  transform: scale(0.9);    /* 微調比例，避免 PC 顯示過胖 */
   vertical-align: middle;
 }
 
@@ -115,24 +116,6 @@ section {
 
 .cta:hover {
   background: #007BFF;
-}
-
-/* Advantages / FAQ Boxes */
-.advantages, .faq-section {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 20px;
-  text-align: center;
-}
-
-.adv-box, .faq-box {
-  width: 300px;
-}
-
-.adv-box h2, .faq-box h3 {
-  color: #007BFF;
-  margin-bottom: 10px;
 }
 
 /* Footer */
@@ -177,11 +160,6 @@ footer ul li a {
     display: block;
   }
 
-  .advantages, .faq-section {
-    flex-direction: column;
-    align-items: center;
-  }
-
   .hero h1 {
     font-size: 28px;
   }
@@ -190,6 +168,7 @@ footer ul li a {
     font-size: 16px;
   }
 }
+
 
 
 
