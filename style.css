@@ -30,7 +30,7 @@ header {
   text-decoration: none;
 }
 
-/* 導航列置中 */
+/* Navigation */
 nav {
   flex: 1;
   text-align: center;
@@ -63,7 +63,7 @@ section {
 
 /* Hero Section */
 .hero {
-  background: #f0f5ff; /* 淡藍色背景 */
+  background: #f0f5ff;
   text-align: center;
 }
 
@@ -77,12 +77,12 @@ section {
   margin-bottom: 15px;
 }
 
-/* Hero Section bullet 左對齊，前面加 👉 */
+/* Hero bullet list using image for 👉 */
 .hero ul {
   list-style: none;
   padding: 0;
   margin: 20px auto;
-  display: inline-block; /* 在置中區塊內靠左排列 */
+  display: inline-block;
   text-align: left;
 }
 
@@ -90,32 +90,31 @@ section {
   font-size: 18px;
   margin-bottom: 10px;
   line-height: 1.6;
-  font-weight: bold;        /* 文字粗體 */
+  font-weight: bold;
+  display: flex;
+  align-items: center;
 }
 
-/* 調整 emoji */
-.hero ul li::before {
-  content: "👉";
-  display: inline-block;
-  margin-right: 8px;        /* emoji 與文字間距 */
-  font-size: 1em;           /* 先用文字大小 */
-  width: 1em;               /* 固定寬度，避免胖 */
-  text-align: center;
-  transform: scale(0.85);   /* 微縮 emoji */
-  transform-origin: center center;
-  vertical-align: middle;
+.hero ul li .emoji {
+  display: inline-flex;
+  margin-right: 8px;
 }
 
-/* CTA 按鈕 */
+.hero ul li .emoji img {
+  width: 20px;
+  height: 20px;
+}
+
+/* CTA Button */
 .cta {
   display: inline-block;
   padding: 12px 25px;
-  background: #3399FF;       /* 淡藍色 */
+  background: #3399FF;
   color: white;
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
-  margin-top: 40px;          /* 距離文字加倍 */
+  margin-top: 40px;
 }
 
 .cta:hover {
@@ -172,10 +171,12 @@ footer ul li a {
     font-size: 16px;
   }
 
-  .hero ul li::before {
-    transform: scale(1);      /* 手機上正常大小 */
+  .hero ul li .emoji img {
+    width: 18px;
+    height: 18px;
   }
 }
+
 
 
 
