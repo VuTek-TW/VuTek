@@ -77,7 +77,7 @@ section {
   margin-bottom: 15px;
 }
 
-/* Hero bullet list using image for 👉 */
+/* Hero bullet list using inline SVG */
 .hero ul {
   list-style: none;
   padding: 0;
@@ -100,7 +100,7 @@ section {
   margin-right: 8px;
 }
 
-.hero ul li .emoji img {
+.hero ul li .emoji svg {
   width: 20px;
   height: 20px;
 }
@@ -171,11 +171,12 @@ footer ul li a {
     font-size: 16px;
   }
 
-  .hero ul li .emoji img {
+  .hero ul li .emoji svg {
     width: 18px;
     height: 18px;
   }
 }
+
 
 
 
