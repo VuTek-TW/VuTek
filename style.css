@@ -1,4 +1,4 @@
-/* ----------------- Reset ----------------- */
+/* ===== Reset ===== */
 * {
   margin: 0;
   padding: 0;
@@ -6,219 +6,109 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
   line-height: 1.6;
   color: #333;
-  background: #f4f6f8;
+  background: #f8f9fa;
 }
 
-/* ----------------- Header ----------------- */
+/* ===== Header ===== */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  background: #1a73e8;
-  color: #fff;
+  background: #007BFF;
+  color: white;
+  padding: 15px 30px;
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
 .logo a {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: bold;
-  color: #fff;
+  color: white;
   text-decoration: none;
 }
 
 nav {
   flex: 1;
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 nav ul {
-  display: inline-flex;
+  display: flex;
   list-style: none;
-  gap: 20px;
-}
-
-nav ul li:first-child {
-  margin-left: 40px; /* 第一個 li 與 Logo 間距為其他的兩倍 */
+  gap: 30px;
 }
 
 nav ul li a {
+  color: white;
   text-decoration: none;
-  color: #fff;
   font-weight: 500;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
 }
 
 .hamburger {
   display: none;
-  font-size: 28px;
+  font-size: 1.8rem;
   cursor: pointer;
 }
 
-@media (max-width: 768px) {
-  nav ul {
-    display: none;
-    flex-direction: column;
-    background: #1a73e8;
-    position: absolute;
-    top: 50px;
-    right: 20px;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  nav ul.show {
-    display: flex;
-  }
-  nav ul li {
-    padding: 10px 20px;
-    margin-left: 0;
-  }
-  .hamburger {
-    display: block;
-  }
-}
-
-/* ----------------- Section ----------------- */
+/* ===== Section ===== */
 section {
-  max-width: 900px;
-  margin: 40px auto;
+  max-width: 1000px;
+  margin: 60px auto;
   padding: 0 20px;
 }
 
-/* ----------------- Hero / CTA ----------------- */
-.hero {
-  background: #f0f5ff;
-  text-align: center;
-  padding: 60px 20px;
-}
-
-.hero h1 {
-  font-size: 36px;
+h1, h2, h3 {
+  color: #222;
   margin-bottom: 20px;
 }
 
-.hero p {
-  font-size: 18px;
+/* Paragraph and content */
+p {
   margin-bottom: 15px;
 }
 
-.hero ul {
-  list-style: none;
-  padding: 0;
-  margin: 20px auto;
+/* ===== Buttons ===== */
+.cta, button {
   display: inline-block;
-  text-align: left;
-}
-
-.hero ul li {
-  font-size: 18px;
-  margin-bottom: 10px;
-  line-height: 1.6;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-}
-
-.hero ul li .emoji {
-  display: inline-flex;
-  margin-right: 8px;
-}
-
-.hero ul li .emoji svg {
-  width: 20px;
-  height: 20px;
-}
-
-.cta {
-  display: inline-block;
-  padding: 12px 25px;
-  background: #3399FF;
+  background: #007BFF;
   color: white;
   text-decoration: none;
-  border-radius: 5px;
+  padding: 12px 25px;
+  border-radius: 6px;
   font-weight: bold;
-  margin-top: 40px;
-}
-
-.cta:hover {
-  background: #007BFF;
-}
-
-/* ----------------- FAQ ----------------- */
-.faq-item {
-  background: #fff;
-  border-radius: 10px;
-  margin-bottom: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  overflow: hidden;
-  transition: transform 0.2s;
-}
-
-.faq-item:hover {
-  transform: translateY(-2px);
-}
-
-.faq-question {
+  border: none;
   cursor: pointer;
-  padding: 18px 24px;
-  font-weight: 600;
-  font-size: 1.1rem;
-  background: #f1f3f6;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: background 0.3s, color 0.3s;
+  transition: background 0.3s;
 }
 
-.faq-question:hover {
-  background: #e2e6eb;
-  color: #000;
+.cta:hover, button:hover {
+  background: #0056B3;
 }
 
-.faq-item.active .faq-question {
-  background: #d0e2ff;
+/* ===== Image Blocks ===== */
+.stock-section img, .hero img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 10px;
+  margin-bottom: 15px;
 }
 
-.faq-arrow {
-  display: inline-block;
-  transition: transform 0.3s;
-}
-
-.faq-item.active .faq-arrow {
-  transform: rotate(90deg);
-}
-
-.faq-answer {
-  max-height: 0;
-  padding: 0 24px;
-  border-top: 1px solid #ddd;
-  background: #fff;
-  line-height: 1.6;
-  font-size: 0.98rem;
-  color: #555;
-  overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.4s ease;
-}
-
-.faq-item.active .faq-answer {
-  padding: 15px 24px;
-  max-height: 500px;
-}
-
-strong {
-  color: #1a73e8;
-}
-
-/* ----------------- Contact Form ----------------- */
+/* ===== Form ===== */
 form {
-  background: #fff;
+  background: white;
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .form-row {
@@ -229,7 +119,7 @@ form {
 
 .form-row label {
   width: 30%;
-  min-width: 100px;
+  min-width: 120px;
   padding-right: 10px;
   font-weight: 600;
   display: flex;
@@ -242,148 +132,103 @@ form {
   flex: 1;
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 6px;
   font-size: 1rem;
 }
 
-.form-row textarea {
+textarea {
   resize: vertical;
   min-height: 100px;
 }
 
-.form-row small {
-  color: red;
-  display: none;
-  margin-top: 5px;
-}
-
-.optional {
-  color: #aaa;
-  font-weight: 400;
-  margin-left: 5px;
-}
-
-button {
-  background: #1a73e8;
-  color: #fff;
-  padding: 12px 25px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 600;
-  transition: background 0.3s;
-}
-
-button:hover {
-  background: #155cb0;
-}
-
-.msg-response {
-  margin-top: 15px;
-  font-weight: 600;
-  display: none;
-}
-
-.msg-response.success {
-  color: green;
-}
-
-.msg-response.error {
-  color: red;
-}
-
-.contact-note {
-  margin-top: 40px;
-  font-size: 0.95rem;
-  color: #555;
-  line-height: 1.4;
-}
-
-/* ----------------- Footer ----------------- */
-footer {
-  background: #1a73e8;
-  color: #fff;
-  text-align: center;
+/* ===== FAQ Section ===== */
+.faq-item {
+  background: white;
+  border-radius: 10px;
+  margin-bottom: 15px;
   padding: 20px;
-  margin-top: 40px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+}
+
+.faq-item h3 {
+  margin-bottom: 10px;
+  color: #007BFF;
+}
+
+/* ===== Footer ===== */
+footer {
+  background: #007BFF;
+  color: white;
+  text-align: center;
+  padding: 25px 20px;
+  margin-top: 60px;
 }
 
 footer a {
-  color: #fff;
-  text-decoration: none;
+  color: white;
+  text-decoration: underline;
 }
 
-footer .footer-info {
-  margin-bottom: 10px;
-  font-size: 0.95rem;
-}
-
-/* ----------------- WhatsApp Floating Button ----------------- */
+/* ===== WhatsApp Floating Button ===== */
 .whatsapp-fixed {
   position: fixed;
   right: 20px;
+  bottom: 25px;
   background: #25D366;
-  color: #fff;
-  padding: 15px 20px;
+  color: white;
+  padding: 14px 22px;
   border-radius: 50px;
-  font-weight: 600;
-  z-index: 1000;
-  text-decoration: none;
+  font-weight: bold;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.5s, transform 0.5s, top 0.2s;
-}
-
-.whatsapp-fixed.show {
-  opacity: 1;
-  transform: translateY(0);
+  text-decoration: none;
+  transition: background 0.3s;
 }
 
 .whatsapp-fixed:hover {
   background: #1ebe5d;
 }
 
-/* ----------------- Responsive ----------------- */
+/* ===== Responsive ===== */
 @media (max-width: 768px) {
-  .hero h1 {
-    font-size: 28px;
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background: #007BFF;
+    position: absolute;
+    top: 55px;
+    right: 20px;
+    border-radius: 8px;
+    padding: 10px 0;
   }
 
-  .hero p,
-  .hero ul li {
-    font-size: 16px;
+  nav ul.show {
+    display: flex;
   }
 
-  .hero ul li .emoji svg {
-    width: 18px;
-    height: 18px;
+  nav ul li {
+    text-align: center;
+    padding: 10px 20px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .form-row {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .form-row label {
-    width: 100%;
     justify-content: flex-start;
     margin-bottom: 5px;
   }
 
-  .form-row input,
-  .form-row textarea {
-    width: 100%;
+  footer {
+    font-size: 0.9rem;
   }
 }
 
-@media (max-width: 600px) {
-  .faq-question {
-    font-size: 1rem;
-    padding: 15px 18px;
-  }
-
-  .faq-answer {
-    padding: 12px 18px;
-    font-size: 0.95rem;
-  }
-}
 
 
 
