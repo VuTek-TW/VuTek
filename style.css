@@ -18,11 +18,11 @@ body {
 /* ===== Header ===== */
 header {
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
+  justify-content: flex-start; 
+  align-items: flex-end; 
   background: #007BFF;
   color: white;
-  padding: 12px 30px; /* 高度略減少20% */
+  padding: 15px 30px;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -33,7 +33,7 @@ header {
   font-weight: bold;
   color: white;
   text-decoration: none;
-  margin-right: 104px; /* Logo 與第一個標籤距離增加30% */
+  margin-right: 104px; 
 }
 
 nav {
@@ -45,8 +45,8 @@ nav {
 nav ul {
   display: flex;
   list-style: none;
-  gap: 39px; /* 標籤間距增加30% */
-  align-items: flex-end;
+  gap: 39px; 
+  align-items: flex-end; 
 }
 
 nav ul li a {
@@ -66,45 +66,43 @@ nav ul li a:hover {
   cursor: pointer;
 }
 
-/* ===== Section ===== */
-section {
-  max-width: 1000px;
-  margin: 60px auto;
-  padding: 0 20px;
+/* ===== Hero Section ===== */
+.hero {
+  background: #f0f5ff;
+  text-align: center;
 }
 
-h1, h2, h3 {
-  color: #222;
+.hero h1 {
+  font-size: 36px;
+  margin-top: 44px; /* 原來50px，減少約12% */
   margin-bottom: 20px;
 }
 
-p {
+.hero p {
+  font-size: 18px;
   margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.hero-points p {
+  font-size: 18px;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.hero-arrow {
+  color: #007BFF; 
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.hero-bold {
+  font-weight: bold;
+  font-size: 18px; 
 }
 
 p + .cta {
-  margin-top: 30px; /* CTA 與上一段文字距離加大 */
-}
-
-/* ===== Hero List ===== */
-.hero-list {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.hero-item {
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-}
-
-.hero-item .arrow {
-  display: inline-block;
-  color: #3399FF;
-  font-weight: bold;
-  margin-right: 10px;
-  flex-shrink: 0;
+  margin-top: 30px; 
 }
 
 /* ===== Buttons ===== */
@@ -130,30 +128,28 @@ footer {
   background: #007BFF;
   color: white;
   text-align: center;
+  padding: 18px 20px;
+  margin-top: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 15px 20px;
-  margin-top: auto;
-  height: 95px; /* 調整高度，底部 ©2025 藍底貼齊 */
+  height: 90px; 
 }
 
 footer .footer-info {
   display: flex;
   justify-content: center;
+  gap: 18px; 
   align-items: center;
-  gap: 20px; /* 垂直線左右距離減少70% */
 }
 
-footer .footer-info span a {
+footer .footer-info span {
+  margin: 0;
+}
+
+footer a {
   color: white;
-  text-decoration: none;
-}
-
-footer .footer-info span a:visited,
-footer .footer-info span a:hover,
-footer .footer-info span a:active {
-  color: white; /* 點擊後保持白色 */
+  text-decoration: none; 
 }
 
 footer p.copyright {
@@ -205,6 +201,16 @@ footer p.copyright {
     display: block;
   }
 
+  .form-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form-row label {
+    justify-content: flex-start;
+    margin-bottom: 5px;
+  }
+
   footer {
     height: auto;
     padding: 15px 20px;
@@ -215,6 +221,7 @@ footer p.copyright {
     gap: 10px;
   }
 }
+
 
 
 
