@@ -50,14 +50,35 @@
     .success{ color:green; }
     .error{ color:red; }
 
-    .contact-note{ margin-top:20px; font-size:0.95rem; color:#555; line-height:1.4; }
+    /* Contact note + inline WhatsApp */
+    .contact-note-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-top: 40px; /* 與表單間距加倍 */
+    }
+    .contact-note{
+      font-size:0.95rem;
+      color:#555;
+      line-height:1.4;
+    }
+    .whatsapp-inline-btn{
+      background:#25D366; 
+      color:#fff; 
+      padding:8px 15px; 
+      border-radius:50px; 
+      font-weight:600; 
+      text-decoration:none;
+      transition: background 0.3s;
+    }
+    .whatsapp-inline-btn:hover{ background:#1ebe5d; }
 
     /* Footer */
     footer{ background:#1a73e8; color:#fff; text-align:center; padding:20px; margin-top:40px; }
     footer a{ color:#fff; }
     footer .footer-info{ margin-bottom:10px; font-size:0.95rem; }
 
-    /* WhatsApp Floating Button */
+    /* Floating WhatsApp Button */
     .whatsapp-fixed{
       position: fixed; bottom:20px; right:20px; background:#25D366; color:#fff; padding:15px 20px;
       border-radius:50px; font-weight:600; z-index:1000; text-decoration:none;
@@ -112,8 +133,12 @@
     <button type="submit">Send Message</button>
     <div class="msg-response success" id="successMsg">Thank you! Your message has been sent.</div>
     <div class="msg-response error" id="errorMsg">Oops! Something went wrong. Please try again.</div>
-    <div class="contact-note">
-      If you like, you can also contact us via Email or WhatsApp anytime.
+
+    <div class="contact-note-container">
+      <div class="contact-note">
+        If you like, you can also contact us via Email or WhatsApp anytime.
+      </div>
+      <a href="https://wa.me/886907903072" target="_blank" class="whatsapp-inline-btn">WhatsApp</a>
     </div>
   </form>
 </section>
@@ -129,12 +154,11 @@
   <p>© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
 </footer>
 
-<!-- WhatsApp Floating Button -->
+<!-- Floating WhatsApp Button -->
 <a href="https://wa.me/886907903072" target="_blank" class="whatsapp-fixed" id="whatsappBtn">WhatsApp</a>
 
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
-  // Init EmailJS
   emailjs.init("Jn60mp90NgrzsddCd");
 
   // Hamburger
@@ -146,7 +170,6 @@
   const form = document.getElementById('contactForm');
   form.addEventListener('submit', function(e){
     e.preventDefault();
-
     let valid = true;
     form.querySelectorAll('input[required]').forEach(input=>{
       if(!input.value.trim()){ 
@@ -193,6 +216,7 @@
 
 </body>
 </html>
+
 
 
 
