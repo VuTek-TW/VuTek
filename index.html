@@ -5,6 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VuTek - Home</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* 去掉黑點，只保留箭頭 */
+    .hero-text ul.no-bullets {
+      list-style: none;
+      padding-left: 0;
+    }
+    .hero-text ul.no-bullets li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .hero-text ul.no-bullets li .emoji {
+      margin-right: 8px;
+      flex-shrink: 0;
+    }
+  </style>
 </head>
 <body>
 
@@ -27,7 +43,7 @@
     <p>At VuTek, we don’t just supply products – we build lasting partnerships.<br>
     Together, we empower your business success with:</p>
 
-    <ul>
+    <ul class="no-bullets">
       <li>
         <span class="emoji">
           <svg width="20" height="20" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
@@ -80,6 +96,7 @@ hamburger.addEventListener('click', () => {
 
 </body>
 </html>
+
 
 
 
