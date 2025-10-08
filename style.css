@@ -100,7 +100,9 @@ p + .cta {
 }
 
 .hero-item .arrow {
-  display: inline-flex;
+  display: inline-block;
+  color: #3399FF;
+  font-weight: bold;
   margin-right: 10px;
   flex-shrink: 0;
 }
@@ -213,6 +215,7 @@ footer p.copyright {
     gap: 10px;
   }
 }
+
 
 
 
