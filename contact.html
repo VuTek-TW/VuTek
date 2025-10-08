@@ -31,6 +31,7 @@
     /* Contact Form */
     section{
       max-width: 700px; margin:40px auto; padding:0 20px;
+      position: relative; /* 用於絕對定位 WhatsApp 按鈕 */
     }
     h1{ text-align:center; margin-bottom:30px; color:#1a1a1a; font-size:2rem; }
     form{ background:#fff; padding:30px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
@@ -51,40 +52,46 @@
     .error{ color:red; }
 
     /* Contact note */
-    .contact-note {
+    .contact-note-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-top: 40px; /* 與表單間距加倍 */
+    }
+    .contact-note{
       font-size:0.95rem;
       color:#555;
       line-height:1.4;
-      margin-top: 40px;
-      position: relative;
     }
-
-    /* Floating WhatsApp Button - repositioned */
-    .whatsapp-floating {
-      position: absolute;
-      right: -120px;
-      top: 50%;
-      transform: translateY(-50%);
-      background:#25D366;
-      color:#fff;
-      padding:10px 18px;
-      border-radius:50px;
-      font-weight:600;
-      text-decoration:none;
-      box-shadow:0 4px 8px rgba(0,0,0,0.2);
-      opacity:0;
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-    .whatsapp-floating.show {
-      opacity:1;
-      transform: translateY(-50%) translateX(0);
-    }
-    .whatsapp-floating:hover{ background:#1ebe5d; }
 
     /* Footer */
     footer{ background:#1a73e8; color:#fff; text-align:center; padding:20px; margin-top:40px; }
     footer a{ color:#fff; }
     footer .footer-info{ margin-bottom:10px; font-size:0.95rem; }
+
+    /* Floating WhatsApp Button */
+    .whatsapp-floating-btn {
+      position: absolute; /* 隨表單滾動 */
+      top: 0; /* 由 JS 設定位置 */
+      right: 0;
+      background: #25D366;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s, top 0.3s;
+      z-index: 100;
+    }
+    .whatsapp-floating-btn:hover {
+      background: #1ebe5d;
+    }
+
+    @media (max-width:768px){
+      .whatsapp-floating-btn{
+        padding:10px 16px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -131,12 +138,15 @@
     <button type="submit">Send Message</button>
     <div class="msg-response success" id="successMsg">Thank you! Your message has been sent.</div>
     <div class="msg-response error" id="errorMsg">Oops! Something went wrong. Please try again.</div>
+  </form>
 
+  <!-- Contact note + floating WhatsApp -->
+  <div class="contact-note-container">
     <div class="contact-note">
       If you like, you can also contact us via Email or WhatsApp anytime.
-      <a href="https://wa.me/886907903072" target="_blank" class="whatsapp-floating" id="whatsappBtn">WhatsApp</a>
     </div>
-  </form>
+    <a href="https://wa.me/886907903072" target="_blank" class="whatsapp-floating-btn" id="whatsappBtn">WhatsApp</a>
+  </div>
 </section>
 
 <footer>
@@ -152,63 +162,76 @@
 
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
-  emailjs.init("Jn60mp90NgrzsddCd");
+emailjs.init("Jn60mp90NgrzsddCd");
 
-  // Hamburger
-  const hamburger = document.querySelector('.hamburger');
-  const navUl = document.querySelector('nav ul');
-  hamburger.addEventListener('click', () => navUl.classList.toggle('show'));
+// Hamburger
+const hamburger = document.querySelector('.hamburger');
+const navUl = document.querySelector('nav ul');
+hamburger.addEventListener('click', () => navUl.classList.toggle('show'));
 
-  // Form submit
-  const form = document.getElementById('contactForm');
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    let valid = true;
-    form.querySelectorAll('input[required]').forEach(input=>{
-      if(!input.value.trim()){ 
-        valid=false; 
-        input.nextElementSibling.style.display='block';
-      } else {
-        input.nextElementSibling.style.display='none';
-      }
+// Form submit
+const form = document.getElementById('contactForm');
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+  let valid = true;
+  form.querySelectorAll('input[required]').forEach(input=>{
+    if(!input.value.trim()){ 
+      valid=false; 
+      input.nextElementSibling.style.display='block';
+    } else {
+      input.nextElementSibling.style.display='none';
+    }
+  });
+  if(!valid) return;
+
+  const params = {
+    company: form.company.value,
+    name: form.name.value,
+    email: form.email.value,
+    whatsapp: form.whatsapp.value,
+    message: form.message.value
+  };
+
+  emailjs.send("service_nkes7ae", "template_yshiorn", params)
+    .then(() => {
+      document.getElementById('successMsg').style.display='block';
+      document.getElementById('errorMsg').style.display='none';
+      form.reset();
+    }, () => {
+      document.getElementById('successMsg').style.display='none';
+      document.getElementById('errorMsg').style.display='block';
     });
-    if(!valid) return;
+});
 
-    const params = {
-      company: form.company.value,
-      name: form.name.value,
-      email: form.email.value,
-      whatsapp: form.whatsapp.value,
-      message: form.message.value
-    };
+// Optional field label fade
+const whatsappInput = document.getElementById('whatsapp');
+const optionalSpan = whatsappInput.nextElementSibling;
+whatsappInput.addEventListener('input', ()=> {
+  optionalSpan.style.display = whatsappInput.value ? 'none':'inline';
+});
 
-    emailjs.send("service_nkes7ae", "template_yshiorn", params)
-      .then(() => {
-        document.getElementById('successMsg').style.display='block';
-        document.getElementById('errorMsg').style.display='none';
-        form.reset();
-      }, () => {
-        document.getElementById('successMsg').style.display='none';
-        document.getElementById('errorMsg').style.display='block';
-      });
-  });
+// Floating WhatsApp button: 隨表單滾動
+window.addEventListener('load', ()=>{
+  const btn = document.getElementById('whatsappBtn');
+  const note = document.querySelector('.contact-note');
+  
+  function positionBtn() {
+    const noteRect = note.getBoundingClientRect();
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    btn.style.top = (noteRect.top + scrollTop) + 'px';
+  }
 
-  // Optional field label fade
-  const whatsappInput = document.getElementById('whatsapp');
-  const optionalSpan = whatsappInput.nextElementSibling;
-  whatsappInput.addEventListener('input', ()=> {
-    optionalSpan.style.display = whatsappInput.value ? 'none':'inline';
-  });
-
-  // Floating WhatsApp button fade in after 3s
-  window.addEventListener('load', ()=>{
-    const btn = document.getElementById('whatsappBtn');
-    setTimeout(()=> btn.classList.add('show'), 3000);
-  });
+  positionBtn(); // 初始化位置
+  window.addEventListener('scroll', positionBtn); // 滾動時浮動
+  window.addEventListener('resize', positionBtn); // 調整視窗大小時重新計算
+});
 </script>
 
 </body>
 </html>
+
+
+
 
 
 
