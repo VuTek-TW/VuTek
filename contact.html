@@ -50,43 +50,41 @@
     .success{ color:green; }
     .error{ color:red; }
 
-    /* Contact note + inline WhatsApp */
-    .contact-note-container {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      margin-top: 40px; /* 與表單間距加倍 */
-    }
-    .contact-note{
+    /* Contact note */
+    .contact-note {
       font-size:0.95rem;
       color:#555;
       line-height:1.4;
+      margin-top: 40px;
+      position: relative;
     }
-    .whatsapp-inline-btn{
-      background:#25D366; 
-      color:#fff; 
-      padding:8px 15px; 
-      border-radius:50px; 
-      font-weight:600; 
+
+    /* Floating WhatsApp Button - repositioned */
+    .whatsapp-floating {
+      position: absolute;
+      right: -120px;
+      top: 50%;
+      transform: translateY(-50%);
+      background:#25D366;
+      color:#fff;
+      padding:10px 18px;
+      border-radius:50px;
+      font-weight:600;
       text-decoration:none;
-      transition: background 0.3s;
+      box-shadow:0 4px 8px rgba(0,0,0,0.2);
+      opacity:0;
+      transition: opacity 0.5s ease, transform 0.5s ease;
     }
-    .whatsapp-inline-btn:hover{ background:#1ebe5d; }
+    .whatsapp-floating.show {
+      opacity:1;
+      transform: translateY(-50%) translateX(0);
+    }
+    .whatsapp-floating:hover{ background:#1ebe5d; }
 
     /* Footer */
     footer{ background:#1a73e8; color:#fff; text-align:center; padding:20px; margin-top:40px; }
     footer a{ color:#fff; }
     footer .footer-info{ margin-bottom:10px; font-size:0.95rem; }
-
-    /* Floating WhatsApp Button */
-    .whatsapp-fixed{
-      position: fixed; bottom:20px; right:20px; background:#25D366; color:#fff; padding:15px 20px;
-      border-radius:50px; font-weight:600; z-index:1000; text-decoration:none;
-      box-shadow:0 4px 8px rgba(0,0,0,0.2);
-      opacity:0; transform:translateY(50px); transition: opacity 0.5s, transform 0.5s;
-    }
-    .whatsapp-fixed.show{ opacity:1; transform:translateY(0); }
-    .whatsapp-fixed:hover{ background:#1ebe5d; }
   </style>
 </head>
 <body>
@@ -134,11 +132,9 @@
     <div class="msg-response success" id="successMsg">Thank you! Your message has been sent.</div>
     <div class="msg-response error" id="errorMsg">Oops! Something went wrong. Please try again.</div>
 
-    <div class="contact-note-container">
-      <div class="contact-note">
-        If you like, you can also contact us via Email or WhatsApp anytime.
-      </div>
-      <a href="https://wa.me/886907903072" target="_blank" class="whatsapp-inline-btn">WhatsApp</a>
+    <div class="contact-note">
+      If you like, you can also contact us via Email or WhatsApp anytime.
+      <a href="https://wa.me/886907903072" target="_blank" class="whatsapp-floating" id="whatsappBtn">WhatsApp</a>
     </div>
   </form>
 </section>
@@ -153,9 +149,6 @@
   </div>
   <p>© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
 </footer>
-
-<!-- Floating WhatsApp Button -->
-<a href="https://wa.me/886907903072" target="_blank" class="whatsapp-fixed" id="whatsappBtn">WhatsApp</a>
 
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
@@ -216,6 +209,7 @@
 
 </body>
 </html>
+
 
 
 
