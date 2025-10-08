@@ -15,7 +15,6 @@ body {
 /* ===== Header ===== */
 header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   background: #007BFF;
   color: white;
@@ -25,27 +24,23 @@ header {
   z-index: 1000;
 }
 
+/* Logo 與第一個標籤距離精準 */
 .logo a {
   font-size: 1.6rem;
   font-weight: bold;
   color: white;
   text-decoration: none;
+  margin-right: 60px; /* logo 與第一個標籤距離 */
 }
 
 nav {
   flex: 1;
-  display: flex;
-  justify-content: center;
 }
 
 nav ul {
   display: flex;
   list-style: none;
-  gap: 30px; /* 原本標籤間距 */
-}
-
-nav ul li:first-child {
-  margin-left: 60px; /* logo 與第一個標籤間距 = 2 倍 gap */
+  gap: 30px; /* 標籤間距 */
 }
 
 nav ul li a {
@@ -81,7 +76,7 @@ p {
   margin-bottom: 15px;
 }
 
-/* CTA Button */
+/* ===== Buttons ===== */
 .cta, button {
   display: inline-block;
   background: #007BFF;
@@ -93,7 +88,11 @@ p {
   border: none;
   cursor: pointer;
   transition: background 0.3s;
-  margin-top: 30px; /* CTA 與上段落距離加倍 */
+}
+
+/* CTA 距離上方文字加倍 */
+section .cta {
+  margin-top: 30px; /* 假設原來段落距離 15px，double = 30px */
 }
 
 .cta:hover, button:hover {
@@ -165,19 +164,30 @@ footer {
   background: #007BFF;
   color: white;
   text-align: center;
-  padding: 25px 20px;
-  margin-top: 60px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100px; /* 壓低高度 */
 }
 
-footer a {
-  color: white;
-  text-decoration: underline;
-}
-
-footer .footer-info p {
+footer .footer-info {
   display: flex;
   justify-content: center;
-  gap: 45px; /* 每個項目間距 1.5 倍 */
+  gap: 45px; /* 中間垂直線左右距離加大 1.5倍 (原30px → 45px) */
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+footer .footer-info a {
+  text-decoration: underline;
+  color: white;
+}
+
+footer p.copy {
+  align-self: center; /* 壓到最下面 */
+  font-size: 0.9rem;
+  margin-top: auto;
 }
 
 /* ===== WhatsApp Floating Button ===== */
@@ -239,6 +249,7 @@ footer .footer-info p {
     font-size: 0.9rem;
   }
 }
+
 
 
 
