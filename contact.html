@@ -62,11 +62,18 @@
 
     /* WhatsApp Floating Button */
     .whatsapp-fixed{
-      position: absolute; /* 初始位置與 contact-note 平行 */
-      right:20px; background:#25D366; color:#fff; padding:15px 20px;
-      border-radius:50px; font-weight:600; z-index:1000; text-decoration:none;
-      box-shadow:0 4px 8px rgba(0,0,0,0.2);
-      opacity:0; transform: translateY(50px); transition: opacity 0.5s, transform 0.5s;
+      position: fixed;
+      right: 20px;
+      background: #25D366;
+      color: #fff;
+      padding: 15px 20px;
+      border-radius: 50px;
+      font-weight: 600;
+      z-index: 1000;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      opacity: 0; transform: translateY(50px);
+      transition: opacity 0.5s, transform 0.5s, top 0.2s;
     }
     .whatsapp-fixed.show{ opacity:1; transform:translateY(0); }
     .whatsapp-fixed:hover{ background:#1ebe5d; }
@@ -138,7 +145,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
-  // Init EmailJS
   emailjs.init("Jn60mp90NgrzsddCd");
 
   // Hamburger
@@ -150,15 +156,12 @@
   const form = document.getElementById('contactForm');
   form.addEventListener('submit', function(e){
     e.preventDefault();
-
     let valid = true;
     form.querySelectorAll('input[required]').forEach(input=>{
       if(!input.value.trim()){ 
         valid=false; 
         input.nextElementSibling.style.display='block';
-      } else {
-        input.nextElementSibling.style.display='none';
-      }
+      } else { input.nextElementSibling.style.display='none'; }
     });
     if(!valid) return;
 
@@ -188,29 +191,30 @@
     optionalSpan.style.display = whatsappInput.value ? 'none':'inline';
   });
 
-  // Floating WhatsApp button fade in after 3s and follow scroll
+  // WhatsApp button smooth follow scroll
   window.addEventListener('load', ()=>{
     const btn = document.getElementById('whatsappBtn');
-    const note = document.getElementById('contactNote');
-    btn.style.top = note.getBoundingClientRect().top + window.scrollY + "px"; // 初始與 contact-note 平行
+    const messageField = document.getElementById('message');
+    // 初始位置與 message 欄平行
+    let targetY = messageField.getBoundingClientRect().top + window.scrollY;
+    btn.style.top = targetY + "px";
     setTimeout(()=> btn.classList.add('show'), 3000);
 
+    let currentY = targetY;
     window.addEventListener('scroll', ()=>{
-      const offsetTop = note.getBoundingClientRect().top + window.scrollY;
-      const currentScroll = window.scrollY + window.innerHeight - 150; // 當前可視位置
-      if(currentScroll < offsetTop){
-        btn.style.position = "absolute";
-        btn.style.top = offsetTop + "px";
-      } else {
-        btn.style.position = "fixed";
-        btn.style.top = "20px";
-      }
+      const scrollY = window.scrollY;
+      // 想要的最終位置
+      const desiredY = messageField.getBoundingClientRect().top + window.scrollY;
+      // 緩慢追蹤
+      currentY += (desiredY - currentY) * 0.1; // 平滑追蹤
+      btn.style.top = currentY + "px";
     });
   });
 </script>
 
 </body>
 </html>
+
 
 
 
