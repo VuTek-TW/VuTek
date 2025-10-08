@@ -18,8 +18,8 @@ body {
 /* ===== Header ===== */
 header {
   display: flex;
-  justify-content: flex-start; /* 改為左對齊 */
-  align-items: flex-end; /* 標籤文字底部對齊 logo */
+  justify-content: flex-start;
+  align-items: flex-end;
   background: #007BFF;
   color: white;
   padding: 15px 30px;
@@ -45,7 +45,7 @@ nav {
 nav ul {
   display: flex;
   list-style: none;
-  gap: 39px; /* 標籤間距增加 30% (原30px -> 39px) */
+  gap: 39px; /* 標籤間距增加 30% */
   align-items: flex-end; /* 標籤文字底部對齊 logo */
 }
 
@@ -82,6 +82,25 @@ p {
   margin-bottom: 15px;
 }
 
+/* ===== Hero List without bullets ===== */
+.hero ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 15px 0;
+}
+
+.hero ul li {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.hero ul li::before {
+  content: "▶ "; /* 改為更明顯箭頭 */
+  color: #007BFF;
+  margin-right: 5px;
+}
+
+/* CTA spacing */
 p + .cta {
   margin-top: 30px; /* CTA 與上一段文字距離加大為兩倍 */
 }
@@ -169,27 +188,30 @@ footer {
   background: #007BFF;
   color: white;
   text-align: center;
-  padding: 18px 20px;
-  margin-top: auto; /* 讓頁面最底部貼齊 */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 90px; /* 減少高度約1/3 */
+  padding: 18px 20px;
+  margin-top: auto;
+  height: 90px;
 }
 
 footer .footer-info {
   display: flex;
   justify-content: center;
-  gap: 60px; /* 中間垂直線左右距離加大 1.5倍 */
+  gap: 18px; /* 垂直線左右距離減少 70% */
   align-items: center;
 }
 
 footer .footer-info span {
-  margin: 0 10px;
+  margin: 0 5px;
 }
 
 footer p.copyright {
   margin-top: auto;
+  background: #007BFF;
+  padding-top: 3px;
+  font-size: 0.9rem;
 }
 
 /* ===== WhatsApp Floating Button ===== */
@@ -257,6 +279,7 @@ footer p.copyright {
     gap: 10px;
   }
 }
+
 
 
 
