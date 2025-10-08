@@ -50,7 +50,10 @@
     .success{ color:green; }
     .error{ color:red; }
 
-    .contact-note{ margin-top:20px; font-size:0.95rem; color:#555; line-height:1.4; }
+    .contact-note{
+      margin-top:40px; /* 距離上方翻倍 */
+      font-size:0.95rem; color:#555; line-height:1.4;
+    }
 
     /* Footer */
     footer{ background:#1a73e8; color:#fff; text-align:center; padding:20px; margin-top:40px; }
@@ -59,10 +62,11 @@
 
     /* WhatsApp Floating Button */
     .whatsapp-fixed{
-      position: fixed; bottom:20px; right:20px; background:#25D366; color:#fff; padding:15px 20px;
+      position: absolute; /* 初始位置與 contact-note 平行 */
+      right:20px; background:#25D366; color:#fff; padding:15px 20px;
       border-radius:50px; font-weight:600; z-index:1000; text-decoration:none;
       box-shadow:0 4px 8px rgba(0,0,0,0.2);
-      opacity:0; transform:translateY(50px); transition: opacity 0.5s, transform 0.5s;
+      opacity:0; transform: translateY(50px); transition: opacity 0.5s, transform 0.5s;
     }
     .whatsapp-fixed.show{ opacity:1; transform:translateY(0); }
     .whatsapp-fixed:hover{ background:#1ebe5d; }
@@ -112,7 +116,7 @@
     <button type="submit">Send Message</button>
     <div class="msg-response success" id="successMsg">Thank you! Your message has been sent.</div>
     <div class="msg-response error" id="errorMsg">Oops! Something went wrong. Please try again.</div>
-    <div class="contact-note">
+    <div class="contact-note" id="contactNote">
       If you like, you can also contact us via Email or WhatsApp anytime.
     </div>
   </form>
@@ -184,15 +188,30 @@
     optionalSpan.style.display = whatsappInput.value ? 'none':'inline';
   });
 
-  // Floating WhatsApp button fade in after 3s
+  // Floating WhatsApp button fade in after 3s and follow scroll
   window.addEventListener('load', ()=>{
     const btn = document.getElementById('whatsappBtn');
+    const note = document.getElementById('contactNote');
+    btn.style.top = note.getBoundingClientRect().top + window.scrollY + "px"; // 初始與 contact-note 平行
     setTimeout(()=> btn.classList.add('show'), 3000);
+
+    window.addEventListener('scroll', ()=>{
+      const offsetTop = note.getBoundingClientRect().top + window.scrollY;
+      const currentScroll = window.scrollY + window.innerHeight - 150; // 當前可視位置
+      if(currentScroll < offsetTop){
+        btn.style.position = "absolute";
+        btn.style.top = offsetTop + "px";
+      } else {
+        btn.style.position = "fixed";
+        btn.style.top = "20px";
+      }
+    });
   });
 </script>
 
 </body>
 </html>
+
 
 
 
