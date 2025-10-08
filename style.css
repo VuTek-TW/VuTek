@@ -5,8 +5,10 @@
   box-sizing: border-box;
 }
 
+/* ===== Global (font-family 與 base font-size 保持一致，各頁統一) ===== */
 body {
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, Arial, sans-serif;
+  font-size: 16px;        /* base */
   line-height: 1.6;
   color: #333;
   background: #f8f9fa;
@@ -15,11 +17,11 @@ body {
   flex-direction: column;
 }
 
-/* ===== Header ===== */
+/* ===== Header (保持你已確認的設定，不任意改動) ===== */
 header {
   display: flex;
-  justify-content: flex-start; 
-  align-items: flex-end; 
+  justify-content: flex-start;
+  align-items: flex-end;
   background: #007BFF;
   color: white;
   padding: 15px 30px;
@@ -33,7 +35,7 @@ header {
   font-weight: bold;
   color: white;
   text-decoration: none;
-  margin-right: 104px; 
+  margin-right: 104px; /* logo 與第一標籤距離（你要求的增幅） */
 }
 
 nav {
@@ -45,15 +47,14 @@ nav {
 nav ul {
   display: flex;
   list-style: none;
-  gap: 39px; 
-  align-items: flex-end; 
+  gap: 39px; /* 標籤間距 +30% */
+  align-items: flex-end;
 }
 
 nav ul li a {
   color: white;
   text-decoration: none;
   font-weight: 500;
-  display: inline-block;
 }
 
 nav ul li a:hover {
@@ -66,46 +67,79 @@ nav ul li a:hover {
   cursor: pointer;
 }
 
-/* ===== Hero Section ===== */
+/* ===== HERO （我主要修改這裡） ===== */
 .hero {
   background: #f0f5ff;
-  text-align: center;
+  width: 100%;
+  text-align: center; /* 內容置中（修正你遇到的左對齊問題） */
 }
 
-.hero h1 {
+/* 用一個內部容器確保寬度與置中一致（與其他頁一致） */
+.hero-text {
+  max-width: 1000px;
+  margin: 44px auto 20px; /* 上方空間減少約12%（44px）；置中 */
+  padding: 0 20px;
+}
+
+/* 標題 */
+.hero-text h1 {
   font-size: 36px;
-  margin-top: 44px; /* 原來50px，減少約12% */
-  margin-bottom: 20px;
+  margin: 0 0 18px; /* 與前文保持適當距離 */
 }
 
-.hero p {
-  font-size: 18px;
+/* lead 段落 (At VuTek...) 與說明字型一致 */
+.hero-text .lead,
+.hero-text p {
+  font-size: 18px;       /* 與你要求一致 */
+  line-height: 1.6;
   margin-bottom: 15px;
-  line-height: 1.6;
 }
 
+/* Hero points: 每一行與 lead 同樣大小，但粗體前半段放大一點 */
+.hero-points {
+  display: block;
+  margin: 8px 0 18px;
+}
+
+/* 每一行 */
 .hero-points p {
-  font-size: 18px;
-  margin-bottom: 12px;
+  font-size: 18px;       /* 與上面 At VuTek 同樣大小 */
   line-height: 1.6;
+  margin: 10px 0;        /* 行間距與上方段落一致（不要太大） */
+  text-align: center;    /* 置中 */
 }
 
+/* 箭頭樣式：使用字元 ➜，用 font-size 調整大小，顏色藍 */
 .hero-arrow {
-  color: #007BFF; 
-  font-weight: bold;
+  color: #007BFF;
+  font-weight: 700;
+  font-size: 20px;       /* 箭頭比字體稍大以醒目 */
   margin-right: 8px;
+  display: inline-block;
+  vertical-align: middle;
 }
 
+/* 前半段粗體（放大一點但仍維持跟段落相同的基線） */
 .hero-bold {
-  font-weight: bold;
-  font-size: 18px; 
+  font-weight: 700;
+  font-size: 19px;       /* 比一般描述略大，但仍靠近段落大小 */
+  vertical-align: middle;
+  color: #000;           /* 保持黑色或你想的字色 */
 }
 
+/* 後面描述保持普通字重 */
+.hero-desc {
+  font-weight: 400;
+  font-size: 18px;
+  color: #333;
+}
+
+/* CTA spacing 保持 */
 p + .cta {
-  margin-top: 30px; 
+  margin-top: 30px;
 }
 
-/* ===== Buttons ===== */
+/* ===== Buttons (保持) ===== */
 .cta, button {
   display: inline-block;
   background: #007BFF;
@@ -123,7 +157,7 @@ p + .cta {
   background: #0056B3;
 }
 
-/* ===== Footer ===== */
+/* ===== Footer (保持你確認的行為) ===== */
 footer {
   background: #007BFF;
   color: white;
@@ -133,13 +167,13 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 90px; 
+  height: 95px;
 }
 
 footer .footer-info {
   display: flex;
   justify-content: center;
-  gap: 18px; 
+  gap: 18px; /* 垂直線左右空格減少 */
   align-items: center;
 }
 
@@ -147,16 +181,23 @@ footer .footer-info span {
   margin: 0;
 }
 
-footer a {
+/* Footer link 永遠白色 */
+footer a, footer .footer-info span {
   color: white;
-  text-decoration: none; 
+  text-decoration: none;
+}
+footer a:visited, footer a:active, footer a:hover {
+  color: white;
 }
 
 footer p.copyright {
   margin-top: auto;
+  background: #007BFF;
+  width: 100%;
+  padding-top: 4px;
 }
 
-/* ===== WhatsApp Floating Button ===== */
+/* WhatsApp 按鈕保持不變 */
 .whatsapp-fixed {
   position: fixed;
   right: 20px;
@@ -170,13 +211,11 @@ footer p.copyright {
   text-decoration: none;
   transition: background 0.3s;
 }
+.whatsapp-fixed:hover { background: #1ebe5d; }
 
-.whatsapp-fixed:hover {
-  background: #1ebe5d;
-}
-
-/* ===== Responsive ===== */
+/* ===== Responsive: 手機微調（只影響 hero 字級/間距） ===== */
 @media (max-width: 768px) {
+
   nav ul {
     display: none;
     flex-direction: column;
@@ -187,40 +226,21 @@ footer p.copyright {
     border-radius: 8px;
     padding: 10px 0;
   }
+  nav ul.show { display: flex; }
+  nav ul li { text-align: center; padding: 10px 20px; }
+  .hamburger { display: block; }
 
-  nav ul.show {
-    display: flex;
-  }
-
-  nav ul li {
-    text-align: center;
-    padding: 10px 20px;
-  }
-
-  .hamburger {
-    display: block;
-  }
-
-  .form-row {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .form-row label {
-    justify-content: flex-start;
-    margin-bottom: 5px;
-  }
-
-  footer {
-    height: auto;
-    padding: 15px 20px;
-  }
-
-  footer .footer-info {
-    flex-direction: column;
-    gap: 10px;
-  }
+  /* Hero 手機版：字級微調，使行距與電腦版接近 */
+  .hero-text { margin: 36px auto 16px; padding: 0 18px; }
+  .hero-text h1 { font-size: 28px; margin-bottom: 12px; }
+  .hero-points p { font-size: 16px; margin-bottom: 10px; line-height: 1.5; }
+  .hero-bold { font-size: 16px; }
+  .hero-arrow { font-size: 18px; }
+  
+  footer { height: auto; padding: 15px 20px; }
+  footer .footer-info { flex-direction: column; gap: 10px; }
 }
+
 
 
 
