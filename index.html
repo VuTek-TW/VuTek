@@ -5,22 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VuTek - Home</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* 去掉黑點，只保留箭頭 */
-    .hero-text ul.no-bullets {
-      list-style: none;
-      padding-left: 0;
-    }
-    .hero-text ul.no-bullets li {
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-    .hero-text ul.no-bullets li .emoji {
-      margin-right: 8px;
-      flex-shrink: 0;
-    }
-  </style>
 </head>
 <body>
 
@@ -42,34 +26,11 @@
     <h1>Empowering Your Business to Win</h1>
     <p>At VuTek, we don’t just supply products – we build lasting partnerships.<br>
     Together, we empower your business success with:</p>
-
-    <ul class="no-bullets">
-      <li>
-        <span class="emoji">
-          <svg width="20" height="20" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-            <path fill="#000" d="M505 255L227 482c-9 8-22 7-30-2l-36-36c-8-9-7-22 2-30l169-164L163 83c-9-8-10-21-2-30l36-36c8-9 21-10 30-2L505 255z"/>
-          </svg>
-        </span>
-        <strong>Premium Quality</strong> – reliable products you can trust
-      </li>
-      <li>
-        <span class="emoji">
-          <svg width="20" height="20" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-            <path fill="#000" d="M505 255L227 482c-9 8-22 7-30-2l-36-36c-8-9-7-22 2-30l169-164L163 83c-9-8-10-21-2-30l36-36c8-9 21-10 30-2L505 255z"/>
-          </svg>
-        </span>
-        <strong>Competitive Prices</strong> – maximize your margins
-      </li>
-      <li>
-        <span class="emoji">
-          <svg width="20" height="20" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-            <path fill="#000" d="M505 255L227 482c-9 8-22 7-30-2l-36-36c-8-9-7-22 2-30l169-164L163 83c-9-8-10-21-2-30l36-36c8-9 21-10 30-2L505 255z"/>
-          </svg>
-        </span>
-        <strong>Outstanding Service</strong> – support whenever you need
-      </li>
+    <ul class="hero-list">
+      <li><strong>→ Premium Quality</strong> – reliable products you can trust</li>
+      <li><strong>→ Competitive Prices</strong> – maximize your margins</li>
+      <li><strong>→ Outstanding Service</strong> – support whenever you need</li>
     </ul>
-
     <p>Grow with us. Together, we thrive in booming markets and achieve long-term success.</p>
     <a href="contact.html" class="cta">Get Started Today →</a>
   </div>
@@ -77,25 +38,25 @@
 
 <footer>
   <div class="footer-info">
-    <p>
-      Address: <a href="https://www.google.com/maps?q=123+Business+St,+Hong+Kong" target="_blank">123 Business St, Hong Kong</a> | 
-      Email: <a href="mailto:info@vutek.com">info@vutek.com</a> | 
-      WhatsApp: <a href="https://wa.me/886907903072" target="_blank">+886 907903072</a>
-    </p>
+    <span>Address: 123 Business St, Hong Kong</span>
+    <span>|</span>
+    <span>Email: <a href="mailto:info@vutek.com">info@vutek.com</a></span>
+    <span>|</span>
+    <span>WhatsApp: <a href="https://wa.me/886907903072" target="_blank">+886 907903072</a></span>
   </div>
-  <p>© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
+  <p class="copyright">© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
 </footer>
 
 <script>
-const hamburger = document.querySelector('.hamburger');
-const navUl = document.querySelector('nav ul');
-hamburger.addEventListener('click', () => {
-  navUl.classList.toggle('show');
-});
+  // Hamburger menu
+  const hamburger = document.querySelector('.hamburger');
+  const navUl = document.querySelector('nav ul');
+  hamburger.addEventListener('click', () => navUl.classList.toggle('show'));
 </script>
 
 </body>
 </html>
+
 
 
 
