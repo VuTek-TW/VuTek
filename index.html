@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>VuTek - Home</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
@@ -21,19 +21,40 @@
   </nav>
 </header>
 
+<!-- ===== HERO ===== -->
 <section class="hero">
-  <h1>Empowering Your Business to Win</h1>
-  <p>At VuTek, we don’t just supply products – we build lasting partnerships.<br>
-  Together, we empower your business success with:</p>
-  
-  <div class="hero-points">
-    <p><span class="hero-bold">➜ Premium Quality</span> – reliable products you can trust</p>
-    <p><span class="hero-bold">➜ Competitive Prices</span> – maximize your margins</p>
-    <p><span class="hero-bold">➜ Outstanding Service</span> – support whenever you need</p>
-  </div>
+  <div class="hero-text">
+    <h1>Empowering Your Business to Win</h1>
 
-  <p>Grow with us. Together, we thrive in booming markets and achieve long-term success.</p>
-  <a href="contact.html" class="cta">Get Started Today →</a>
+    <p class="lead">
+      At VuTek, we don’t just supply products – we build lasting partnerships.<br>
+      Together, we empower your business success with:
+    </p>
+
+    <!-- 使用非 list 結構以完全避免黑點，箭頭用文字符號 ➜ -->
+    <div class="hero-points">
+      <p>
+        <span class="hero-arrow">➜</span>
+        <span class="hero-bold">Premium Quality</span>
+        <span class="hero-desc"> – reliable products you can trust</span>
+      </p>
+
+      <p>
+        <span class="hero-arrow">➜</span>
+        <span class="hero-bold">Competitive Prices</span>
+        <span class="hero-desc"> – maximize your margins</span>
+      </p>
+
+      <p>
+        <span class="hero-arrow">➜</span>
+        <span class="hero-bold">Outstanding Service</span>
+        <span class="hero-desc"> – support whenever you need</span>
+      </p>
+    </div>
+
+    <p>Grow with us. Together, we thrive in booming markets and achieve long-term success.</p>
+    <a href="contact.html" class="cta">Get Started Today →</a>
+  </div>
 </section>
 
 <footer>
@@ -44,19 +65,20 @@
     <span>|</span>
     <span>WhatsApp: +886 907903072</span>
   </div>
-  <p class="copyright">© 2025 VuTek Inc.</p>
+  <p class="copyright">© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
 </footer>
 
 <script>
-const hamburger = document.querySelector('.hamburger');
-const navUl = document.querySelector('nav ul');
-hamburger.addEventListener('click', () => {
-  navUl.classList.toggle('show');
-});
+  const hamburger = document.querySelector('.hamburger');
+  const navUl = document.querySelector('nav ul');
+  if (hamburger && navUl) {
+    hamburger.addEventListener('click', () => navUl.classList.toggle('show'));
+  }
 </script>
 
 </body>
 </html>
+
 
 
 
