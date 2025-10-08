@@ -10,16 +10,19 @@ body {
   line-height: 1.6;
   color: #333;
   background: #f8f9fa;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* ===== Header ===== */
 header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-start; /* 改為左對齊 */
+  align-items: flex-end; /* 標籤文字底部對齊 logo */
   background: #007BFF;
   color: white;
-  padding: 12px 30px; /* 原 15px 減少 20% */
+  padding: 15px 30px;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -30,25 +33,27 @@ header {
   font-weight: bold;
   color: white;
   text-decoration: none;
+  margin-right: 104px; /* Logo 與第一個標籤距離增加 30% */
 }
 
 nav {
   flex: 1;
   display: flex;
-  justify-content: center;
-  align-items: flex-end; /* 對齊底部 */
+  justify-content: flex-start;
 }
 
 nav ul {
   display: flex;
   list-style: none;
-  gap: 39px; /* 原 gap 30px + 30% */
+  gap: 39px; /* 標籤間距增加 30% (原30px -> 39px) */
+  align-items: flex-end; /* 標籤文字底部對齊 logo */
 }
 
 nav ul li a {
   color: white;
   text-decoration: none;
   font-weight: 500;
+  display: inline-block;
 }
 
 nav ul li a:hover {
@@ -73,16 +78,12 @@ h1, h2, h3 {
   margin-bottom: 20px;
 }
 
-/* Paragraph and content */
 p {
   margin-bottom: 15px;
 }
 
-/* Hero List */
-.hero-list li {
-  list-style: none; /* 去掉黑點 */
-  margin-bottom: 10px;
-  font-weight: bold;
+p + .cta {
+  margin-top: 30px; /* CTA 與上一段文字距離加大為兩倍 */
 }
 
 /* ===== Buttons ===== */
@@ -97,11 +98,70 @@ p {
   border: none;
   cursor: pointer;
   transition: background 0.3s;
-  margin-top: 30px; /* 與上方段落間距加倍 */
 }
 
 .cta:hover, button:hover {
   background: #0056B3;
+}
+
+/* ===== Image Blocks ===== */
+.stock-section img, .hero img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+/* ===== Form ===== */
+form {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.form-row label {
+  width: 30%;
+  min-width: 120px;
+  padding-right: 10px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.form-row input,
+.form-row textarea {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* ===== FAQ Section ===== */
+.faq-item {
+  background: white;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  padding: 20px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+}
+
+.faq-item h3 {
+  margin-bottom: 10px;
+  color: #007BFF;
 }
 
 /* ===== Footer ===== */
@@ -109,34 +169,26 @@ footer {
   background: #007BFF;
   color: white;
   text-align: center;
-  padding: 30px 20px; /* 調整高度，微增讓 ©2025 不被切掉 */
-  margin-top: 60px;
+  padding: 18px 20px;
+  margin-top: auto; /* 讓頁面最底部貼齊 */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 100px; /* 確保 ©2025 貼底 */
+  height: 90px; /* 減少高度約1/3 */
 }
 
-footer a {
-  color: white;
-  text-decoration: underline;
-}
-
-footer a:visited,
-footer a:active,
-footer a:hover {
-  color: white; /* 點擊後仍保持白色 */
-}
-
-.footer-info {
+footer .footer-info {
   display: flex;
   justify-content: center;
-  gap: 60px; /* 原 gap 40px，增加 1.5 倍 */
-  flex-wrap: wrap;
-  margin-bottom: 10px;
+  gap: 60px; /* 中間垂直線左右距離加大 1.5倍 */
+  align-items: center;
 }
 
-footer .copyright {
+footer .footer-info span {
+  margin: 0 10px;
+}
+
+footer p.copyright {
   margin-top: auto;
 }
 
@@ -196,16 +248,16 @@ footer .copyright {
   }
 
   footer {
-    font-size: 0.9rem;
-    min-height: auto;
-    padding: 25px 20px;
+    height: auto;
+    padding: 15px 20px;
   }
 
-  .footer-info {
+  footer .footer-info {
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
   }
 }
+
 
 
 
