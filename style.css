@@ -82,7 +82,7 @@ p {
   margin-bottom: 15px;
 }
 
-/* ===== Hero List without bullets ===== */
+/* ===== Hero List only blue arrow ===== */
 .hero ul {
   list-style: none;
   padding-left: 0;
@@ -92,12 +92,15 @@ p {
 .hero ul li {
   font-weight: bold;
   margin-bottom: 10px;
+  position: relative;
 }
 
 .hero ul li::before {
-  content: "▶ "; /* 改為更明顯箭頭 */
+  content: "▶"; /* 保留藍色箭頭 */
   color: #007BFF;
-  margin-right: 5px;
+  margin-right: 8px;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 /* CTA spacing */
@@ -207,9 +210,20 @@ footer .footer-info span {
   margin: 0 5px;
 }
 
+footer .footer-info a {
+  color: white; /* 永遠白色 */
+  text-decoration: none;
+}
+
+footer .footer-info a:visited,
+footer .footer-info a:hover,
+footer .footer-info a:active {
+  color: white; /* 不會變色 */
+}
+
 footer p.copyright {
   margin-top: auto;
-  background: #007BFF;
+  background: #007BFF; /* 保持藍底 */
   padding-top: 3px;
   font-size: 0.9rem;
 }
@@ -279,6 +293,7 @@ footer p.copyright {
     gap: 10px;
   }
 }
+
 
 
 
