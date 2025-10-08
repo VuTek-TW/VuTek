@@ -22,7 +22,7 @@ header {
   align-items: flex-end;
   background: #007BFF;
   color: white;
-  padding: 15px 30px;
+  padding: 12px 30px; /* 高度略減少20% */
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -33,7 +33,7 @@ header {
   font-weight: bold;
   color: white;
   text-decoration: none;
-  margin-right: 104px; /* Logo 與第一個標籤距離增加 30% */
+  margin-right: 104px; /* Logo 與第一個標籤距離增加30% */
 }
 
 nav {
@@ -45,7 +45,7 @@ nav {
 nav ul {
   display: flex;
   list-style: none;
-  gap: 39px; /* 標籤間距增加 30% */
+  gap: 39px; /* 標籤間距增加30% */
   align-items: flex-end;
 }
 
@@ -53,6 +53,7 @@ nav ul li a {
   color: white;
   text-decoration: none;
   font-weight: 500;
+  display: inline-block;
 }
 
 nav ul li a:hover {
@@ -65,31 +66,47 @@ nav ul li a:hover {
   cursor: pointer;
 }
 
-/* ===== Hero Section ===== */
-.hero {
+/* ===== Section ===== */
+section {
   max-width: 1000px;
   margin: 60px auto;
   padding: 0 20px;
 }
 
-.hero-list p {
-  font-size: 18px;
-  margin-bottom: 10px;
-  font-weight: normal;
+h1, h2, h3 {
+  color: #222;
+  margin-bottom: 20px;
 }
 
-.hero-list .arrow {
-  color: #3399FF;
-  font-weight: bold;
-  margin-right: 8px;
+p {
+  margin-bottom: 15px;
 }
 
-/* CTA */
 p + .cta {
-  margin-top: 30px; /* 距離上一段文字加大為兩倍 */
+  margin-top: 30px; /* CTA 與上一段文字距離加大 */
 }
 
-.cta {
+/* ===== Hero List ===== */
+.hero-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.hero-item {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.hero-item .arrow {
+  display: inline-flex;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+/* ===== Buttons ===== */
+.cta, button {
   display: inline-block;
   background: #007BFF;
   color: white;
@@ -102,7 +119,7 @@ p + .cta {
   transition: background 0.3s;
 }
 
-.cta:hover {
+.cta:hover, button:hover {
   background: #0056B3;
 }
 
@@ -111,28 +128,33 @@ footer {
   background: #007BFF;
   color: white;
   text-align: center;
-  margin-top: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 15px 20px;
-  height: 90px;
+  margin-top: auto;
+  height: 95px; /* 調整高度，底部 ©2025 藍底貼齊 */
 }
 
 footer .footer-info {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 18px; /* 減少垂直線旁邊空格 70% */
+  gap: 20px; /* 垂直線左右距離減少70% */
 }
 
-footer .footer-info span, 
 footer .footer-info span a {
   color: white;
-  text-decoration: none; /* 點擊後保持白色 */
+  text-decoration: none;
 }
 
-footer .copyright {
+footer .footer-info span a:visited,
+footer .footer-info span a:hover,
+footer .footer-info span a:active {
+  color: white; /* 點擊後保持白色 */
+}
+
+footer p.copyright {
   margin-top: auto;
 }
 
@@ -191,6 +213,7 @@ footer .copyright {
     gap: 10px;
   }
 }
+
 
 
 
