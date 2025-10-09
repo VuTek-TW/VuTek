@@ -97,41 +97,37 @@ section {
   font-size: 1rem;
 }
 
-h1 {
-  text-align: center; /* 標題置中 */
+/* Hero 區塊 - index */
+.hero {
+  padding-top: 60px;   /* 與其他頁面一致 */
+  padding-bottom: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.hero h1 {
+  text-align: center;  /* 標題置中 */
   margin-bottom: 20px; /* 標題與段落間距 */
 }
 
-/* Hero 區塊 */
-.hero {
-  padding: 30px 20px; /* 原本60px，減少50% */
-}
-
-.hero-text .lead {
-  text-align: left; /* 段落左對齊 */
-  margin-bottom: 20px;
-  font-size: 1.1rem;
+.hero-text .lead,
+.hero-points {
+  text-align: left;    /* 段落左對齊 */
 }
 
 /* 三個獨立重點 */
-.hero-points {
-  margin-bottom: 20px;
-}
-
 .hero-point {
   margin: 10px 0;
   font-size: 1rem;
-  text-align: left; /* 左對齊 */
+  text-align: left;
 }
 
-/* 箭頭藍色粗體 */
 .hero-arrow {
   font-weight: bold;
   color: #1a73e8;
   margin-right: 5px;
 }
 
-/* 重點文字粗體 */
 .hero-bold {
   font-weight: bold;
 }
@@ -185,6 +181,7 @@ footer .footer-info {
   margin-top: 10px;
   font-style: italic;
 }
+
 
 
 
