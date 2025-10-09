@@ -1,3 +1,9 @@
+:root{
+  --nav-gap: 20px;               /* 各標籤之間的距離 */
+  --logo-first-gap: calc(var(--nav-gap) * 2); /* logo 與第一個標籤的距離 = 2 * nav-gap */
+  --header-padding: 10px 20px;
+}
+
 /* ================== Global ================== */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -12,56 +18,76 @@ a {
   color: inherit;
 }
 
-/* ================== Header ================== */
+/* ================== Header (改用 Grid) ================== */
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end; /* 底部對齊 */
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* 左：logo，中：nav（置中），右：hamburger/placeholder */
+  align-items: center;
   background: #1a73e8;
   color: #fff;
-  padding: 10px 20px;
+  padding: var(--header-padding);
   position: sticky;
   top: 0;
   z-index: 1000;
+  gap: 0; /* column gap 預設用 nav gap */
 }
 
-.logo a {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #fff;
-}
-
-nav ul {
-  list-style: none;
+/* Logo 靠左 */
+.logo {
+  justify-self: start;
   display: flex;
-  margin: 0;
-  padding: 0;
-  gap: 20px;
+  align-items: center;
 }
 
-/* 第一個標籤與 logo 距離為其他標籤間距兩倍 */
-nav ul li:first-child {
-  margin-left: 40px; /* 可調整成固定數值 */
+/* nav 置中 */
+nav {
+  justify-self: center;
+  display: block; /* 保持原本行為 */
 }
 
-nav ul li a {
-  color: #fff;
-  font-weight: 500;
-}
-
+/* 漢堡按鈕靠右（桌面預設隱藏） */
 .hamburger {
+  justify-self: end;
   display: none;
   font-size: 1.5rem;
   cursor: pointer;
 }
 
+/* 導航清單 */
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: var(--nav-gap);
+  align-items: center;
+}
+
+/* 讓 logo 與第一個標籤的視覺距離為 2 倍 gap（透過給第一個 li 額外左邊距實現） */
+nav ul li:first-child {
+  margin-left: var(--logo-first-gap);
+}
+
+/* 標籤文字 */
+nav ul li a {
+  color: #fff;
+  font-weight: 500;
+}
+
+/* ================== Mobile ================== */
 @media (max-width: 768px) {
+  /* 漢堡按鈕顯示 */
+  .hamburger {
+    display: block;
+  }
+
+  /* 手機下改為絕對下拉選單（如你原本邏輯），並取消給第一個 li 的額外左距 */
   nav ul {
     display: none;
     flex-direction: column;
     background: #1a73e8;
     position: absolute;
-    top: 50px;
+    top: 56px; /* header 高度近似值，視需要微調 */
     right: 20px;
     border-radius: 8px;
     overflow: hidden;
@@ -71,10 +97,7 @@ nav ul li a {
   }
   nav ul li {
     padding: 10px 20px;
-    margin-left: 0;
-  }
-  .hamburger {
-    display: block;
+    margin-left: 0; /* 手機取消第一個額外左距 */
   }
 }
 
@@ -175,7 +198,7 @@ footer .footer-info {
   font-style: italic;
 }
 
-/* ================== Responsive ================== */
+/* ================== Responsive (補述) ================== */
 @media (max-width: 768px) {
   h1 {
     font-size: 1.6rem;
