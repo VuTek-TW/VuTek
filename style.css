@@ -47,8 +47,9 @@ nav ul {
   padding: 0;
 }
 
+/* VuTek 與第一個標籤間距為其他間距的兩倍 */
 nav ul li:first-child {
-  margin-left: 40px; /* VuTek 與第一個標籤距離為其他間距的兩倍 */
+  margin-left: 40px;
 }
 
 nav ul li a {
@@ -91,41 +92,59 @@ nav ul li a {
 /* Section */
 section {
   max-width: 800px;
-  margin: 40px auto;
+  margin: 60px auto 40px auto; /* 與 header 距離統一 */
   padding: 0 20px;
   line-height: 1.6;
   font-size: 1rem;
 }
 
-/* Hero 區塊 - 所有頁面統一設定 */
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #1a1a1a;
+  font-size: 2rem;
+}
+
+/* === HERO === */
 .hero {
-  padding-top: 60px;   /* 與 header 距離保持一致 */
-  padding-bottom: 30px;
-  padding-left: 20px;
-  padding-right: 20px;
+  text-align: center;
+  margin-top: 30px; /* 與 header 距離減少 50% */
+}
+
+.hero-text {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+  line-height: 1.6;
 }
 
 .hero h1 {
-  text-align: center;  /* 標題置中 */
-  margin-bottom: 20px; /* 標題與段落間距 */
+  font-size: 2.2rem;
+  color: #1a1a1a;
+  margin-bottom: 20px;
 }
 
-.hero-text .lead,
+.hero .lead {
+  font-size: 1.05rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* 三個重點 */
 .hero-points {
-  text-align: left;    /* 段落左對齊 */
+  text-align: left;
+  display: inline-block;
+  margin-bottom: 20px;
 }
 
-/* 三個獨立重點 */
 .hero-point {
-  margin: 10px 0;
-  font-size: 1rem;
-  text-align: left;
+  margin: 6px 0;
 }
 
 .hero-arrow {
-  font-weight: bold;
   color: #1a73e8;
-  margin-right: 5px;
+  font-weight: bold;
+  margin-right: 6px;
 }
 
 .hero-bold {
@@ -181,6 +200,7 @@ footer .footer-info {
   margin-top: 10px;
   font-style: italic;
 }
+
 
 
 
