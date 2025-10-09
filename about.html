@@ -12,10 +12,9 @@
   <div class="logo"><a href="index.html">VuTek</a></div>
   <nav>
     <ul>
-      <li><a href="index.html">Homepage</a></li>
       <li><a href="products.html">Products</a></li>
-      <li><a href="about.html">About Us</a></li>
       <li><a href="support.html">Support</a></li>
+      <li><a href="about.html">About Us</a></li>
       <li><a href="contact.html">Contact Us</a></li>
     </ul>
     <div class="hamburger">&#9776;</div>
@@ -26,7 +25,7 @@
   <h1>About Us</h1>
 
   <p>Since the first iPhone in 2007, we’ve been in the iPhone business.</p>
-  <p>We even still have an iPhone 1 on hand and photos of the iPhone 3GS shipment from 2009 (see below).</p>
+  <p>We even still have an iPhone 1 on hand and photos of the iPhone 3Gs shipment from 2009.</p>
 
   <div class="stock-section">
     <img src="images/stock-sample.jpg" alt="Pre-owned iPhone stock">
@@ -42,24 +41,26 @@
 
 <footer>
   <div class="footer-info">
-    <span>Address: <a href="https://www.google.com/maps?q=123+Business+St,+Hong+Kong" target="_blank">123 Business St, Hong Kong</a></span>
+    <span>Address: 123 Business St, Hong Kong</span>
     <span>|</span>
-    <span>Email: <a href="mailto:info@vutek.com">info@vutek.com</a></span>
+    <span>Email: info@vutek.com</span>
     <span>|</span>
-    <span>WhatsApp: <a href="https://wa.me/886907903072" target="_blank">+886 907903072</a></span>
+    <span>WhatsApp: +886 907903072</span>
   </div>
-  <p>© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
+  <p class="copyright">© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
 </footer>
 
 <script>
-  // Hamburger menu toggle
   const hamburger = document.querySelector('.hamburger');
   const navUl = document.querySelector('nav ul');
-  hamburger.addEventListener('click', () => navUl.classList.toggle('show'));
+  if (hamburger && navUl) {
+    hamburger.addEventListener('click', () => navUl.classList.toggle('show'));
+  }
 </script>
 
 </body>
 </html>
+
 
 
 
