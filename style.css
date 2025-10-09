@@ -1,245 +1,160 @@
-/* ===== Reset ===== */
-* {
+/* Global */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f6f8;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-/* ===== Global (font-family 與 base font-size 保持一致，各頁統一) ===== */
-body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, Arial, sans-serif;
-  font-size: 16px;        /* base */
-  line-height: 1.6;
   color: #333;
-  background: #f8f9fa;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
-/* ===== Header (保持你已確認的設定，不任意改動) ===== */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Header */
 header {
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
-  background: #007BFF;
-  color: white;
-  padding: 15px 30px;
+  justify-content: space-between;
+  align-items: center;
+  background: #1a73e8;
+  color: #fff;
+  padding: 10px 20px;
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
 .logo a {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: bold;
-  color: white;
-  text-decoration: none;
-  margin-right: 104px; /* logo 與第一標籤距離（你要求的增幅） */
+  color: #fff;
 }
 
+/* Navigation */
 nav {
-  flex: 1;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
+  flex: 1;
+  margin-left: 20px;
 }
 
 nav ul {
-  display: flex;
   list-style: none;
-  gap: 39px; /* 標籤間距 +30% */
-  align-items: flex-end;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+/* VuTek 與第一個標籤間距為其他間距的兩倍 */
+nav ul li:first-child {
+  margin-left: 40px;
 }
 
 nav ul li a {
-  color: white;
-  text-decoration: none;
+  color: #fff;
   font-weight: 500;
-}
-
-nav ul li a:hover {
-  text-decoration: underline;
 }
 
 .hamburger {
   display: none;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   cursor: pointer;
 }
 
-/* ===== HERO （我主要修改這裡） ===== */
-.hero {
-  background: #f0f5ff;
-  width: 100%;
-  text-align: center; /* 內容置中（修正你遇到的左對齊問題） */
-}
-
-/* 用一個內部容器確保寬度與置中一致（與其他頁一致） */
-.hero-text {
-  max-width: 1000px;
-  margin: 44px auto 20px; /* 上方空間減少約12%（44px）；置中 */
-  padding: 0 20px;
-}
-
-/* 標題 */
-.hero-text h1 {
-  font-size: 36px;
-  margin: 0 0 18px; /* 與前文保持適當距離 */
-}
-
-/* lead 段落 (At VuTek...) 與說明字型一致 */
-.hero-text .lead,
-.hero-text p {
-  font-size: 18px;       /* 與你要求一致 */
-  line-height: 1.6;
-  margin-bottom: 15px;
-}
-
-/* Hero points: 每一行與 lead 同樣大小，但粗體前半段放大一點 */
-.hero-points {
-  display: block;
-  margin: 8px 0 18px;
-}
-
-/* 每一行 */
-.hero-points p {
-  font-size: 18px;       /* 與上面 At VuTek 同樣大小 */
-  line-height: 1.6;
-  margin: 10px 0;        /* 行間距與上方段落一致（不要太大） */
-  text-align: center;    /* 置中 */
-}
-
-/* 箭頭樣式：使用字元 ➜，用 font-size 調整大小，顏色藍 */
-.hero-arrow {
-  color: #007BFF;
-  font-weight: 700;
-  font-size: 20px;       /* 箭頭比字體稍大以醒目 */
-  margin-right: 8px;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-/* 前半段粗體（放大一點但仍維持跟段落相同的基線） */
-.hero-bold {
-  font-weight: 700;
-  font-size: 19px;       /* 比一般描述略大，但仍靠近段落大小 */
-  vertical-align: middle;
-  color: #000;           /* 保持黑色或你想的字色 */
-}
-
-/* 後面描述保持普通字重 */
-.hero-desc {
-  font-weight: 400;
-  font-size: 18px;
-  color: #333;
-}
-
-/* CTA spacing 保持 */
-p + .cta {
-  margin-top: 30px;
-}
-
-/* ===== Buttons (保持) ===== */
-.cta, button {
-  display: inline-block;
-  background: #007BFF;
-  color: white;
-  text-decoration: none;
-  padding: 12px 25px;
-  border-radius: 6px;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.cta:hover, button:hover {
-  background: #0056B3;
-}
-
-/* ===== Footer (保持你確認的行為) ===== */
-footer {
-  background: #007BFF;
-  color: white;
-  text-align: center;
-  padding: 18px 20px;
-  margin-top: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 95px;
-}
-
-footer .footer-info {
-  display: flex;
-  justify-content: center;
-  gap: 18px; /* 垂直線左右空格減少 */
-  align-items: center;
-}
-
-footer .footer-info span {
-  margin: 0;
-}
-
-/* Footer link 永遠白色 */
-footer a, footer .footer-info span {
-  color: white;
-  text-decoration: none;
-}
-footer a:visited, footer a:active, footer a:hover {
-  color: white;
-}
-
-footer p.copyright {
-  margin-top: auto;
-  background: #007BFF;
-  width: 100%;
-  padding-top: 4px;
-}
-
-/* WhatsApp 按鈕保持不變 */
-.whatsapp-fixed {
-  position: fixed;
-  right: 20px;
-  bottom: 25px;
-  background: #25D366;
-  color: white;
-  padding: 14px 22px;
-  border-radius: 50px;
-  font-weight: bold;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  text-decoration: none;
-  transition: background 0.3s;
-}
-.whatsapp-fixed:hover { background: #1ebe5d; }
-
-/* ===== Responsive: 手機微調（只影響 hero 字級/間距） ===== */
 @media (max-width: 768px) {
-
   nav ul {
     display: none;
     flex-direction: column;
-    background: #007BFF;
+    background: #1a73e8;
     position: absolute;
-    top: 55px;
+    top: 50px;
     right: 20px;
     border-radius: 8px;
-    padding: 10px 0;
+    overflow: hidden;
   }
-  nav ul.show { display: flex; }
-  nav ul li { text-align: center; padding: 10px 20px; }
-  .hamburger { display: block; }
 
-  /* Hero 手機版：字級微調，使行距與電腦版接近 */
-  .hero-text { margin: 36px auto 16px; padding: 0 18px; }
-  .hero-text h1 { font-size: 28px; margin-bottom: 12px; }
-  .hero-points p { font-size: 16px; margin-bottom: 10px; line-height: 1.5; }
-  .hero-bold { font-size: 16px; }
-  .hero-arrow { font-size: 18px; }
-  
-  footer { height: auto; padding: 15px 20px; }
-  footer .footer-info { flex-direction: column; gap: 10px; }
+  nav ul.show {
+    display: flex;
+  }
+
+  nav ul li {
+    padding: 10px 20px;
+    margin-left: 0;
+  }
+
+  .hamburger {
+    display: block;
+  }
 }
+
+/* Section */
+section {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #1a1a1a;
+  font-size: 2rem;
+}
+
+/* Footer */
+footer {
+  background: #1a73e8;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+footer a {
+  color: #fff;
+}
+
+footer .footer-info {
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+/* Buttons */
+.cta {
+  display: inline-block;
+  background: #1a73e8;
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.cta:hover {
+  background: #155cb0;
+}
+
+/* Images & layout */
+.stock-section {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.stock-section img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.stock-section p {
+  color: #555;
+  margin-top: 10px;
+  font-style: italic;
+}
+
 
 
 
