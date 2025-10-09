@@ -4,7 +4,119 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VuTek - Contact Us</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ================== 原本 Contact CSS ================== */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f6f8;
+      margin: 0; padding: 0; color:#333;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* ================== Header ================== */
+    header {
+      display: flex;
+      justify-content: center; /* 導航置中 */
+      align-items: center;
+      background:#1a73e8;
+      color:#fff;
+      padding:10px 20px;
+      position: sticky;
+      top:0;
+      z-index: 1000;
+    }
+
+    .logo a {
+      font-size:1.5rem;
+      font-weight:bold;
+      color:#fff;
+      margin-right:40px; /* logo 與第一個標籤距離 = 其他間距兩倍 */
+    }
+
+    nav ul {
+      list-style:none;
+      display:flex;
+      margin:0;
+      padding:0;
+      gap:20px; /* 標籤間距 */
+    }
+
+    nav ul li a { color:#fff; font-weight:500; }
+
+    .hamburger {
+      display: none;
+      font-size:1.5rem;
+      cursor:pointer;
+      margin-left:20px;
+    }
+
+    @media (max-width:768px){
+      nav ul{
+        display:none;
+        flex-direction:column;
+        background:#1a73e8;
+        position:absolute;
+        top:50px;
+        right:20px;
+        border-radius:8px;
+        overflow:hidden;
+      }
+      nav ul.show{ display:flex; }
+      nav ul li{ padding:10px 20px; margin-left:0; }
+      .hamburger{ display:block; }
+    }
+
+    /* ================== 原本 Contact Body CSS ================== */
+    section{
+      max-width: 700px; margin:40px auto; padding:0 20px;
+    }
+    h1{ text-align:center; margin-bottom:30px; color:#1a1a1a; font-size:2rem; }
+    form{ background:#fff; padding:30px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+    .form-row{ display:flex; flex-wrap:wrap; margin-bottom:15px; }
+    .form-row label{ width:30%; min-width:100px; padding-right:10px; font-weight:600; display:flex; align-items:center; justify-content:flex-end; }
+    .form-row input, .form-row textarea{ flex:1; padding:10px; border:1px solid #ccc; border-radius:5px; font-size:1rem; }
+    .form-row textarea{ resize:vertical; min-height:100px; }
+    .form-row small{ color:red; display:none; margin-top:5px; }
+    .optional{ color:#aaa; font-weight:400; margin-left:5px; }
+
+    button{
+      background:#1a73e8; color:#fff; padding:12px 25px; border:none; border-radius:5px; cursor:pointer; font-size:1rem; font-weight:600; transition: background 0.3s;
+    }
+    button:hover{ background:#155cb0; }
+
+    .msg-response{ margin-top:15px; font-weight:600; display:none; }
+    .success{ color:green; }
+    .error{ color:red; }
+
+    .contact-note{
+      margin-top:40px; /* 距離上方翻倍 */
+      font-size:0.95rem; color:#555; line-height:1.4;
+    }
+
+    /* ================== Footer ================== */
+    footer{ background:#1a73e8; color:#fff; text-align:center; padding:20px; margin-top:40px; }
+    footer a{ color:#fff; }
+    footer .footer-info{ margin-bottom:10px; font-size:0.95rem; }
+
+    /* ================== WhatsApp Floating Button ================== */
+    .whatsapp-fixed{
+      position: fixed;
+      right: 20px;
+      background: #25D366;
+      color: #fff;
+      padding: 15px 20px;
+      border-radius: 50px;
+      font-weight: 600;
+      z-index: 1000;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      opacity: 0; transform: translateY(50px);
+      transition: opacity 0.5s, transform 0.5s, top 0.2s;
+    }
+    .whatsapp-fixed.show{ opacity:1; transform:translateY(0); }
+    .whatsapp-fixed:hover{ background:#1ebe5d; }
+
+  </style>
 </head>
 <body>
 
@@ -17,8 +129,8 @@
       <li><a href="about.html">About Us</a></li>
       <li><a href="contact.html">Contact Us</a></li>
     </ul>
+    <div class="hamburger">&#9776;</div>
   </nav>
-  <div class="hamburger">&#9776;</div>
 </header>
 
 <section>
@@ -67,7 +179,6 @@
   <p>© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
 </footer>
 
-<!-- WhatsApp Floating Button -->
 <a href="https://wa.me/886907903072" target="_blank" class="whatsapp-fixed" id="whatsappBtn">WhatsApp</a>
 
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
@@ -137,6 +248,7 @@
 
 </body>
 </html>
+
 
 
 
