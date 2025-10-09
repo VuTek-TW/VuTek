@@ -47,7 +47,6 @@ nav ul {
   padding: 0;
 }
 
-/* VuTek 與第一個標籤間距為其他間距的兩倍 */
 nav ul li:first-child {
   margin-left: 40px;
 }
@@ -105,6 +104,36 @@ h1 {
   font-size: 2rem;
 }
 
+/* Hero 區塊 */
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  background: #f4f6f8;
+}
+
+.hero-text .lead {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+/* 三個重點 */
+.hero-points {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* 手機自動換行 */
+  gap: 30px; /* 桌機水平間距 */
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.hero-point {
+  white-space: nowrap; /* 避免桌機上單個重點拆行 */
+}
+
+.hero-bold {
+  font-weight: bold;
+}
+
 /* Footer */
 footer {
   background: #1a73e8;
@@ -154,6 +183,7 @@ footer .footer-info {
   margin-top: 10px;
   font-style: italic;
 }
+
 
 
 
