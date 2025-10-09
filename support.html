@@ -4,140 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VuTek - Support</title>
-  <style>
-    /* ----------------- 全局樣式 ----------------- */
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f4f6f8;
-      color: #333;
-      margin: 0;
-      padding: 0;
-    }
-
-    a { text-decoration: none; color: inherit; }
-
-    /* ----------------- Header ----------------- */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #1a73e8;
-      color: #fff;
-      padding: 10px 20px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .logo a { font-size: 1.5rem; font-weight: bold; color: #fff; }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav ul li a { color: #fff; font-weight: 500; }
-    .hamburger {
-      display: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-        flex-direction: column;
-        gap: 0;
-        background: #1a73e8;
-        position: absolute;
-        top: 50px;
-        right: 20px;
-        border-radius: 8px;
-        overflow: hidden;
-      }
-      nav ul.show { display: flex; }
-      nav ul li { padding: 10px 20px; }
-      .hamburger { display: block; }
-    }
-
-    /* ----------------- FAQ ----------------- */
-    section {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 30px;
-      color: #1a1a1a;
-      font-size: 2rem;
-    }
-
-    .faq-item {
-      background: #fff;
-      border-radius: 10px;
-      margin-bottom: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      overflow: hidden;
-      transition: transform 0.2s;
-    }
-
-    .faq-item:hover { transform: translateY(-2px); }
-
-    .faq-question {
-      cursor: pointer;
-      padding: 18px 24px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: background 0.3s, color 0.3s;
-      background: #f1f3f6;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .faq-question:hover { background: #e2e6eb; color: #000; }
-    .faq-item.active .faq-question { background: #d0e2ff; }
-
-    .faq-arrow { display: inline-block; transition: transform 0.3s; }
-    .faq-item.active .faq-arrow { transform: rotate(90deg); }
-
-    .faq-answer {
-      max-height: 0;
-      padding: 0 24px;
-      border-top: 1px solid #ddd;
-      background: #fff;
-      line-height: 1.6;
-      font-size: 0.98rem;
-      color: #555;
-      overflow: hidden;
-      transition: max-height 0.4s ease, padding 0.4s ease;
-    }
-
-    .faq-item.active .faq-answer { padding: 15px 24px; max-height: 500px; }
-
-    strong { color: #1a73e8; }
-
-    @media (max-width: 600px) {
-      .faq-question { font-size: 1rem; padding: 15px 18px; }
-      .faq-answer { padding: 12px 18px; font-size: 0.95rem; }
-    }
-
-    /* ----------------- Footer ----------------- */
-    footer {
-      background: #1a73e8;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
-
-    footer a { color: #fff; }
-    footer .footer-info { margin-bottom: 10px; font-size: 0.95rem; }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -150,8 +17,8 @@
       <li><a href="about.html">About Us</a></li>
       <li><a href="contact.html">Contact Us</a></li>
     </ul>
-    <div class="hamburger">&#9776;</div>
   </nav>
+  <div class="hamburger">&#9776;</div>
 </header>
 
 <section>
@@ -255,22 +122,13 @@
   faqItems.forEach((item, index) => {
     const question = item.querySelector('.faq-question');
     question.addEventListener('click', () => {
-      // 關閉其他 FAQ
       faqItems.forEach(otherItem => {
-        if (otherItem !== item) {
-          otherItem.classList.remove('active');
-        }
+        if (otherItem !== item) otherItem.classList.remove('active');
       });
-      // 切換當前 FAQ
       item.classList.toggle('active');
-      // 滑動到問題
       item.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
-
-    // 預設第一個 FAQ 展開
-    if(index === 0){
-      item.classList.add('active');
-    }
+    if(index === 0) item.classList.add('active'); // 預設第一個展開
   });
 </script>
 
