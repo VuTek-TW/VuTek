@@ -48,7 +48,7 @@ nav ul {
 }
 
 nav ul li:first-child {
-  margin-left: 40px;
+  margin-left: 40px; /* VuTek 與第一個標籤距離為其他間距的兩倍 */
 }
 
 nav ul li a {
@@ -97,9 +97,9 @@ section {
   font-size: 1rem;
 }
 
-/* Hero 區塊 - index */
+/* Hero 區塊 - 所有頁面統一設定 */
 .hero {
-  padding-top: 60px;   /* 與其他頁面一致 */
+  padding-top: 60px;   /* 與 header 距離保持一致 */
   padding-bottom: 30px;
   padding-left: 20px;
   padding-right: 20px;
@@ -181,6 +181,7 @@ footer .footer-info {
   margin-top: 10px;
   font-style: italic;
 }
+
 
 
 
