@@ -47,7 +47,6 @@ nav ul {
   padding: 0;
 }
 
-/* VuTek 與第一個標籤間距為其他間距的兩倍 */
 nav ul li:first-child {
   margin-left: 40px;
 }
@@ -159,23 +158,23 @@ footer .footer-info {
 body.index-page .hero {
   display: flex;
   justify-content: center;
-  padding-top: 30px;       /* header 與標題距離固定 */
+  padding-top: 15px;       /* header 與標題距離 */
   padding-bottom: 50px;
 }
 
 body.index-page .hero-text {
-  max-width: 950px;        /* 放寬容器，避免換行問題 */
+  max-width: 1000px;       /* 避免換行 */
   margin: 0 auto;
   padding: 0 20px;
   text-align: left;
 }
 
 body.index-page .hero-text h1 {
-  font-size: 2rem;         /* 確保一行顯示 */
-  line-height: 1.3;
+  font-size: 1.9rem;       /* 保持一行 */
+  line-height: 1.2;
   font-weight: 700;
-  margin-bottom: 20px;
-  word-break: keep-all;    /* 避免最後單字換行 */
+  margin: 0 0 20px 0;
+  white-space: nowrap;     /* 避免單字換行 */
 }
 
 body.index-page .hero-text .lead {
@@ -209,6 +208,7 @@ body.index-page .cta {
     font-size: 1.6rem;
     line-height: 1.4;
     text-align: center;
+    white-space: normal;  /* 手機換行自動處理 */
   }
 
   body.index-page .hero-text .lead {
@@ -220,6 +220,7 @@ body.index-page .cta {
     padding: 0 15px;
   }
 }
+
 
 
 
