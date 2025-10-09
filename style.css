@@ -116,20 +116,24 @@ h1 {
   font-size: 1.1rem;
 }
 
-/* 三個重點 */
+/* 三個獨立重點 */
 .hero-points {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap; /* 手機自動換行 */
-  gap: 30px; /* 桌機水平間距 */
-  font-size: 1rem;
   margin-bottom: 20px;
 }
 
 .hero-point {
-  white-space: nowrap; /* 避免桌機上單個重點拆行 */
+  margin: 10px 0;
+  font-size: 1rem;
 }
 
+/* 箭頭藍色 */
+.hero-arrow {
+  font-weight: bold;
+  color: #1a73e8;
+  margin-right: 5px;
+}
+
+/* 重點文字粗體 */
 .hero-bold {
   font-weight: bold;
 }
@@ -183,6 +187,7 @@ footer .footer-info {
   margin-top: 10px;
   font-style: italic;
 }
+
 
 
 
