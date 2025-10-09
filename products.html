@@ -12,9 +12,10 @@
   <div class="logo"><a href="index.html">VuTek</a></div>
   <nav>
     <ul>
+      <li><a href="index.html">Homepage</a></li>
       <li><a href="products.html">Products</a></li>
-      <li><a href="support.html">Support</a></li>
       <li><a href="about.html">About Us</a></li>
+      <li><a href="support.html">Support</a></li>
       <li><a href="contact.html">Contact Us</a></li>
     </ul>
     <div class="hamburger">&#9776;</div>
@@ -25,16 +26,11 @@
   <h1>Products</h1>
 
   <p>Since the first iPhone in 2007, we have been in the iPhone business.</p>
-
-  <p>For your pre-owned iPhone business, please provide the models, quantities, and grades you require - we’ll handle the rest.</p>
-
-  <p>We are here to help you succeed. Our ready stock is prepared for global shipment - see below for reference.</p>
+  <p>For your pre-owned iPhone business, please provide the models, quantities, and grades you require – we’ll handle the rest.</p>
+  <p>We are here to help you succeed. Our ready stock is prepared for global shipment – see below for reference.</p>
 
   <div class="stock-section">
-    <!-- Example image -->
     <img src="images/stock-sample.jpg" alt="Pre-owned iPhone stock">
-    <!-- Example video (optional) -->
-    <!-- <video src="videos/stock-sample.mp4" controls></video> -->
     <p>Ready stock for global shipment</p>
   </div>
 
@@ -43,25 +39,25 @@
 
 <footer>
   <div class="footer-info">
-    <p>
-      Address: <a href="https://www.google.com/maps?q=123+Business+St,+Hong+Kong" target="_blank">123 Business St, Hong Kong</a> | 
-      Email: <a href="mailto:info@vutek.com">info@vutek.com</a> | 
-      WhatsApp: <a href="https://wa.me/886907903072" target="_blank">+886 907903072</a>
-    </p>
+    <span>Address: <a href="https://www.google.com/maps?q=123+Business+St,+Hong+Kong" target="_blank">123 Business St, Hong Kong</a></span>
+    <span>|</span>
+    <span>Email: <a href="mailto:info@vutek.com">info@vutek.com</a></span>
+    <span>|</span>
+    <span>WhatsApp: <a href="https://wa.me/886907903072" target="_blank">+886 907903072</a></span>
   </div>
   <p>© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
 </footer>
 
 <script>
-const hamburger = document.querySelector('.hamburger');
-const navUl = document.querySelector('nav ul');
-hamburger.addEventListener('click', () => {
-  navUl.classList.toggle('show');
-});
+  // Hamburger menu toggle
+  const hamburger = document.querySelector('.hamburger');
+  const navUl = document.querySelector('nav ul');
+  hamburger.addEventListener('click', () => navUl.classList.toggle('show'));
 </script>
 
 </body>
 </html>
+
 
 
 
