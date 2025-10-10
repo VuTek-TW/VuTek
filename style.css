@@ -15,20 +15,18 @@ a {
 /* ================== Header ================== */
 header {
   display: flex;
-  align-items: center;
-  justify-content: center; /* 讓 nav 群組在整體視覺上置中 */
+  justify-content: space-between;
+  align-items: flex-end; /* 底部對齊 */
   background: #1a73e8;
   color: #fff;
-  padding: 10px 20px;
+  padding: 10px 40px; /* 原20px → 40px，讓Logo右移至中間位置 */
   position: sticky;
   top: 0;
   z-index: 1000;
-  position: relative; /* 為 hamburger 絕對定位準備 */
 }
 
 .logo {
-  position: absolute;
-  left: 20px; /* 固定靠左 */
+  margin-left: 20px; /* Logo 右移一半距離 */
 }
 
 .logo a {
@@ -37,17 +35,24 @@ header {
   color: #fff;
 }
 
+nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; /* tag 與 logo 底部切齊 */
+}
+
 nav ul {
   list-style: none;
   display: flex;
   margin: 0;
   padding: 0;
-  gap: 20px; /* 各 tag 之間的距離 */
+  gap: 20px;
 }
 
-/* 讓 logo 與第一個 tag 距離 = 2 × 其他標籤間距 */
+/* 第一個標籤與 logo 距離為其他標籤間距的兩倍 */
 nav ul li:first-child {
-  margin-left: 40px; /* 20px × 2 = 40px */
+  margin-left: 40px;
 }
 
 nav ul li a {
@@ -55,43 +60,32 @@ nav ul li a {
   font-weight: 500;
 }
 
-/* 漢堡選單預設隱藏 */
 .hamburger {
-  position: absolute;
-  right: 20px;
   display: none;
   font-size: 1.5rem;
   cursor: pointer;
 }
 
-/* ================== 手機版 ================== */
 @media (max-width: 768px) {
-  header {
-    justify-content: space-between;
-  }
-
-  .hamburger {
-    display: block;
-  }
-
   nav ul {
     display: none;
     flex-direction: column;
     background: #1a73e8;
     position: absolute;
-    top: 56px;
+    top: 50px;
     right: 20px;
     border-radius: 8px;
     overflow: hidden;
   }
-
   nav ul.show {
     display: flex;
   }
-
   nav ul li {
     padding: 10px 20px;
     margin-left: 0;
+  }
+  .hamburger {
+    display: block;
   }
 }
 
@@ -108,7 +102,7 @@ h1 {
   margin-bottom: 20px; /* 調整 header 距離 */
   color: #1a1a1a;
   font-size: 2rem;
-  white-space: nowrap; /* 保持一行 */
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -117,7 +111,7 @@ h1 {
 .hero-text .lead {
   text-align: left;
   margin-bottom: 20px;
-  max-width: 750px; /* 限制寬度避免單字換行 */
+  max-width: 750px;
   word-wrap: break-word;
 }
 
@@ -204,14 +198,6 @@ footer .footer-info {
     flex-wrap: wrap;
   }
 }
-
-
-
-
-
-
-
-
 
 
 
