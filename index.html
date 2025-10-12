@@ -4,18 +4,40 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>VuTek - Home</title>
+
+  <!-- 原始 style.css 保留 -->
   <link rel="stylesheet" href="style.css" />
+
+  <!-- 內嵌 CSS（響應式保留） -->
+  <style>
+    body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f4f6f8; color:#333; margin:0; padding:0; }
+    a { text-decoration:none; color:inherit; }
+
+    @media (max-width:768px){
+      nav ul { display:none; flex-direction:column; background:#1a73e8; position:absolute; top:50px; right:20px; border-radius:8px; overflow:hidden; }
+      nav ul.show { display:flex; }
+      nav ul li { padding:10px 20px; margin-left:0; }
+      .hamburger { display:block; }
+      h1 { font-size:1.6rem; }
+      .hero-text .lead { max-width:100%; }
+      .hero-point { flex-wrap:wrap; }
+    }
+  </style>
 </head>
+
 <body class="index-page">
 
-<header>
-  <div class="logo"><a href="index.html">VuTek</a></div>
+<!-- ===== HEADER ===== -->
+<header style="display:flex; justify-content:space-between; align-items:flex-end; background:#1a73e8; color:#fff; padding:15px 50px; position:sticky; top:0; z-index:1000;">
+  <div class="logo" style="margin-left:25px;">
+    <a href="index.html" style="font-size:1.6rem; font-weight:bold; color:#fff;">VuTek</a>
+  </div>
   <nav>
-    <ul>
-      <li><a href="products.html">Products</a></li>
-      <li><a href="support.html">Support</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="contact.html">Contact Us</a></li>
+    <ul style="list-style:none; display:flex; margin:0; padding:0; gap:20px;">
+      <li style="margin-left:40px;"><a href="products.html" style="color:#fff; font-weight:500;">Products</a></li>
+      <li><a href="support.html" style="color:#fff; font-weight:500;">Support</a></li>
+      <li><a href="about.html" style="color:#fff; font-weight:500;">About Us</a></li>
+      <li><a href="contact.html" style="color:#fff; font-weight:500;">Contact Us</a></li>
     </ul>
     <div class="hamburger">&#9776;</div>
   </nav>
@@ -23,33 +45,38 @@
 
 <!-- ===== HERO ===== -->
 <section class="hero">
-  <div class="hero-text">
-    <h1>Empowering Your Business to Win</h1>
+  <div class="hero-text" style="max-width:800px; margin:40px auto; padding:0 20px; line-height:1.6;">
+    <h1 style="text-align:center; margin-bottom:20px; color:#1a1a1a; font-size:2rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+      Empowering Your Business to Win
+    </h1>
 
-    <p class="lead">
+    <p class="lead" style="text-align:left; margin-bottom:20px; max-width:750px; word-wrap:break-word;">
       At VuTek, we don’t just supply products – we build lasting partnerships. Together, we empower your business success with:
     </p>
 
-    <!-- 三個獨立重點 -->
-    <div class="hero-points">
-      <p class="hero-point">
-        <span class="hero-arrow">►</span> <span class="hero-bold">Premium Quality</span> – reliable products you can trust
+    <div class="hero-points" style="margin:20px 0;">
+      <p class="hero-point" data-color="#1a73e8" data-weight="bold" style="display:flex; align-items:flex-start; margin-bottom:10px;">
+        <span class="hero-arrow" style="margin-right:8px;">►</span>
+        <span class="hero-bold" style="margin-right:5px;">Premium Quality</span> – reliable products you can trust
       </p>
-      <p class="hero-point">
-        <span class="hero-arrow">►</span> <span class="hero-bold">Competitive Prices</span> – maximize your margins
+      <p class="hero-point" data-color="#1a73e8" data-weight="bold" style="display:flex; align-items:flex-start; margin-bottom:10px;">
+        <span class="hero-arrow" style="margin-right:8px;">►</span>
+        <span class="hero-bold" style="margin-right:5px;">Competitive Prices</span> – maximize your margins
       </p>
-      <p class="hero-point">
-        <span class="hero-arrow">►</span> <span class="hero-bold">Outstanding Service</span> – support whenever you need
+      <p class="hero-point" data-color="#1a73e8" data-weight="bold" style="display:flex; align-items:flex-start; margin-bottom:10px;">
+        <span class="hero-arrow" style="margin-right:8px;">►</span>
+        <span class="hero-bold" style="margin-right:5px;">Outstanding Service</span> – support whenever you need
       </p>
     </div>
 
-    <p>Grow with us. Together, we thrive in booming markets and achieve long-term success.</p>
-    <a href="contact.html" class="cta">Get Started Today →</a>
+    <p style="margin-bottom:20px;">Grow with us. Together, we thrive in booming markets and achieve long-term success.</p>
+    <a href="contact.html" class="cta" data-bg="#1a73e8" style="display:inline-block; background:#1a73e8; color:#fff; padding:12px 25px; border-radius:5px; font-weight:600; transition:background 0.3s; text-decoration:none;">Get Started Today →</a>
   </div>
 </section>
 
-<footer>
-  <div class="footer-info">
+<!-- ===== FOOTER ===== -->
+<footer style="background:#1a73e8; color:#fff; text-align:center; padding:20px; margin-top:40px;">
+  <div class="footer-info" style="margin-bottom:10px; font-size:0.95rem;">
     <span>Address: 123 Business St, Hong Kong</span>
     <span>|</span>
     <span>Email: info@vutek.com</span>
@@ -59,16 +86,37 @@
   <p class="copyright">© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
 </footer>
 
+<!-- ===== SCRIPT ===== -->
 <script>
+  // 漢堡選單
   const hamburger = document.querySelector('.hamburger');
   const navUl = document.querySelector('nav ul');
-  if (hamburger && navUl) {
-    hamburger.addEventListener('click', () => navUl.classList.toggle('show'));
+  if(hamburger && navUl){
+    hamburger.addEventListener('click',()=>navUl.classList.toggle('show'));
   }
+
+  // 批量調整 hero-point 顏色與字重
+  const heroPoints = document.querySelectorAll('.hero-point');
+  heroPoints.forEach(p=>{
+    const color = p.getAttribute('data-color');
+    const weight = p.getAttribute('data-weight');
+    if(color) p.style.color = color;
+    if(weight) p.style.fontWeight = weight;
+  });
+
+  // 批量調整 CTA 背景顏色
+  const ctas = document.querySelectorAll('.cta');
+  ctas.forEach(btn=>{
+    const bg = btn.getAttribute('data-bg');
+    if(bg) btn.style.background = bg;
+    btn.addEventListener('mouseover', ()=> btn.style.background = '#155cb0');
+    btn.addEventListener('mouseout', ()=> btn.style.background = bg);
+  });
 </script>
 
 </body>
 </html>
+
 
 
 
