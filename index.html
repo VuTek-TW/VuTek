@@ -8,7 +8,7 @@
   <!-- 原始 style.css 保留 -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- 內嵌 CSS（響應式保留） -->
+  <!-- 內嵌 CSS -->
   <style>
     body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f4f6f8; color:#333; margin:0; padding:0; }
     a { text-decoration:none; color:inherit; }
@@ -54,22 +54,23 @@
       At VuTek, we don’t just supply products – we build lasting partnerships. Together, we empower your business success with:
     </p>
 
-    <div class="hero-points" style="margin:20px 0;">
-      <p class="hero-point" data-color="#1a73e8" data-weight="bold" style="display:flex; align-items:flex-start; margin-bottom:10px;">
+    <div class="hero-points" style="margin:0;">
+      <!-- 範例元素，未來新增只要複製一行 -->
+      <p class="hero-point" data-color="#000000" data-bold="true" style="display:flex; align-items:flex-start; margin:0;">
         <span class="hero-arrow" style="margin-right:8px;">►</span>
         <span class="hero-bold" style="margin-right:5px;">Premium Quality</span> – reliable products you can trust
       </p>
-      <p class="hero-point" data-color="#1a73e8" data-weight="bold" style="display:flex; align-items:flex-start; margin-bottom:10px;">
+      <p class="hero-point" data-color="#000000" data-bold="true" style="display:flex; align-items:flex-start; margin:0;">
         <span class="hero-arrow" style="margin-right:8px;">►</span>
         <span class="hero-bold" style="margin-right:5px;">Competitive Prices</span> – maximize your margins
       </p>
-      <p class="hero-point" data-color="#1a73e8" data-weight="bold" style="display:flex; align-items:flex-start; margin-bottom:10px;">
+      <p class="hero-point" data-color="#000000" data-bold="true" style="display:flex; align-items:flex-start; margin:0;">
         <span class="hero-arrow" style="margin-right:8px;">►</span>
         <span class="hero-bold" style="margin-right:5px;">Outstanding Service</span> – support whenever you need
       </p>
     </div>
 
-    <p style="margin-bottom:20px;">Grow with us. Together, we thrive in booming markets and achieve long-term success.</p>
+    <p style="margin-top:10px;">Grow with us. Together, we thrive in booming markets and achieve long-term success.</p>
     <a href="contact.html" class="cta" data-bg="#1a73e8" style="display:inline-block; background:#1a73e8; color:#fff; padding:12px 25px; border-radius:5px; font-weight:600; transition:background 0.3s; text-decoration:none;">Get Started Today →</a>
   </div>
 </section>
@@ -95,13 +96,20 @@
     hamburger.addEventListener('click',()=>navUl.classList.toggle('show'));
   }
 
-  // 批量調整 hero-point 顏色與字重
+  // 批量調整 hero-point 顏色與粗體
   const heroPoints = document.querySelectorAll('.hero-point');
   heroPoints.forEach(p=>{
     const color = p.getAttribute('data-color');
-    const weight = p.getAttribute('data-weight');
-    if(color) p.style.color = color;
-    if(weight) p.style.fontWeight = weight;
+    const bold = p.getAttribute('data-bold');
+    if(color){
+      p.style.color = color;
+      const arrow = p.querySelector('.hero-arrow');
+      if(arrow) arrow.style.color = color;
+    }
+    if(bold === "true"){
+      const boldSpan = p.querySelector('.hero-bold');
+      if(boldSpan) boldSpan.style.fontWeight = "bold";
+    }
   });
 
   // 批量調整 CTA 背景顏色
@@ -116,6 +124,7 @@
 
 </body>
 </html>
+
 
 
 
