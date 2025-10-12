@@ -6,51 +6,53 @@
 <title>VuTek - Home</title>
 <link rel="stylesheet" href="style.css" />
 <style>
-body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f4f6f8; color:#333; margin:0; padding:0; }
-a { text-decoration:none; color:inherit; }
-
-/* ===== 手機響應 ===== */
-@media (max-width:768px){
-  nav ul { display:none; flex-direction:column; background:#1a73e8; position:absolute; top:50px; right:20px; border-radius:8px; overflow:hidden; }
-  nav ul.show { display:flex; }
-  nav ul li { padding:10px 20px; margin-left:0; }
-
-  /* 漢堡選單顯示 */
-  .hamburger { display:block; cursor:pointer; }
-
+/* 手機版響應調整 */
+@media (max-width: 768px){
   /* 標題自動換行 */
-  h1 { font-size:1.6rem; white-space:normal; word-break:break-word; }
+  .hero-text h1 {
+    white-space: normal !important;
+    font-size: 1.6rem;
+  }
 
-  /* hero lead 最大寬度 100% */
-  .hero-text .lead { max-width:100%; }
+  /* 漢堡選單默認折疊 */
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background: #1a73e8;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    gap: 16px; /* 調整標籤間距，可再微調 */
+  }
 
-  /* hero point 手機換行 */
-  .hero-point { flex-wrap:wrap; }
+  nav ul.show {
+    display: flex;
+  }
 
-  /* footer 手機每個資訊換行 */
-  footer .footer-info span { display:block; margin:3px 0; }
-  footer .footer-info span + span { margin-left:0; } 
+  nav ul li {
+    padding: 10px 20px;
+    margin-left: 0;
+  }
+
+  .hamburger {
+    display: block;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
 }
-
-/* 控制面板 (默認隱藏) */
-#headerControlPanel { display:none; position:fixed; bottom:20px; right:20px; background:#fff; border:1px solid #ccc; padding:10px; border-radius:8px; z-index:2000;
-  font-size:14px; width:220px; box-shadow:0 2px 10px rgba(0,0,0,0.2);
-}
-#headerControlPanel label { display:block; margin:8px 0 2px; }
-#headerControlPanel input { width:100%; margin-bottom:2px; }
-#headerControlPanel span { display:inline-block; margin-bottom:5px; font-weight:bold; }
 </style>
 </head>
 <body class="index-page">
 
-<!-- ===== HEADER ===== -->
-<header style="display:flex; justify-content:space-between; align-items:flex-end; background:#1a73e8; color:#fff; padding:12.75px 45px; position:sticky; top:0; z-index:1000;">
-  <div class="logo" style="font-size:1.6rem; font-weight:bold; color:#fff; margin-left:144px;">
+<header style="display:flex; justify-content:space-between; align-items:flex-end; background:#1a73e8; color:#fff; padding:15px 50px; position:sticky; top:0; z-index:1000;">
+  <div class="logo" style="font-size:1.6rem; font-weight:bold; color:#fff;">
     <a href="index.html" style="color:#fff; text-decoration:none;">VuTek</a>
   </div>
   <nav>
-    <ul style="list-style:none; display:flex; margin:0; padding:0; gap:33px;">
-      <li style="margin-left:0;"><a href="products.html" style="color:#fff; font-weight:500;">Products</a></li>
+    <ul style="list-style:none; display:flex; margin:0; padding:0; gap:26px;">
+      <li><a href="products.html" style="color:#fff; font-weight:500;">Products</a></li>
       <li><a href="support.html" style="color:#fff; font-weight:500;">Support</a></li>
       <li><a href="about.html" style="color:#fff; font-weight:500;">About Us</a></li>
       <li><a href="contact.html" style="color:#fff; font-weight:500;">Contact Us</a></li>
@@ -59,10 +61,9 @@ a { text-decoration:none; color:inherit; }
   </nav>
 </header>
 
-<!-- ===== HERO ===== -->
 <section class="hero">
   <div class="hero-text" style="max-width:800px; margin:40px auto; padding:0 20px; line-height:1.6;">
-    <h1 style="text-align:center; margin-bottom:20px; color:#1a1a1a; font-size:2rem; white-space:nowrap; overflow:visible;">
+    <h1 style="text-align:center; margin-bottom:20px; color:#1a1a1a; font-size:2rem;">
       Empowering Your Business to Win
     </h1>
     <p class="lead" style="text-align:left; margin-bottom:20px; max-width:750px; word-wrap:break-word;">
@@ -87,46 +88,26 @@ a { text-decoration:none; color:inherit; }
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
-<footer style="background:#1a73e8; color:#fff; text-align:center; padding:8px 0; margin-top:40px;">
-  <div class="footer-info" style="margin-bottom:5px; font-size:0.95rem;">
-    <span><a href="https://www.google.com/maps/search/?api=1&query=123+Business+St,+Hong+Kong" style="color:#fff; text-decoration:none;" target="_blank">Address: 123 Business St, Hong Kong</a></span>
-    <span style="margin:0 18px;">|</span>
-    <span><a href="mailto:info@vutek.com" style="color:#fff; text-decoration:none;">Email: info@vutek.com</a></span>
-    <span style="margin:0 18px;">|</span>
-    <span><a href="https://wa.me/886907903072" style="color:#fff; text-decoration:none;" target="_blank">WhatsApp: +886 907903072</a></span>
+<footer style="background:#1a73e8; color:#fff; text-align:center; padding:20px; margin-top:40px;">
+  <div class="footer-info" style="margin-bottom:10px; font-size:0.95rem;">
+    <div><a href="mailto:info@vutek.com" style="color:#fff; text-decoration:none;">Email: info@vutek.com</a></div>
+    <div><a href="tel:+886907903072" style="color:#fff; text-decoration:none;">WhatsApp: +886 907903072</a></div>
+    <div>Address: 123 Business St, Hong Kong</div>
   </div>
-  <p class="copyright" style="margin:0; font-size:0.9rem;">© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
+  <p class="copyright">© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
 </footer>
 
 <script>
-// 漢堡選單 toggle
-const hamburger = document.querySelector('.hamburger');
-const navUl = document.querySelector('nav ul');
+const hamburger=document.querySelector('.hamburger');
+const navUl=document.querySelector('nav ul');
 if(hamburger && navUl){
   hamburger.addEventListener('click',()=>navUl.classList.toggle('show'));
 }
-
-// hero point data attributes
-const heroPoints=document.querySelectorAll('.hero-point');
-heroPoints.forEach(p=>{
-  const color=p.getAttribute('data-color');
-  const bold=p.getAttribute('data-bold');
-  if(color){ p.style.color=color; const arrow=p.querySelector('.hero-arrow'); if(arrow) arrow.style.color=color; }
-  if(bold==="true"){ const boldSpan=p.querySelector('.hero-bold'); if(boldSpan) boldSpan.style.fontWeight="bold"; }
-});
-
-// CTA hover
-const ctas=document.querySelectorAll('.cta');
-ctas.forEach(btn=>{
-  const bg=btn.getAttribute('data-bg'); if(bg) btn.style.background=bg;
-  btn.addEventListener('mouseover',()=>btn.style.background='#155cb0');
-  btn.addEventListener('mouseout',()=>btn.style.background=bg);
-});
 </script>
 
 </body>
 </html>
+
 
 
 
