@@ -29,12 +29,12 @@
 
 <!-- ===== HEADER ===== -->
 <header style="display:flex; justify-content:space-between; align-items:flex-end; background:#1a73e8; color:#fff; padding:15px 50px; position:sticky; top:0; z-index:1000;">
-  <div class="logo" style="margin-left:40px;"> <!-- Logo 右移 -->
-    <a href="index.html" style="font-size:1.6rem; font-weight:bold; color:#fff;">VuTek</a>
+  <div class="logo" style="font-size:1.6rem; font-weight:bold; color:#fff;">
+    <a href="index.html" style="color:#fff; text-decoration:none;">VuTek</a>
   </div>
   <nav>
-    <ul style="list-style:none; display:flex; margin:0; padding:0; gap:20px;">
-      <li style="margin-left:40px;"><a href="products.html" style="color:#fff; font-weight:500;">Products</a></li> <!-- gap = 2倍 -->
+    <ul style="list-style:none; display:flex; margin:0; padding:0;">
+      <li><a href="products.html" style="color:#fff; font-weight:500;">Products</a></li>
       <li><a href="support.html" style="color:#fff; font-weight:500;">Support</a></li>
       <li><a href="about.html" style="color:#fff; font-weight:500;">About Us</a></li>
       <li><a href="contact.html" style="color:#fff; font-weight:500;">Contact Us</a></li>
@@ -88,12 +88,30 @@
 
 <!-- ===== SCRIPT ===== -->
 <script>
-  const hamburger = document.querySelector('.hamburger');
+  // ===== 快速調整 Header 間距 =====
+  const headerConfig = {
+    logoMarginLeft: 60,  // Logo 右移 px
+    firstLiMarginLeft: 52, // Logo → 第一個標籤距離 px
+    liGap: 26 // 標籤間距 px
+  };
+
+  // 套用到 Header
+  const logoDiv = document.querySelector('.logo');
   const navUl = document.querySelector('nav ul');
+  if(logoDiv) logoDiv.style.marginLeft = headerConfig.logoMarginLeft + 'px';
+  if(navUl) {
+    navUl.style.gap = headerConfig.liGap + 'px';
+    const firstLi = navUl.querySelector('li:first-child');
+    if(firstLi) firstLi.style.marginLeft = headerConfig.firstLiMarginLeft + 'px';
+  }
+
+  // 漢堡選單
+  const hamburger = document.querySelector('.hamburger');
   if(hamburger && navUl){
     hamburger.addEventListener('click',()=>navUl.classList.toggle('show'));
   }
 
+  // Hero points 顏色與粗體
   const heroPoints = document.querySelectorAll('.hero-point');
   heroPoints.forEach(p=>{
     const color = p.getAttribute('data-color');
@@ -109,6 +127,7 @@
     }
   });
 
+  // CTA hover
   const ctas = document.querySelectorAll('.cta');
   ctas.forEach(btn=>{
     const bg = btn.getAttribute('data-bg');
@@ -120,6 +139,7 @@
 
 </body>
 </html>
+
 
 
 
