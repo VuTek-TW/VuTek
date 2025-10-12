@@ -29,12 +29,12 @@
 
 <!-- ===== HEADER ===== -->
 <header style="display:flex; justify-content:space-between; align-items:flex-end; background:#1a73e8; color:#fff; padding:15px 50px; position:sticky; top:0; z-index:1000;">
-  <div class="logo" style="margin-left:25px;">
+  <div class="logo" style="margin-left:40px;"> <!-- Logo 右移 -->
     <a href="index.html" style="font-size:1.6rem; font-weight:bold; color:#fff;">VuTek</a>
   </div>
   <nav>
     <ul style="list-style:none; display:flex; margin:0; padding:0; gap:20px;">
-      <li style="margin-left:40px;"><a href="products.html" style="color:#fff; font-weight:500;">Products</a></li>
+      <li style="margin-left:40px;"><a href="products.html" style="color:#fff; font-weight:500;">Products</a></li> <!-- gap = 2倍 -->
       <li><a href="support.html" style="color:#fff; font-weight:500;">Support</a></li>
       <li><a href="about.html" style="color:#fff; font-weight:500;">About Us</a></li>
       <li><a href="contact.html" style="color:#fff; font-weight:500;">Contact Us</a></li>
@@ -47,16 +47,14 @@
 <section class="hero">
   <div class="hero-text" style="max-width:800px; margin:40px auto; padding:0 20px; line-height:1.6;">
     <h1 style="text-align:center; margin-bottom:20px; color:#1a1a1a; font-size:2rem; white-space:nowrap; overflow:visible;">
-  Empowering Your Business to Win
-</h1>
-
+      Empowering Your Business to Win
+    </h1>
 
     <p class="lead" style="text-align:left; margin-bottom:20px; max-width:750px; word-wrap:break-word;">
       At VuTek, we don’t just supply products – we build lasting partnerships. Together, we empower your business success with:
     </p>
 
     <div class="hero-points" style="margin:0;">
-      <!-- 範例元素，未來新增只要複製一行 -->
       <p class="hero-point" data-color="#000000" data-bold="true" style="display:flex; align-items:flex-start; margin:0;">
         <span class="hero-arrow" style="margin-right:8px;">►</span>
         <span class="hero-bold" style="margin-right:5px;">Premium Quality</span> – reliable products you can trust
@@ -90,14 +88,12 @@
 
 <!-- ===== SCRIPT ===== -->
 <script>
-  // 漢堡選單
   const hamburger = document.querySelector('.hamburger');
   const navUl = document.querySelector('nav ul');
   if(hamburger && navUl){
     hamburger.addEventListener('click',()=>navUl.classList.toggle('show'));
   }
 
-  // 批量調整 hero-point 顏色與粗體
   const heroPoints = document.querySelectorAll('.hero-point');
   heroPoints.forEach(p=>{
     const color = p.getAttribute('data-color');
@@ -113,7 +109,6 @@
     }
   });
 
-  // 批量調整 CTA 背景顏色
   const ctas = document.querySelectorAll('.cta');
   ctas.forEach(btn=>{
     const bg = btn.getAttribute('data-bg');
@@ -125,6 +120,7 @@
 
 </body>
 </html>
+
 
 
 
