@@ -8,14 +8,28 @@
 <style>
 body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f4f6f8; color:#333; margin:0; padding:0; }
 a { text-decoration:none; color:inherit; }
+
+/* ===== 手機響應 ===== */
 @media (max-width:768px){
   nav ul { display:none; flex-direction:column; background:#1a73e8; position:absolute; top:50px; right:20px; border-radius:8px; overflow:hidden; }
   nav ul.show { display:flex; }
   nav ul li { padding:10px 20px; margin-left:0; }
-  .hamburger { display:block; }
-  h1 { font-size:1.6rem; }
+
+  /* 漢堡選單顯示 */
+  .hamburger { display:block; cursor:pointer; }
+
+  /* 標題自動換行 */
+  h1 { font-size:1.6rem; white-space:normal; word-break:break-word; }
+
+  /* hero lead 最大寬度 100% */
   .hero-text .lead { max-width:100%; }
+
+  /* hero point 手機換行 */
   .hero-point { flex-wrap:wrap; }
+
+  /* footer 手機每個資訊換行 */
+  footer .footer-info span { display:block; margin:3px 0; }
+  footer .footer-info span + span { margin-left:0; } 
 }
 
 /* 控制面板 (默認隱藏) */
@@ -85,8 +99,35 @@ a { text-decoration:none; color:inherit; }
   <p class="copyright" style="margin:0; font-size:0.9rem;">© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
 </footer>
 
+<script>
+// 漢堡選單 toggle
+const hamburger = document.querySelector('.hamburger');
+const navUl = document.querySelector('nav ul');
+if(hamburger && navUl){
+  hamburger.addEventListener('click',()=>navUl.classList.toggle('show'));
+}
+
+// hero point data attributes
+const heroPoints=document.querySelectorAll('.hero-point');
+heroPoints.forEach(p=>{
+  const color=p.getAttribute('data-color');
+  const bold=p.getAttribute('data-bold');
+  if(color){ p.style.color=color; const arrow=p.querySelector('.hero-arrow'); if(arrow) arrow.style.color=color; }
+  if(bold==="true"){ const boldSpan=p.querySelector('.hero-bold'); if(boldSpan) boldSpan.style.fontWeight="bold"; }
+});
+
+// CTA hover
+const ctas=document.querySelectorAll('.cta');
+ctas.forEach(btn=>{
+  const bg=btn.getAttribute('data-bg'); if(bg) btn.style.background=bg;
+  btn.addEventListener('mouseover',()=>btn.style.background='#155cb0');
+  btn.addEventListener('mouseout',()=>btn.style.background=bg);
+});
+</script>
+
 </body>
 </html>
+
 
 
 
