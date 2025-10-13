@@ -14,7 +14,7 @@ a { text-decoration:none; color:inherit; }
 
   /* 漢堡選單 */
   nav ul {
-    display:none;
+    display:none !important; /* 手機版初始折疊 */
     flex-direction:column;
     background:#1a73e8;
     position:absolute;
@@ -22,11 +22,11 @@ a { text-decoration:none; color:inherit; }
     right:20px;
     border-radius:8px;
     overflow:hidden;
-    gap:19px; /* 更新 Nav Gap 初始值 */
+    gap:19px; /* Nav Gap 初始值 */
+    z-index:1000;
   }
-  nav ul.show { display:flex; }
+  nav ul.show { display:flex !important; }
   nav ul li { padding:10px 20px; margin-left:0; }
-
   .hamburger { display:block; cursor:pointer; }
 
   /* Hero 標題自動換行 */
@@ -201,6 +201,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </body>
 </html>
+
 
 
    
