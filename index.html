@@ -18,24 +18,16 @@ a { text-decoration:none; color:inherit; }
     flex-direction:column;
     background:#1a73e8;
     position:absolute;
-    top:50%;
-    transform: translateY(-50%);
-    right:20px; /* Hamburger 右邊距 px */
+    top:50px;
+    right:20px; /* Hamburger 右距 */
     border-radius:8px;
     overflow:hidden;
-    gap:19px; /* Nav Gap px */
+    gap:19px; /* Nav Gap 初始值 */
     z-index:1000;
   }
   nav ul.show { display:flex !important; }
   nav ul li { padding:10px 20px; margin-left:0; }
-  .hamburger {
-    display:block;
-    cursor:pointer;
-    position: absolute;
-    top: 50%; /* 垂直置中 */
-    transform: translateY(-50%);
-    right:20px; /* Hamburger 右邊距 px */
-  }
+  .hamburger { display:block; cursor:pointer; position:absolute; top:50%; transform:translateY(-50%); right:20px; }
 
   /* Hero 標題自動換行 */
   .hero-text h1 { white-space: normal !important; font-size:1.6rem; text-align:center; }
@@ -90,7 +82,7 @@ a { text-decoration:none; color:inherit; }
 <body class="index-page">
 
 <!-- ===== HEADER ===== -->
-<header style="display:flex; justify-content:space-between; align-items:center; background:#1a73e8; color:#fff; padding:12.75px 45px; position:sticky; top:0; z-index:1000;">
+<header style="display:flex; justify-content:space-between; align-items:flex-end; background:#1a73e8; color:#fff; padding:12.75px 45px; position:sticky; top:0; z-index:1000;">
   <div class="logo" style="font-size:1.6rem; font-weight:bold; color:#fff; margin-left:190px;">
     <a href="index.html" style="color:#fff; text-decoration:none;">VuTek</a>
   </div>
@@ -144,18 +136,63 @@ a { text-decoration:none; color:inherit; }
 </footer>
 
 <!-- ===== 手機即時微調控制面板（隱藏，不顯示） ===== -->
-<div id="headerControlPanel" style="display:none;"></div>
+<div id="headerControlPanel">
+  <span>Mobile Adjust Panel</span>
+  <label for="logoMargin">Logo Left Margin (px)</label>
+  <input type="range" id="logoMargin" min="0" max="200" value="190">
+  <span id="logoMarginValue">190 px</span>
 
-<!-- ===== 漢堡 JS ===== -->
+  <label for="navGap">Nav Gap (px)</label>
+  <input type="range" id="navGap" min="0" max="60" value="19">
+  <span id="navGapValue">19 px</span>
+
+  <label for="tagMargin">Tag Bottom Margin (px)</label>
+  <input type="range" id="tagMargin" min="0" max="40" value="8">
+  <span id="tagMarginValue">8 px</span>
+</div>
+
+<!-- ===== 漢堡與滑桿 JS ===== -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   const hamburger = document.querySelector('.hamburger');
   const navMenu = document.querySelector('nav ul');
+  const logo = document.querySelector('header .logo');
+  const heroPoints = document.querySelectorAll('.hero-point');
 
   if(window.innerWidth <= 768){
     // 漢堡切換
     hamburger.addEventListener('click', () => {
       navMenu.classList.toggle('show');
+    });
+
+    // Logo margin
+    const logoSlider = document.getElementById('logoMargin');
+    const logoValue = document.getElementById('logoMarginValue');
+    logo.style.marginLeft = logoSlider.value + 'px';
+    logoValue.textContent = logoSlider.value + ' px';
+    logoSlider.addEventListener('input', e => {
+      logo.style.marginLeft = e.target.value + 'px';
+      logoValue.textContent = e.target.value + ' px';
+    });
+
+    // Nav gap
+    const navSlider = document.getElementById('navGap');
+    const navValue = document.getElementById('navGapValue');
+    navMenu.style.gap = navSlider.value + 'px';
+    navValue.textContent = navSlider.value + ' px';
+    navSlider.addEventListener('input', e => {
+      navMenu.style.gap = e.target.value + 'px';
+      navValue.textContent = e.target.value + ' px';
+    });
+
+    // Hero points margin
+    const tagSlider = document.getElementById('tagMargin');
+    const tagValue = document.getElementById('tagMarginValue');
+    heroPoints.forEach(p => p.style.marginBottom = tagSlider.value + 'px');
+    tagValue.textContent = tagSlider.value + ' px';
+    tagSlider.addEventListener('input', e => {
+      heroPoints.forEach(p => p.style.marginBottom = e.target.value + 'px');
+      tagValue.textContent = e.target.value + ' px';
     });
   }
 });
