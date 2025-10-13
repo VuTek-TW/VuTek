@@ -55,7 +55,8 @@ footer .footer-info a:hover {
   }
   footer .footer-info span::after { content: "" !important; }
 
-  #headerControlPanel { display:block; }
+  /* 手機 slider 隱藏 */
+  #headerControlPanel { display:none; }
 }
 
 /* ===== 電腦版 footer ===== */
@@ -77,9 +78,11 @@ footer .footer-info a:hover {
     right: -16px;
   }
 
+  /* PC slider 隱藏 */
   #headerControlPanel { display:none !important; }
 
-  header .logo { margin-left:145px; } /* 固定 PC logo 145px */
+  /* PC logo 固定 145px */
+  header .logo { margin-left:145px; }
 }
 </style>
 </head>
@@ -136,72 +139,37 @@ footer .footer-info a:hover {
   <p class="copyright" style="margin:0; font-size:0.9rem;">© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
 </footer>
 
-<!-- 手機 slider panel 保留 -->
-<div id="headerControlPanel" style="display:none;">
-  <span>Mobile Adjust Panel</span>
-  <label for="logoMargin">Logo Left Margin (px)</label>
-  <input type="range" id="logoMargin" min="0" max="200" value="145">
-  <span id="logoMarginValue">145 px</span>
-
-  <label for="navGap">Nav Gap (px)</label>
-  <input type="range" id="navGap" min="0" max="60" value="19">
-  <span id="navGapValue">19 px</span>
-
-  <label for="tagMargin">Tag Bottom Margin (px)</label>
-  <input type="range" id="tagMargin" min="0" max="40" value="8">
-  <span id="tagMarginValue">8 px</span>
-</div>
+<!-- slider panel 完全隱藏 -->
+<div id="headerControlPanel" style="display:none;"></div>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   const hamburger = document.querySelector('.hamburger');
   const navMenu = document.querySelector('nav ul');
   const logo = document.querySelector('header .logo');
-  const heroPoints = document.querySelectorAll('.hero-point');
 
-  // 手機 slider
+  hamburger.addEventListener('click', () => { navMenu.classList.toggle('show'); });
+
   if(window.innerWidth <= 768){
-    document.getElementById('headerControlPanel').style.display = 'block';
-    hamburger.addEventListener('click', () => { navMenu.classList.toggle('show'); });
-
-    const logoSlider = document.getElementById('logoMargin');
-    const logoValue = document.getElementById('logoMarginValue');
-    logo.style.marginLeft = logoSlider.value + 'px';
-    logoValue.textContent = logoSlider.value + ' px';
-
-    logoSlider.addEventListener('input', e => {
-      logo.style.marginLeft = e.target.value + 'px';
-      logoValue.textContent = e.target.value + ' px';
-    });
-
-    const navSlider = document.getElementById('navGap');
-    const navValue = document.getElementById('navGapValue');
-    navMenu.style.gap = navSlider.value + 'px';
-    navValue.textContent = navSlider.value + ' px';
-    navSlider.addEventListener('input', e => {
-      navMenu.style.gap = e.target.value + 'px';
-      navValue.textContent = e.target.value + ' px';
-    });
-
-    const tagSlider = document.getElementById('tagMargin');
-    const tagValue = document.getElementById('tagMarginValue');
-    heroPoints.forEach(p => p.style.marginBottom = tagSlider.value + 'px');
-    tagValue.textContent = tagSlider.value + ' px';
-    tagSlider.addEventListener('input', e => {
-      heroPoints.forEach(p => p.style.marginBottom = e.target.value + 'px');
-      tagValue.textContent = e.target.value + ' px';
-    });
+    logo.style.marginLeft = '190px'; // 手機 logo
   }
 
-  // PC logo 固定 145px，不顯示 slider
   if(window.innerWidth >= 769){
-    logo.style.marginLeft = '145px';
+    logo.style.marginLeft = '145px'; // PC logo
+  }
+
+  // slider 隱藏
+  const sliderPanel = document.getElementById('headerControlPanel');
+  if(sliderPanel){
+    sliderPanel.style.display = 'none';
   }
 });
 </script>
 
 </body>
 </html>
+
+
 
 
 
