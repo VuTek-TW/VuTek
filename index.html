@@ -41,16 +41,15 @@ a { text-decoration:none; color:inherit; }
   .hero-bold { margin-right:3px; }
 
   /* Footer 手機版換行，去掉分隔符號 */
+  footer .footer-info {
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
   footer .footer-info span {
     display: block !important;
-    margin-bottom: 4px !important;
+    margin:0 0 4px 0 !important;
   }
-  footer .footer-info span + span {
-    margin-left: 0 !important;
-  }
-  footer .footer-info span::after {
-    content: "" !important;
-  }
+  footer .footer-info span::after { content: "" !important; }
 
   /* 滑桿控制面板 */
   #headerControlPanel { display:block; position:fixed; bottom:20px; right:20px; background:#fff; border:1px solid #ccc; padding:10px; border-radius:8px; z-index:2000; font-size:14px; width:220px; box-shadow:0 2px 10px rgba(0,0,0,0.2); }
@@ -59,15 +58,15 @@ a { text-decoration:none; color:inherit; }
   #headerControlPanel span { display:inline-block; margin-bottom:5px; font-weight:bold; }
 }
 
-/* ===== 電腦版 footer 分隔符號間隔加大50% ===== */
+/* ===== 電腦版 footer 分隔符號平均間隔 ===== */
 @media (min-width:769px){
-  footer .footer-info span {
-    display:inline-block;
-    margin-right:18px; /* 假設原本12px，加大50% */
+  footer .footer-info {
+    display:flex;
+    justify-content:center; /* 平均左右間距 */
+    align-items:center;
+    gap:18px; /* 原本間隔加大50% */
   }
-  footer .footer-info span:last-child {
-    margin-right:0;
-  }
+  footer .footer-info span { display:inline; }
 }
 </style>
 </head>
@@ -187,6 +186,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </body>
 </html>
+
 
 
 
