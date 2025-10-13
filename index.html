@@ -8,23 +8,48 @@
 <style>
 body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f4f6f8; color:#333; margin:0; padding:0; }
 a { text-decoration:none; color:inherit; }
+
+/* ===== 手機專用 ===== */
 @media (max-width:768px){
-  nav ul { display:none; flex-direction:column; background:#1a73e8; position:absolute; top:50px; right:20px; border-radius:8px; overflow:hidden; }
+
+  /* 漢堡選單 */
+  nav ul {
+    display:none;
+    flex-direction:column;
+    background:#1a73e8;
+    position:absolute;
+    top:50px;
+    right:20px;
+    border-radius:8px;
+    overflow:hidden;
+    gap:12px; /* 可滑桿調整 */
+  }
   nav ul.show { display:flex; }
   nav ul li { padding:10px 20px; margin-left:0; }
-  .hamburger { display:block; }
-  h1 { font-size:1.6rem; }
-  .hero-text .lead { max-width:100%; }
-  .hero-point { flex-wrap:wrap; }
-}
 
-/* 控制面板 (默認隱藏) */
-#headerControlPanel { display:none; position:fixed; bottom:20px; right:20px; background:#fff; border:1px solid #ccc; padding:10px; border-radius:8px; z-index:2000;
-  font-size:14px; width:220px; box-shadow:0 2px 10px rgba(0,0,0,0.2);
+  .hamburger { display:block; cursor:pointer; }
+
+  /* Hero 標題自動換行 */
+  .hero-text h1 { white-space: normal !important; font-size:1.6rem; text-align:center; }
+
+  /* Hero 文字寬度自適應 */
+  .hero-text .lead { max-width:100%; }
+
+  /* Hero points 彈性換行 */
+  .hero-point { flex-wrap:wrap; margin-bottom:8px; }
+  .hero-arrow { margin-right:5px; }
+  .hero-bold { margin-right:3px; }
+
+  /* Footer 手機換行，去掉分隔符號 */
+  .footer-info span { display:block; margin-bottom:4px; }
+  .footer-info span + span { margin-left:0; }
+
+  /* 滑桿控制面板 */
+  #headerControlPanel { display:block; position:fixed; bottom:20px; right:20px; background:#fff; border:1px solid #ccc; padding:10px; border-radius:8px; z-index:2000; font-size:14px; width:220px; box-shadow:0 2px 10px rgba(0,0,0,0.2); }
+  #headerControlPanel label { display:block; margin:8px 0 2px; }
+  #headerControlPanel input { width:100%; margin-bottom:2px; }
+  #headerControlPanel span { display:inline-block; margin-bottom:5px; font-weight:bold; }
 }
-#headerControlPanel label { display:block; margin:8px 0 2px; }
-#headerControlPanel input { width:100%; margin-bottom:2px; }
-#headerControlPanel span { display:inline-block; margin-bottom:5px; font-weight:bold; }
 </style>
 </head>
 <body class="index-page">
@@ -48,7 +73,7 @@ a { text-decoration:none; color:inherit; }
 <!-- ===== HERO ===== -->
 <section class="hero">
   <div class="hero-text" style="max-width:800px; margin:40px auto; padding:0 20px; line-height:1.6;">
-    <h1 style="text-align:center; margin-bottom:20px; color:#1a1a1a; font-size:2rem; white-space:nowrap; overflow:visible;">
+    <h1 style="text-align:center; margin-bottom:20px; color:#1a1a1a; font-size:2rem; overflow:visible;">
       Empowering Your Business to Win
     </h1>
     <p class="lead" style="text-align:left; margin-bottom:20px; max-width:750px; word-wrap:break-word;">
@@ -77,16 +102,55 @@ a { text-decoration:none; color:inherit; }
 <footer style="background:#1a73e8; color:#fff; text-align:center; padding:8px 0; margin-top:40px;">
   <div class="footer-info" style="margin-bottom:5px; font-size:0.95rem;">
     <span><a href="https://www.google.com/maps/search/?api=1&query=123+Business+St,+Hong+Kong" style="color:#fff; text-decoration:none;" target="_blank">Address: 123 Business St, Hong Kong</a></span>
-    <span style="margin:0 12px;">|</span>
     <span><a href="mailto:info@vutek.com" style="color:#fff; text-decoration:none;">Email: info@vutek.com</a></span>
-    <span style="margin:0 12px;">|</span>
     <span><a href="https://wa.me/886907903072" style="color:#fff; text-decoration:none;" target="_blank">WhatsApp: +886 907903072</a></span>
   </div>
   <p class="copyright" style="margin:0; font-size:0.9rem;">© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
 </footer>
 
+<!-- ===== 手機即時微調控制面板 ===== -->
+<div id="headerControlPanel">
+  <span>Mobile Adjust Panel</span>
+  <label for="logoMargin">Logo Left Margin (px)</label>
+  <input type="range" id="logoMargin" min="0" max="200" value="144">
+  <label for="navGap">Nav Gap (px)</label>
+  <input type="range" id="navGap" min="0" max="60" value="44">
+  <label for="tagMargin">Tag Bottom Margin (px)</label>
+  <input type="range" id="tagMargin" min="0" max="40" value="8">
+</div>
+
+<!-- ===== 漢堡與滑桿 JS ===== -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('nav ul');
+  const logo = document.querySelector('header .logo');
+  const heroPoints = document.querySelectorAll('.hero-point');
+
+  // 只在手機生效
+  if(window.innerWidth <= 768){
+    // 漢堡切換
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+    });
+
+    // 滑桿調整
+    document.getElementById('logoMargin').addEventListener('input', e => {
+      logo.style.marginLeft = e.target.value + 'px';
+    });
+    document.getElementById('navGap').addEventListener('input', e => {
+      navMenu.style.gap = e.target.value + 'px';
+    });
+    document.getElementById('tagMargin').addEventListener('input', e => {
+      heroPoints.forEach(p => p.style.marginBottom = e.target.value + 'px');
+    });
+  }
+});
+</script>
+
 </body>
 </html>
+
 
 
 
