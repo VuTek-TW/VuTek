@@ -67,14 +67,14 @@ a { text-decoration:none; color:inherit; }
   }
   footer .footer-info span {
     display:inline-block;
-    margin-left:9px;  /* 間隔的一半 */
-    margin-right:9px; /* 間隔的一半 */
+    margin-left:16px;  /* 左右間隔一半 */
+    margin-right:16px; /* 左右間隔一半 */
+    position: relative;
   }
-  footer .footer-info span:first-child {
-    margin-left:0;
-  }
-  footer .footer-info span:last-child {
-    margin-right:0;
+  footer .footer-info span:not(:last-child)::after {
+    content: "|";
+    position: absolute;
+    right: -16px; /* 與 margin 配合，正好在兩元素中間 */
   }
 }
 </style>
@@ -128,8 +128,8 @@ a { text-decoration:none; color:inherit; }
 <!-- ===== FOOTER ===== -->
 <footer style="background:#1a73e8; color:#fff; text-align:center; padding:8px 0; margin-top:40px;">
   <div class="footer-info" style="margin-bottom:5px; font-size:0.95rem;">
-    <span><a href="https://www.google.com/maps/search/?api=1&query=123+Business+St,+Hong+Kong" style="color:#fff; text-decoration:none;" target="_blank">Address: 123 Business St, Hong Kong</a> | </span>
-    <span><a href="mailto:info@vutek.com" style="color:#fff; text-decoration:none;">Email: info@vutek.com</a> | </span>
+    <span><a href="https://www.google.com/maps/search/?api=1&query=123+Business+St,+Hong+Kong" style="color:#fff; text-decoration:none;" target="_blank">Address: 123 Business St, Hong Kong</a></span>
+    <span><a href="mailto:info@vutek.com" style="color:#fff; text-decoration:none;">Email: info@vutek.com</a></span>
     <span><a href="https://wa.me/886907903072" style="color:#fff; text-decoration:none;" target="_blank">WhatsApp: +886 907903072</a></span>
   </div>
   <p class="copyright" style="margin:0; font-size:0.9rem;">© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
@@ -195,6 +195,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </body>
 </html>
+
 
 
 
