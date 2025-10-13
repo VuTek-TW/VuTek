@@ -22,7 +22,7 @@ a { text-decoration:none; color:inherit; }
     right:20px;
     border-radius:8px;
     overflow:hidden;
-    gap:12px; /* 可滑桿調整 */
+    gap:12px;
   }
   nav ul.show { display:flex; }
   nav ul li { padding:10px 20px; margin-left:0; }
@@ -40,9 +40,17 @@ a { text-decoration:none; color:inherit; }
   .hero-arrow { margin-right:5px; }
   .hero-bold { margin-right:3px; }
 
-  /* Footer 手機換行，去掉分隔符號 */
-  .footer-info span { display:block; margin-bottom:4px; }
-  .footer-info span + span { margin-left:0; }
+  /* Footer 手機版換行，去掉分隔符號 */
+  footer .footer-info span {
+    display: block !important;
+    margin-bottom: 4px !important;
+  }
+  footer .footer-info span + span {
+    margin-left: 0 !important;
+  }
+  footer .footer-info span::after {
+    content: "" !important;
+  }
 
   /* 滑桿控制面板 */
   #headerControlPanel { display:block; position:fixed; bottom:20px; right:20px; background:#fff; border:1px solid #ccc; padding:10px; border-radius:8px; z-index:2000; font-size:14px; width:220px; box-shadow:0 2px 10px rgba(0,0,0,0.2); }
@@ -101,8 +109,8 @@ a { text-decoration:none; color:inherit; }
 <!-- ===== FOOTER ===== -->
 <footer style="background:#1a73e8; color:#fff; text-align:center; padding:8px 0; margin-top:40px;">
   <div class="footer-info" style="margin-bottom:5px; font-size:0.95rem;">
-    <span><a href="https://www.google.com/maps/search/?api=1&query=123+Business+St,+Hong+Kong" style="color:#fff; text-decoration:none;" target="_blank">Address: 123 Business St, Hong Kong</a></span>
-    <span><a href="mailto:info@vutek.com" style="color:#fff; text-decoration:none;">Email: info@vutek.com</a></span>
+    <span><a href="https://www.google.com/maps/search/?api=1&query=123+Business+St,+Hong+Kong" style="color:#fff; text-decoration:none;" target="_blank">Address: 123 Business St, Hong Kong</a> | </span>
+    <span><a href="mailto:info@vutek.com" style="color:#fff; text-decoration:none;">Email: info@vutek.com</a> | </span>
     <span><a href="https://wa.me/886907903072" style="color:#fff; text-decoration:none;" target="_blank">WhatsApp: +886 907903072</a></span>
   </div>
   <p class="copyright" style="margin:0; font-size:0.9rem;">© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
@@ -168,6 +176,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </body>
 </html>
+
 
 
 
