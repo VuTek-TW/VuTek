@@ -19,7 +19,7 @@ a { text-decoration:none; color:inherit; }
     background:#1a73e8;
     position:absolute;
     top:50px;
-    right:20px;
+    right:12px; /* 手機版 Hamburger 右邊距調整 */
     border-radius:8px;
     overflow:hidden;
     gap:19px; /* Nav Gap 初始值 */
@@ -53,6 +53,9 @@ a { text-decoration:none; color:inherit; }
 
   /* Mobile Adjust Panel 手機版預設隱藏 */
   #headerControlPanel { display:none; }
+
+  /* 手機版 Logo 左邊距調整 */
+  header .logo { margin-left:165px; }
 }
 
 /* ===== 電腦版 footer 左右對稱間隔 ===== */
@@ -139,8 +142,8 @@ a { text-decoration:none; color:inherit; }
 <div id="headerControlPanel">
   <span>Mobile Adjust Panel</span>
   <label for="logoMargin">Logo Left Margin (px)</label>
-  <input type="range" id="logoMargin" min="0" max="200" value="144">
-  <span id="logoMarginValue">144 px</span>
+  <input type="range" id="logoMargin" min="0" max="200" value="165">
+  <span id="logoMarginValue">165 px</span>
 
   <label for="navGap">Nav Gap (px)</label>
   <input type="range" id="navGap" min="0" max="60" value="19">
@@ -200,6 +203,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </body>
 </html>
+
 
 
 
