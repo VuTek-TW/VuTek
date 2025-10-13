@@ -17,42 +17,35 @@ footer .footer-info a {
   border-bottom: 1px solid transparent;
 }
 footer .footer-info a:hover {
-  color: #ffeb3b; /* 微亮黃色 */
+  color: #ffeb3b;
   border-bottom: 1px solid #ffeb3b;
 }
 
 /* ===== 手機專用 ===== */
 @media (max-width:768px){
 
-  /* 漢堡選單 */
   nav ul {
-    display:none !important; /* 手機版初始折疊 */
+    display:none !important;
     flex-direction:column;
     background:#1a73e8;
     position:absolute;
     top:50px;
-    right:20px; /* Hamburger 右距 */
+    right:20px;
     border-radius:8px;
     overflow:hidden;
-    gap:19px; /* Nav Gap 初始值 */
+    gap:19px;
     z-index:1000;
   }
   nav ul.show { display:flex !important; }
   nav ul li { padding:10px 20px; margin-left:0; }
   .hamburger { display:block; cursor:pointer; position:absolute; top:50%; transform:translateY(-50%); right:20px; }
 
-  /* Hero 標題自動換行 */
   .hero-text h1 { white-space: normal !important; font-size:1.6rem; text-align:center; }
-
-  /* Hero 文字寬度自適應 */
   .hero-text .lead { max-width:100%; }
-
-  /* Hero points 彈性換行 */
   .hero-point { flex-wrap:wrap; margin-bottom:8px; }
   .hero-arrow { margin-right:5px; }
   .hero-bold { margin-right:3px; }
 
-  /* Footer 手機版換行，去掉分隔符號 */
   footer .footer-info {
     flex-direction: column !important;
     gap: 0 !important;
@@ -63,11 +56,10 @@ footer .footer-info a:hover {
   }
   footer .footer-info span::after { content: "" !important; }
 
-  /* Mobile Adjust Panel 手機版預設隱藏 */
   #headerControlPanel { display:block; }
 }
 
-/* ===== 電腦版 footer 左右對稱間隔 ===== */
+/* ===== 電腦版 footer ===== */
 @media (min-width:769px){
   footer .footer-info {
     display:flex;
@@ -76,27 +68,25 @@ footer .footer-info a:hover {
   }
   footer .footer-info span {
     display:inline-block;
-    margin-left:16px;  /* 左右間隔一半 */
-    margin-right:16px; /* 左右間隔一半 */
+    margin-left:16px;
+    margin-right:16px;
     position: relative;
   }
   footer .footer-info span:not(:last-child)::after {
     content: "|";
     position: absolute;
-    right: -16px; /* 與 margin 配合，正好在兩元素中間 */
+    right: -16px;
   }
 
-  /* PC 版 Mobile Adjust Panel 完全隱藏 */
   #headerControlPanel { display:none !important; }
 
-  /* PC 版 logo 固定位置，不受其他元素影響 */
-  header .logo { margin-left:190px !important; }
+  /* 移除 !important，讓 slider 可控制 */
+  header .logo { margin-left:190px; }
 }
 </style>
 </head>
 <body class="index-page">
 
-<!-- ===== HEADER ===== -->
 <header style="display:flex; justify-content:space-between; align-items:flex-end; background:#1a73e8; color:#fff; padding:12.75px 45px; position:sticky; top:0; z-index:1000;">
   <div class="logo" style="font-size:1.6rem; font-weight:bold; color:#fff; margin-left:190px;">
     <a href="index.html" style="color:#fff; text-decoration:none;">VuTek</a>
@@ -112,7 +102,6 @@ footer .footer-info a:hover {
   </nav>
 </header>
 
-<!-- ===== HERO ===== -->
 <section class="hero">
   <div class="hero-text" style="max-width:800px; margin:40px auto; padding:0 20px; line-height:1.6;">
     <h1 style="text-align:center; margin-bottom:20px; color:#1a1a1a; font-size:2rem; overflow:visible;">
@@ -140,7 +129,6 @@ footer .footer-info a:hover {
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
 <footer style="background:#1a73e8; color:#fff; text-align:center; padding:8px 0; margin-top:40px;">
   <div class="footer-info" style="margin-bottom:5px; font-size:0.95rem;">
     <span><a href="https://www.google.com/maps/search/?api=1&query=123+Business+St,+Hong+Kong" target="_blank">Address: 123 Business St, Hong Kong</a></span>
@@ -150,7 +138,6 @@ footer .footer-info a:hover {
   <p class="copyright" style="margin:0; font-size:0.9rem;">© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
 </footer>
 
-<!-- ===== 手機即時微調控制面板 ===== -->
 <div id="headerControlPanel" style="display:none;">
   <span>Mobile Adjust Panel</span>
   <label for="logoMargin">Logo Left Margin (px)</label>
@@ -166,14 +153,12 @@ footer .footer-info a:hover {
   <span id="tagMarginValue">8 px</span>
 </div>
 
-<!-- ===== PC 專用 Logo 調整面板 ===== -->
 <div id="pcLogoPanel" style="position:fixed; top:80px; right:10px; background:#fff; border:1px solid #ccc; padding:10px; z-index:10000; display:none;">
   <label for="pcLogoSlider">PC Logo Left Margin (px)</label>
   <input type="range" id="pcLogoSlider" min="0" max="400" value="190">
   <span id="pcLogoValue">190 px</span>
 </div>
 
-<!-- ===== 漢堡與滑桿 JS ===== -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   const hamburger = document.querySelector('.hamburger');
@@ -181,14 +166,11 @@ document.addEventListener("DOMContentLoaded", function() {
   const logo = document.querySelector('header .logo');
   const heroPoints = document.querySelectorAll('.hero-point');
 
-  // 手機版 slider
+  // 手機 slider
   if(window.innerWidth <= 768){
     document.getElementById('headerControlPanel').style.display = 'block';
-
-    // 漢堡切換
     hamburger.addEventListener('click', () => { navMenu.classList.toggle('show'); });
 
-    // Logo margin
     const logoSlider = document.getElementById('logoMargin');
     const logoValue = document.getElementById('logoMarginValue');
     logo.style.marginLeft = logoSlider.value + 'px';
@@ -198,7 +180,6 @@ document.addEventListener("DOMContentLoaded", function() {
       logoValue.textContent = e.target.value + ' px';
     });
 
-    // Nav gap
     const navSlider = document.getElementById('navGap');
     const navValue = document.getElementById('navGapValue');
     navMenu.style.gap = navSlider.value + 'px';
@@ -208,7 +189,6 @@ document.addEventListener("DOMContentLoaded", function() {
       navValue.textContent = e.target.value + ' px';
     });
 
-    // Hero points margin
     const tagSlider = document.getElementById('tagMargin');
     const tagValue = document.getElementById('tagMarginValue');
     heroPoints.forEach(p => p.style.marginBottom = tagSlider.value + 'px');
@@ -219,7 +199,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
-  // PC 專用 slider
+  // PC slider
   if(window.innerWidth >= 769){
     const pcPanel = document.getElementById('pcLogoPanel');
     pcPanel.style.display = 'block';
@@ -240,6 +220,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </body>
 </html>
+
 
 
 
