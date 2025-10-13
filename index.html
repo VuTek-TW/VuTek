@@ -9,6 +9,18 @@
 body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f4f6f8; color:#333; margin:0; padding:0; }
 a { text-decoration:none; color:inherit; }
 
+/* ===== Footer 連結 Hover 效果 ===== */
+footer .footer-info a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s, border-bottom 0.3s;
+  border-bottom: 1px solid transparent;
+}
+footer .footer-info a:hover {
+  color: #ffeb3b; /* 微亮黃色 */
+  border-bottom: 1px solid #ffeb3b;
+}
+
 /* ===== 手機專用 ===== */
 @media (max-width:768px){
 
@@ -131,9 +143,9 @@ a { text-decoration:none; color:inherit; }
 <!-- ===== FOOTER ===== -->
 <footer style="background:#1a73e8; color:#fff; text-align:center; padding:8px 0; margin-top:40px;">
   <div class="footer-info" style="margin-bottom:5px; font-size:0.95rem;">
-    <span><a href="https://www.google.com/maps/search/?api=1&query=123+Business+St,+Hong+Kong" style="color:#fff; text-decoration:none;" target="_blank">Address: 123 Business St, Hong Kong</a></span>
-    <span><a href="mailto:info@vutek.com" style="color:#fff; text-decoration:none;">Email: info@vutek.com</a></span>
-    <span><a href="https://wa.me/886907903072" style="color:#fff; text-decoration:none;" target="_blank">WhatsApp: +886 907903072</a></span>
+    <span><a href="https://www.google.com/maps/search/?api=1&query=123+Business+St,+Hong+Kong" target="_blank">Address: 123 Business St, Hong Kong</a></span>
+    <span><a href="mailto:info@vutek.com">Email: info@vutek.com</a></span>
+    <span><a href="https://wa.me/886907903072" target="_blank">WhatsApp: +886 907903072</a></span>
   </div>
   <p class="copyright" style="margin:0; font-size:0.9rem;">© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
 </footer>
@@ -203,6 +215,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </body>
 </html>
+
 
 
 
