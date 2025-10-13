@@ -58,6 +58,17 @@ a { text-decoration:none; color:inherit; }
   #headerControlPanel input { width:100%; margin-bottom:2px; }
   #headerControlPanel span { display:inline-block; margin-bottom:5px; font-weight:bold; }
 }
+
+/* ===== 電腦版 footer 分隔符號間隔加大50% ===== */
+@media (min-width:769px){
+  footer .footer-info span {
+    display:inline-block;
+    margin-right:18px; /* 假設原本12px，加大50% */
+  }
+  footer .footer-info span:last-child {
+    margin-right:0;
+  }
+}
 </style>
 </head>
 <body class="index-page">
@@ -176,6 +187,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </body>
 </html>
+
 
 
 
