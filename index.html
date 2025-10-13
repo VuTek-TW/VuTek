@@ -111,12 +111,18 @@ a { text-decoration:none; color:inherit; }
 <!-- ===== 手機即時微調控制面板 ===== -->
 <div id="headerControlPanel">
   <span>Mobile Adjust Panel</span>
+
   <label for="logoMargin">Logo Left Margin (px)</label>
   <input type="range" id="logoMargin" min="0" max="200" value="144">
+  <span id="logoMarginValue">144 px</span>
+
   <label for="navGap">Nav Gap (px)</label>
   <input type="range" id="navGap" min="0" max="60" value="44">
+  <span id="navGapValue">44 px</span>
+
   <label for="tagMargin">Tag Bottom Margin (px)</label>
   <input type="range" id="tagMargin" min="0" max="40" value="8">
+  <span id="tagMarginValue">8 px</span>
 </div>
 
 <!-- ===== 漢堡與滑桿 JS ===== -->
@@ -127,22 +133,34 @@ document.addEventListener("DOMContentLoaded", function() {
   const logo = document.querySelector('header .logo');
   const heroPoints = document.querySelectorAll('.hero-point');
 
-  // 只在手機生效
   if(window.innerWidth <= 768){
     // 漢堡切換
     hamburger.addEventListener('click', () => {
       navMenu.classList.toggle('show');
     });
 
-    // 滑桿調整
-    document.getElementById('logoMargin').addEventListener('input', e => {
+    // Logo margin
+    const logoSlider = document.getElementById('logoMargin');
+    const logoValue = document.getElementById('logoMarginValue');
+    logoSlider.addEventListener('input', e => {
       logo.style.marginLeft = e.target.value + 'px';
+      logoValue.textContent = e.target.value + ' px';
     });
-    document.getElementById('navGap').addEventListener('input', e => {
+
+    // Nav gap
+    const navSlider = document.getElementById('navGap');
+    const navValue = document.getElementById('navGapValue');
+    navSlider.addEventListener('input', e => {
       navMenu.style.gap = e.target.value + 'px';
+      navValue.textContent = e.target.value + ' px';
     });
-    document.getElementById('tagMargin').addEventListener('input', e => {
+
+    // Hero points margin
+    const tagSlider = document.getElementById('tagMargin');
+    const tagValue = document.getElementById('tagMarginValue');
+    tagSlider.addEventListener('input', e => {
       heroPoints.forEach(p => p.style.marginBottom = e.target.value + 'px');
+      tagValue.textContent = e.target.value + ' px';
     });
   }
 });
@@ -150,6 +168,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </body>
 </html>
+
+
 
 
 
