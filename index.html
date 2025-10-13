@@ -171,6 +171,37 @@ document.addEventListener("DOMContentLoaded", function() {
     const logoValue = document.getElementById('logoMarginValue');
     logo.style.marginLeft = logoSlider.value + 'px';
     logoValue.textContent = logoSlider.value + ' px';
+    logoSlider.addEventListener('input', e => {
+      logo.style.marginLeft = e.target.value + 'px';
+      logoValue.textContent = e.target.value + ' px';
+    });
+
+    // Nav gap
+    const navSlider = document.getElementById('navGap');
+    const navValue = document.getElementById('navGapValue');
+    navMenu.style.gap = navSlider.value + 'px';
+    navValue.textContent = navSlider.value + ' px';
+    navSlider.addEventListener('input', e => {
+      navMenu.style.gap = e.target.value + 'px';
+      navValue.textContent = e.target.value + ' px';
+    });
+
+    // Hero points margin
+    const tagSlider = document.getElementById('tagMargin');
+    const tagValue = document.getElementById('tagMarginValue');
+    heroPoints.forEach(p => p.style.marginBottom = tagSlider.value + 'px');
+    tagValue.textContent = tagSlider.value + ' px';
+    tagSlider.addEventListener('input', e => {
+      heroPoints.forEach(p => p.style.marginBottom = e.target.value + 'px');
+      tagValue.textContent = e.target.value + ' px';
+    });
+  }
+});
+</script>
+
+</body>
+</html>
+
    
 
 
