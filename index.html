@@ -19,7 +19,7 @@ a { text-decoration:none; color:inherit; }
     background:#1a73e8;
     position:absolute;
     top:50px;
-    right:20px; /* Hamburger 右邊距 */
+    right:20px; /* 漢堡右邊距 20px */
     border-radius:8px;
     overflow:hidden;
     gap:19px; /* Nav Gap 初始值 */
@@ -36,7 +36,7 @@ a { text-decoration:none; color:inherit; }
   .hero-text .lead { max-width:100%; }
 
   /* Hero points 彈性換行 */
-  .hero-point { flex-wrap:wrap; margin-bottom:8px; }
+  .hero-point { flex-wrap:wrap; margin-bottom:8px; } /* 保留你原本選擇 8px */
   .hero-arrow { margin-right:5px; }
   .hero-bold { margin-right:3px; }
 
@@ -51,14 +51,8 @@ a { text-decoration:none; color:inherit; }
   }
   footer .footer-info span::after { content: "" !important; }
 
-  /* 手機版 Logo 左邊距 */
-  header .logo { margin-left:190px; }
-
-  /* 手機版 Hamburger 右邊距 */
-  header nav .hamburger { right:20px; position:absolute; top:15px; }
-
-  /* Mobile Adjust Panel 手機版隱藏 */
-  #mobileControlPanel { display:none; }
+  /* Mobile Adjust Panel 手機版預設隱藏 */
+  #headerControlPanel { display:none; }
 }
 
 /* ===== 電腦版 footer 左右對稱間隔 ===== */
@@ -70,18 +64,18 @@ a { text-decoration:none; color:inherit; }
   }
   footer .footer-info span {
     display:inline-block;
-    margin-left:16px;
-    margin-right:16px;
+    margin-left:16px;  /* 左右間隔一半 */
+    margin-right:16px; /* 左右間隔一半 */
     position: relative;
   }
   footer .footer-info span:not(:last-child)::after {
     content: "|";
     position: absolute;
-    right: -16px;
+    right: -16px; /* 與 margin 配合，正好在兩元素中間 */
   }
 
   /* PC 版 Mobile Adjust Panel 完全隱藏 */
-  #mobileControlPanel { display:none !important; }
+  #headerControlPanel { display:none !important; }
 }
 </style>
 </head>
@@ -89,7 +83,7 @@ a { text-decoration:none; color:inherit; }
 
 <!-- ===== HEADER ===== -->
 <header style="display:flex; justify-content:space-between; align-items:flex-end; background:#1a73e8; color:#fff; padding:12.75px 45px; position:sticky; top:0; z-index:1000;">
-  <div class="logo" style="font-size:1.6rem; font-weight:bold; color:#fff; margin-left:190px;">
+  <div class="logo" style="font-size:1.6rem; font-weight:bold; color:#fff; margin-left:190px;"> <!-- Logo 左邊距 190px -->
     <a href="index.html" style="color:#fff; text-decoration:none;">VuTek</a>
   </div>
   <nav>
@@ -99,7 +93,7 @@ a { text-decoration:none; color:inherit; }
       <li><a href="about.html" style="color:#fff; font-weight:500;">About Us</a></li>
       <li><a href="contact.html" style="color:#fff; font-weight:500;">Contact Us</a></li>
     </ul>
-    <div class="hamburger">&#9776;</div>
+    <div class="hamburger">&#9776;</div> <!-- 漢堡折疊 -->
   </nav>
 </header>
 
@@ -142,18 +136,63 @@ a { text-decoration:none; color:inherit; }
 </footer>
 
 <!-- ===== 手機即時微調控制面板（隱藏，不顯示） ===== -->
-<div id="mobileControlPanel" style="display:none;"></div>
+<div id="headerControlPanel" style="display:none;">
+  <span>Mobile Adjust Panel</span>
+  <label for="logoMargin">Logo Left Margin (px)</label>
+  <input type="range" id="logoMargin" min="0" max="200" value="190">
+  <span id="logoMarginValue">190 px</span>
+
+  <label for="navGap">Nav Gap (px)</label>
+  <input type="range" id="navGap" min="0" max="60" value="19">
+  <span id="navGapValue">19 px</span>
+
+  <label for="tagMargin">Tag Bottom Margin (px)</label>
+  <input type="range" id="tagMargin" min="0" max="40" value="8">
+  <span id="tagMarginValue">8 px</span>
+</div>
 
 <!-- ===== 漢堡 JS ===== -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   const hamburger = document.querySelector('.hamburger');
   const navMenu = document.querySelector('nav ul');
+  const logo = document.querySelector('header .logo');
+  const heroPoints = document.querySelectorAll('.hero-point');
 
   if(window.innerWidth <= 768){
     // 漢堡切換
     hamburger.addEventListener('click', () => {
       navMenu.classList.toggle('show');
+    });
+
+    // Logo margin
+    const logoSlider = document.getElementById('logoMargin');
+    const logoValue = document.getElementById('logoMarginValue');
+    logo.style.marginLeft = logoSlider.value + 'px';
+    logoValue.textContent = logoSlider.value + ' px';
+    logoSlider.addEventListener('input', e => {
+      logo.style.marginLeft = e.target.value + 'px';
+      logoValue.textContent = e.target.value + ' px';
+    });
+
+    // Nav gap
+    const navSlider = document.getElementById('navGap');
+    const navValue = document.getElementById('navGapValue');
+    navMenu.style.gap = navSlider.value + 'px';
+    navValue.textContent = navSlider.value + ' px';
+    navSlider.addEventListener('input', e => {
+      navMenu.style.gap = e.target.value + 'px';
+      navValue.textContent = e.target.value + ' px';
+    });
+
+    // Hero points margin
+    const tagSlider = document.getElementById('tagMargin');
+    const tagValue = document.getElementById('tagMarginValue');
+    heroPoints.forEach(p => p.style.marginBottom = tagSlider.value + 'px');
+    tagValue.textContent = tagSlider.value + ' px';
+    tagSlider.addEventListener('input', e => {
+      heroPoints.forEach(p => p.style.marginBottom = e.target.value + 'px');
+      tagValue.textContent = e.target.value + ' px';
     });
   }
 });
