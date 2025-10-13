@@ -23,7 +23,6 @@ footer .footer-info a:hover {
 
 /* ===== 手機專用 ===== */
 @media (max-width:768px){
-
   nav ul {
     display:none !important;
     flex-direction:column;
@@ -80,15 +79,14 @@ footer .footer-info a:hover {
 
   #headerControlPanel { display:none !important; }
 
-  /* 移除 !important，讓 slider 可控制 */
-  header .logo { margin-left:190px; }
+  header .logo { margin-left:145px; } /* 固定 PC logo 145px */
 }
 </style>
 </head>
 <body class="index-page">
 
 <header style="display:flex; justify-content:space-between; align-items:flex-end; background:#1a73e8; color:#fff; padding:12.75px 45px; position:sticky; top:0; z-index:1000;">
-  <div class="logo" style="font-size:1.6rem; font-weight:bold; color:#fff; margin-left:190px;">
+  <div class="logo" style="font-size:1.6rem; font-weight:bold; color:#fff; margin-left:145px;">
     <a href="index.html" style="color:#fff; text-decoration:none;">VuTek</a>
   </div>
   <nav>
@@ -138,11 +136,12 @@ footer .footer-info a:hover {
   <p class="copyright" style="margin:0; font-size:0.9rem;">© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
 </footer>
 
+<!-- 手機 slider panel 保留 -->
 <div id="headerControlPanel" style="display:none;">
   <span>Mobile Adjust Panel</span>
   <label for="logoMargin">Logo Left Margin (px)</label>
-  <input type="range" id="logoMargin" min="0" max="200" value="190">
-  <span id="logoMarginValue">190 px</span>
+  <input type="range" id="logoMargin" min="0" max="200" value="145">
+  <span id="logoMarginValue">145 px</span>
 
   <label for="navGap">Nav Gap (px)</label>
   <input type="range" id="navGap" min="0" max="60" value="19">
@@ -151,12 +150,6 @@ footer .footer-info a:hover {
   <label for="tagMargin">Tag Bottom Margin (px)</label>
   <input type="range" id="tagMargin" min="0" max="40" value="8">
   <span id="tagMarginValue">8 px</span>
-</div>
-
-<div id="pcLogoPanel" style="position:fixed; top:80px; right:10px; background:#fff; border:1px solid #ccc; padding:10px; z-index:10000; display:none;">
-  <label for="pcLogoSlider">PC Logo Left Margin (px)</label>
-  <input type="range" id="pcLogoSlider" min="0" max="400" value="190">
-  <span id="pcLogoValue">190 px</span>
 </div>
 
 <script>
@@ -175,6 +168,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const logoValue = document.getElementById('logoMarginValue');
     logo.style.marginLeft = logoSlider.value + 'px';
     logoValue.textContent = logoSlider.value + ' px';
+
     logoSlider.addEventListener('input', e => {
       logo.style.marginLeft = e.target.value + 'px';
       logoValue.textContent = e.target.value + ' px';
@@ -199,27 +193,16 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
-  // PC slider
+  // PC logo 固定 145px，不顯示 slider
   if(window.innerWidth >= 769){
-    const pcPanel = document.getElementById('pcLogoPanel');
-    pcPanel.style.display = 'block';
-
-    const pcSlider = document.getElementById('pcLogoSlider');
-    const pcValue = document.getElementById('pcLogoValue');
-
-    logo.style.marginLeft = pcSlider.value + 'px';
-    pcValue.textContent = pcSlider.value + ' px';
-
-    pcSlider.addEventListener('input', e=>{
-      logo.style.marginLeft = e.target.value + 'px';
-      pcValue.textContent = e.target.value + ' px';
-    });
+    logo.style.marginLeft = '145px';
   }
 });
 </script>
 
 </body>
 </html>
+
 
 
 
