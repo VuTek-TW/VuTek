@@ -76,6 +76,9 @@ a { text-decoration:none; color:inherit; }
 
   /* PC 版 Mobile Adjust Panel 完全隱藏 */
   #headerControlPanel { display:none !important; }
+
+  /* PC 版 logo 固定位置，不受其他元素影響 */
+  header .logo { margin-left:190px !important; }
 }
 </style>
 </head>
@@ -136,7 +139,7 @@ a { text-decoration:none; color:inherit; }
 </footer>
 
 <!-- ===== 手機即時微調控制面板（隱藏，不顯示） ===== -->
-<div id="headerControlPanel">
+<div id="headerControlPanel" style="display:none;">
   <span>Mobile Adjust Panel</span>
   <label for="logoMargin">Logo Left Margin (px)</label>
   <input type="range" id="logoMargin" min="0" max="200" value="190">
@@ -200,5 +203,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </body>
 </html>
+
 
 
