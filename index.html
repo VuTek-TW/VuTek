@@ -19,7 +19,7 @@ a { text-decoration:none; color:inherit; }
     background:#1a73e8;
     position:absolute;
     top:50px;
-    right:12px; /* 手機版 Hamburger 右邊距調整 */
+    right:12px; /* Hamburger 右邊距 */
     border-radius:8px;
     overflow:hidden;
     gap:19px; /* Nav Gap 初始值 */
@@ -51,11 +51,30 @@ a { text-decoration:none; color:inherit; }
   }
   footer .footer-info span::after { content: "" !important; }
 
-  /* Mobile Adjust Panel 手機版預設隱藏 */
-  #headerControlPanel { display:none; }
-
-  /* 手機版 Logo 左邊距調整 */
+  /* 手機版 Logo 左邊距 */
   header .logo { margin-left:165px; }
+
+  /* 手機版 Hamburger 右邊距可調整 */
+  header nav .hamburger { right:36px; position:absolute; top:15px; }
+
+  /* Mobile Adjust Panel 手機版顯示 */
+  #mobileControlPanel {
+    display:block;
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#fff;
+    border:1px solid #ccc;
+    padding:10px;
+    border-radius:8px;
+    z-index:2000;
+    font-size:14px;
+    width:220px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.2);
+  }
+  #mobileControlPanel label { display:block; margin:8px 0 2px; }
+  #mobileControlPanel input { width:100%; margin-bottom:2px; }
+  #mobileControlPanel span { display:inline-block; margin-bottom:5px; font-weight:bold; }
 }
 
 /* ===== 電腦版 footer 左右對稱間隔 ===== */
@@ -67,18 +86,18 @@ a { text-decoration:none; color:inherit; }
   }
   footer .footer-info span {
     display:inline-block;
-    margin-left:16px;  /* 左右間隔一半 */
-    margin-right:16px; /* 左右間隔一半 */
+    margin-left:16px;
+    margin-right:16px;
     position: relative;
   }
   footer .footer-info span:not(:last-child)::after {
     content: "|";
     position: absolute;
-    right: -16px; /* 與 margin 配合，正好在兩元素中間 */
+    right: -16px;
   }
 
   /* PC 版 Mobile Adjust Panel 完全隱藏 */
-  #headerControlPanel { display:none !important; }
+  #mobileControlPanel { display:none !important; }
 }
 </style>
 </head>
@@ -138,12 +157,16 @@ a { text-decoration:none; color:inherit; }
   <p class="copyright" style="margin:0; font-size:0.9rem;">© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
 </footer>
 
-<!-- ===== 手機即時微調控制面板（隱藏，不顯示） ===== -->
-<div id="headerControlPanel">
+<!-- ===== 手機即時微調控制面板 ===== -->
+<div id="mobileControlPanel">
   <span>Mobile Adjust Panel</span>
   <label for="logoMargin">Logo Left Margin (px)</label>
   <input type="range" id="logoMargin" min="0" max="200" value="165">
   <span id="logoMarginValue">165 px</span>
+
+  <label for="hamburgerRight">Hamburger Right (px)</label>
+  <input type="range" id="hamburgerRight" min="0" max="60" value="36">
+  <span id="hamburgerRightValue">36 px</span>
 
   <label for="navGap">Nav Gap (px)</label>
   <input type="range" id="navGap" min="0" max="60" value="19">
@@ -178,6 +201,16 @@ document.addEventListener("DOMContentLoaded", function() {
       logoValue.textContent = e.target.value + ' px';
     });
 
+    // Hamburger right
+    const hamburgerSlider = document.getElementById('hamburgerRight');
+    const hamburgerValue = document.getElementById('hamburgerRightValue');
+    hamburger.style.right = hamburgerSlider.value + 'px';
+    hamburgerValue.textContent = hamburgerSlider.value + ' px';
+    hamburgerSlider.addEventListener('input', e => {
+      hamburger.style.right = e.target.value + 'px';
+      hamburgerValue.textContent = e.target.value + ' px';
+    });
+
     // Nav gap
     const navSlider = document.getElementById('navGap');
     const navValue = document.getElementById('navGapValue');
@@ -203,6 +236,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </body>
 </html>
+
 
 
 
