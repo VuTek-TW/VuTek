@@ -28,13 +28,13 @@ a { text-decoration:none; color:inherit; }
   nav ul.show { display:flex !important; }
   nav ul li { padding:10px 20px; margin-left:0; }
   
-  /* Hamburger 絕對定位 */
+  /* Hamburger 絕對定位，與 Logo/Nav Gap 無綁定 */
   .hamburger {
     display:block;
     cursor:pointer;
     position:absolute;
-    top:15px;
-    right:20px; /* 初始值，可調整 */
+    top:12.75px; /* 與 header padding 底部對齊，保持原高度 */
+    right:20px; /* 可調整 */
     font-size:1.8rem;
     z-index:1001;
   }
@@ -61,8 +61,8 @@ a { text-decoration:none; color:inherit; }
   }
   footer .footer-info span::after { content: "" !important; }
 
-  /* Mobile Adjust Panel 手機版預設隱藏 */
-  #headerControlPanel { display:none; }
+  /* Mobile Adjust Panel 手機版顯示 */
+  #headerControlPanel { display:block; padding:10px; background:#eee; margin:10px; border-radius:5px; }
 }
 
 /* ===== 電腦版 footer 左右對稱間隔 ===== */
@@ -145,7 +145,7 @@ a { text-decoration:none; color:inherit; }
   <p class="copyright" style="margin:0; font-size:0.9rem;">© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
 </footer>
 
-<!-- ===== 手機即時微調控制面板（隱藏，不顯示） ===== -->
+<!-- ===== 手機即時微調控制面板（顯示，用於調整 px） ===== -->
 <div id="headerControlPanel">
   <span>Mobile Adjust Panel</span>
   <label for="logoMargin">Logo Left Margin (px)</label>
@@ -209,5 +209,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </body>
 </html>
+
 
 
