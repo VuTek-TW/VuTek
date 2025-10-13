@@ -22,7 +22,7 @@ a { text-decoration:none; color:inherit; }
     right:20px;
     border-radius:8px;
     overflow:hidden;
-    gap:12px;
+    gap:19px; /* 更新 Nav Gap 初始值 */
   }
   nav ul.show { display:flex; }
   nav ul li { padding:10px 20px; margin-left:0; }
@@ -144,8 +144,8 @@ a { text-decoration:none; color:inherit; }
   <span id="logoMarginValue">144 px</span>
 
   <label for="navGap">Nav Gap (px)</label>
-  <input type="range" id="navGap" min="0" max="60" value="44">
-  <span id="navGapValue">44 px</span>
+  <input type="range" id="navGap" min="0" max="60" value="19">
+  <span id="navGapValue">19 px</span>
 
   <label for="tagMargin">Tag Bottom Margin (px)</label>
   <input type="range" id="tagMargin" min="0" max="40" value="8">
@@ -169,32 +169,10 @@ document.addEventListener("DOMContentLoaded", function() {
     // Logo margin
     const logoSlider = document.getElementById('logoMargin');
     const logoValue = document.getElementById('logoMarginValue');
-    logoSlider.addEventListener('input', e => {
-      logo.style.marginLeft = e.target.value + 'px';
-      logoValue.textContent = e.target.value + ' px';
-    });
+    logo.style.marginLeft = logoSlider.value + 'px';
+    logoValue.textContent = logoSlider.value + ' px';
+   
 
-    // Nav gap
-    const navSlider = document.getElementById('navGap');
-    const navValue = document.getElementById('navGapValue');
-    navSlider.addEventListener('input', e => {
-      navMenu.style.gap = e.target.value + 'px';
-      navValue.textContent = e.target.value + ' px';
-    });
-
-    // Hero points margin
-    const tagSlider = document.getElementById('tagMargin');
-    const tagValue = document.getElementById('tagMarginValue');
-    tagSlider.addEventListener('input', e => {
-      heroPoints.forEach(p => p.style.marginBottom = e.target.value + 'px');
-      tagValue.textContent = e.target.value + ' px';
-    });
-  }
-});
-</script>
-
-</body>
-</html>
 
 
 
