@@ -58,15 +58,24 @@ a { text-decoration:none; color:inherit; }
   #headerControlPanel span { display:inline-block; margin-bottom:5px; font-weight:bold; }
 }
 
-/* ===== 電腦版 footer 分隔符號平均間隔 ===== */
+/* ===== 電腦版 footer 左右對稱間隔 ===== */
 @media (min-width:769px){
   footer .footer-info {
     display:flex;
-    justify-content:center; /* 平均左右間距 */
+    justify-content:center;
     align-items:center;
-    gap:18px; /* 原本間隔加大50% */
   }
-  footer .footer-info span { display:inline; }
+  footer .footer-info span {
+    display:inline-block;
+    margin-left:9px;  /* 間隔的一半 */
+    margin-right:9px; /* 間隔的一半 */
+  }
+  footer .footer-info span:first-child {
+    margin-left:0;
+  }
+  footer .footer-info span:last-child {
+    margin-right:0;
+  }
 }
 </style>
 </head>
@@ -186,6 +195,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </body>
 </html>
+
 
 
 
