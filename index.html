@@ -18,46 +18,38 @@ a { text-decoration:none; color:inherit; }
     flex-direction:column;
     background:#1a73e8;
     position:absolute;
-    top:60px;
-    right:20px;
+    top:50px;
+    right:20px; /* Hamburger 右距 */
     border-radius:8px;
     overflow:hidden;
-    gap:19px; /* Nav Gap 固定 px */
+    gap:19px; /* Nav Gap 初始值 */
     z-index:1000;
   }
   nav ul.show { display:flex !important; }
-  nav ul li { padding:10px 20px; margin-left:0; font-size:1rem; } /* tag 字體增大 */
-  .hamburger { display:block; cursor:pointer; position:absolute; right:20px; top:50%; transform:translateY(-50%); }
-
-  /* Logo 固定位置 */
-  .logo { position:absolute; left:190px; top:50%; transform:translateY(-50%); }
+  nav ul li { padding:10px 20px; margin-left:0; }
+  .hamburger { display:block; cursor:pointer; position:absolute; top:50%; transform:translateY(-50%); right:20px; }
 
   /* Hero 標題自動換行 */
   .hero-text h1 { white-space: normal !important; font-size:1.6rem; text-align:center; }
 
   /* Hero 文字寬度自適應 */
-  .hero-text .lead { max-width:100%; font-size:1rem; } /* 字體增大 */
+  .hero-text .lead { max-width:100%; }
 
   /* Hero points 彈性換行 */
-  .hero-point { flex-wrap:wrap; margin-bottom:8px; font-size:1rem; }
+  .hero-point { flex-wrap:wrap; margin-bottom:8px; }
   .hero-arrow { margin-right:5px; }
   .hero-bold { margin-right:3px; }
 
-  /* Footer 手機版換行，字體增大，去掉分隔符號 */
+  /* Footer 手機版換行，去掉分隔符號 */
   footer .footer-info {
-    display:flex !important;
     flex-direction: column !important;
-    gap: 4px !important;
-    font-size:1rem;
+    gap: 0 !important;
   }
   footer .footer-info span {
     display: block !important;
     margin:0 0 4px 0 !important;
   }
   footer .footer-info span::after { content: "" !important; }
-
-  /* 修正 footer 滾動問題 */
-  body { padding-bottom:100px; }
 
   /* Mobile Adjust Panel 手機版預設隱藏 */
   #headerControlPanel { display:none; }
@@ -91,7 +83,7 @@ a { text-decoration:none; color:inherit; }
 
 <!-- ===== HEADER ===== -->
 <header style="display:flex; justify-content:space-between; align-items:flex-end; background:#1a73e8; color:#fff; padding:12.75px 45px; position:sticky; top:0; z-index:1000;">
-  <div class="logo" style="font-size:1.6rem; font-weight:bold; color:#fff; margin-left:144px;">
+  <div class="logo" style="font-size:1.6rem; font-weight:bold; color:#fff; margin-left:190px;">
     <a href="index.html" style="color:#fff; text-decoration:none;">VuTek</a>
   </div>
   <nav>
@@ -208,4 +200,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </body>
 </html>
+
 
