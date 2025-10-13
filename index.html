@@ -51,11 +51,8 @@ a { text-decoration:none; color:inherit; }
   }
   footer .footer-info span::after { content: "" !important; }
 
-  /* 滑桿控制面板，預設隱藏 */
-  #headerControlPanel { display:none; position:fixed; bottom:20px; right:20px; background:#fff; border:1px solid #ccc; padding:10px; border-radius:8px; z-index:2000; font-size:14px; width:220px; box-shadow:0 2px 10px rgba(0,0,0,0.2); }
-  #headerControlPanel label { display:block; margin:8px 0 2px; }
-  #headerControlPanel input { width:100%; margin-bottom:2px; }
-  #headerControlPanel span { display:inline-block; margin-bottom:5px; font-weight:bold; }
+  /* Mobile Adjust Panel 手機版預設隱藏 */
+  #headerControlPanel { display:none; }
 }
 
 /* ===== 電腦版 footer 左右對稱間隔 ===== */
@@ -76,6 +73,9 @@ a { text-decoration:none; color:inherit; }
     position: absolute;
     right: -16px; /* 與 margin 配合，正好在兩元素中間 */
   }
+
+  /* PC 版 Mobile Adjust Panel 完全隱藏 */
+  #headerControlPanel { display:none !important; }
 }
 </style>
 </head>
@@ -135,10 +135,9 @@ a { text-decoration:none; color:inherit; }
   <p class="copyright" style="margin:0; font-size:0.9rem;">© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
 </footer>
 
-<!-- ===== 手機即時微調控制面板 (預設隱藏) ===== -->
+<!-- ===== 手機即時微調控制面板（隱藏，不顯示） ===== -->
 <div id="headerControlPanel">
   <span>Mobile Adjust Panel</span>
-
   <label for="logoMargin">Logo Left Margin (px)</label>
   <input type="range" id="logoMargin" min="0" max="200" value="144">
   <span id="logoMarginValue">144 px</span>
@@ -201,6 +200,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </body>
 </html>
+
 
 
 
