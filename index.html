@@ -19,25 +19,15 @@ a { text-decoration:none; color:inherit; }
     background:#1a73e8;
     position:absolute;
     top:50px;
-    right:20px;
+    right:20px; /* 初始右邊距，滑桿控制時可調整 */
     border-radius:8px;
     overflow:hidden;
-    gap:19px; /* Nav Gap 初始值 */
+    gap:19px; /* Nav Gap px */
     z-index:1000;
   }
   nav ul.show { display:flex !important; }
   nav ul li { padding:10px 20px; margin-left:0; }
-  
-  /* Hamburger 絕對定位，與 Logo/Nav Gap 無綁定 */
-  .hamburger {
-    display:block;
-    cursor:pointer;
-    position:absolute;
-    top:12.75px; /* 與 header padding 底部對齊，保持原高度 */
-    right:20px; /* 可調整 */
-    font-size:1.8rem;
-    z-index:1001;
-  }
+  .hamburger { display:block; cursor:pointer; position:absolute; top:50%; transform:translateY(-50%); right:20px; }
 
   /* Hero 標題自動換行 */
   .hero-text h1 { white-space: normal !important; font-size:1.6rem; text-align:center; }
@@ -61,8 +51,8 @@ a { text-decoration:none; color:inherit; }
   }
   footer .footer-info span::after { content: "" !important; }
 
-  /* Mobile Adjust Panel 手機版顯示 */
-  #headerControlPanel { display:block; padding:10px; background:#eee; margin:10px; border-radius:5px; }
+  /* Mobile Adjust Panel 手機版預設隱藏 */
+  #headerControlPanel { display:none; }
 }
 
 /* ===== 電腦版 footer 左右對稱間隔 ===== */
@@ -97,7 +87,7 @@ a { text-decoration:none; color:inherit; }
     <a href="index.html" style="color:#fff; text-decoration:none;">VuTek</a>
   </div>
   <nav>
-    <ul style="list-style:none; display:flex; margin:0; padding:0; gap:19px;">
+    <ul style="list-style:none; display:flex; margin:0; padding:0; gap:44px;">
       <li style="margin-left:0;"><a href="products.html" style="color:#fff; font-weight:500;">Products</a></li>
       <li><a href="support.html" style="color:#fff; font-weight:500;">Support</a></li>
       <li><a href="about.html" style="color:#fff; font-weight:500;">About Us</a></li>
@@ -145,8 +135,8 @@ a { text-decoration:none; color:inherit; }
   <p class="copyright" style="margin:0; font-size:0.9rem;">© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
 </footer>
 
-<!-- ===== 手機即時微調控制面板（顯示，用於調整 px） ===== -->
-<div id="headerControlPanel">
+<!-- ===== 手機即時微調控制面板（隱藏，不顯示） ===== -->
+<div id="headerControlPanel" style="display:none;">
   <span>Mobile Adjust Panel</span>
   <label for="logoMargin">Logo Left Margin (px)</label>
   <input type="range" id="logoMargin" min="0" max="200" value="190">
@@ -156,52 +146,21 @@ a { text-decoration:none; color:inherit; }
   <input type="range" id="navGap" min="0" max="60" value="19">
   <span id="navGapValue">19 px</span>
 
-  <label for="hamburgerRight">Hamburger Right (px)</label>
-  <input type="range" id="hamburgerRight" min="0" max="60" value="20">
-  <span id="hamburgerRightValue">20 px</span>
+  <label for="tagMargin">Tag Bottom Margin (px)</label>
+  <input type="range" id="tagMargin" min="0" max="40" value="8">
+  <span id="tagMarginValue">8 px</span>
 </div>
 
-<!-- ===== 漢堡與滑桿 JS ===== -->
+<!-- ===== 漢堡 JS ===== -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   const hamburger = document.querySelector('.hamburger');
   const navMenu = document.querySelector('nav ul');
-  const logo = document.querySelector('header .logo');
 
   if(window.innerWidth <= 768){
     // 漢堡切換
     hamburger.addEventListener('click', () => {
       navMenu.classList.toggle('show');
-    });
-
-    // Logo margin
-    const logoSlider = document.getElementById('logoMargin');
-    const logoValue = document.getElementById('logoMarginValue');
-    logo.style.marginLeft = logoSlider.value + 'px';
-    logoValue.textContent = logoSlider.value + ' px';
-    logoSlider.addEventListener('input', e => {
-      logo.style.marginLeft = e.target.value + 'px';
-      logoValue.textContent = e.target.value + ' px';
-    });
-
-    // Nav gap
-    const navSlider = document.getElementById('navGap');
-    const navValue = document.getElementById('navGapValue');
-    navMenu.style.gap = navSlider.value + 'px';
-    navValue.textContent = navSlider.value + ' px';
-    navSlider.addEventListener('input', e => {
-      navMenu.style.gap = e.target.value + 'px';
-      navValue.textContent = e.target.value + ' px';
-    });
-
-    // Hamburger right
-    const hamburgerSlider = document.getElementById('hamburgerRight');
-    const hamburgerValue = document.getElementById('hamburgerRightValue');
-    hamburger.style.right = hamburgerSlider.value + 'px';
-    hamburgerValue.textContent = hamburgerSlider.value + ' px';
-    hamburgerSlider.addEventListener('input', e => {
-      hamburger.style.right = e.target.value + 'px';
-      hamburgerValue.textContent = e.target.value + ' px';
     });
   }
 });
@@ -211,8 +170,6 @@ document.addEventListener("DOMContentLoaded", function() {
 </html>
 
 
-</body>
-</html>
 
 
 
