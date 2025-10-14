@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VuTek - Contact Us</title>
   <style>
+    /* ================== 全局樣式 ================== */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #f4f6f8;
@@ -12,14 +13,14 @@
     }
     a { text-decoration: none; color: inherit; }
 
-    /* Header */
+    /* ================== Header (同步其他頁面) ================== */
     header {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: center;
       background:#1a73e8;
       color:#fff;
-      padding:10px 20px;
+      padding:10px 145px; /* PC logo 左距 145px */
       position: sticky;
       top:0;
       z-index: 1000;
@@ -29,6 +30,7 @@
       font-size:1.5rem;
       font-weight:bold;
       color:#fff;
+      margin-right:20px;
     }
 
     nav ul {
@@ -45,25 +47,27 @@
       display: none;
       font-size:1.5rem;
       cursor:pointer;
+      margin-left:20px;
     }
 
     @media (max-width:768px){
+      header { padding:10px 190px; } /* 手機 logo 左距 190px */
       nav ul{
         display:none;
         flex-direction:column;
         background:#1a73e8;
         position:absolute;
         top:50px;
-        left:0;
-        width:100%;
-        border-radius:0;
+        right:20px;
+        border-radius:8px;
+        overflow:hidden;
       }
       nav ul.show{ display:flex; }
-      nav ul li{ padding:12px 20px; border-bottom:1px solid rgba(255,255,255,0.2); }
+      nav ul li{ padding:10px 20px; margin-left:0; }
       .hamburger{ display:block; }
     }
 
-    /* Contact Body */
+    /* ================== Contact Body CSS (保留原本) ================== */
     section{
       max-width: 700px; margin:40px auto; padding:0 20px;
     }
@@ -90,12 +94,19 @@
       font-size:0.95rem; color:#555; line-height:1.4;
     }
 
-    /* Footer */
-    footer{ background:#1a73e8; color:#fff; text-align:center; padding:20px; margin-top:40px; }
+    /* ================== Footer (同步其他頁面) ================== */
+    footer{
+      background:#1a73e8;
+      color:#fff;
+      text-align:center;
+      padding:20px;
+      margin-top:40px;
+      font-size:0.95rem;
+    }
     footer a{ color:#fff; }
-    footer .footer-info{ margin-bottom:10px; font-size:0.95rem; }
+    footer .footer-info{ margin-bottom:10px; }
 
-    /* WhatsApp Button */
+    /* ================== WhatsApp Floating Button ================== */
     .whatsapp-fixed{
       position: fixed;
       right: 20px;
@@ -145,7 +156,7 @@
     <div class="form-row">
       <label for="email">Email</label>
       <input type="email" id="email" name="email" required>
-      <small>Please enter a valid email.</small>
+      <small>Please fill out a valid email.</small>
     </div>
     <div class="form-row">
       <label for="whatsapp">WhatsApp</label>
@@ -153,9 +164,7 @@
       <span class="optional">(optional)</span>
     </div>
     <div class="form-row">
-      <label for="message">Message</label>
-      <textarea id="message" name="message" required></textarea>
-      <small>Please enter your message.</small>
+      <textarea id="message" name="message" placeholder="Message"></textarea>
     </div>
     <button type="submit">Send Message</button>
     <div class="msg-response success" id="successMsg">Thank you! Your message has been sent.</div>
@@ -193,7 +202,7 @@
   form.addEventListener('submit', function(e){
     e.preventDefault();
     let valid = true;
-    form.querySelectorAll('input[required], textarea[required]').forEach(input=>{
+    form.querySelectorAll('input[required]').forEach(input=>{
       if(!input.value.trim()){ 
         valid=false; 
         input.nextElementSibling.style.display='block';
@@ -246,6 +255,7 @@
 
 </body>
 </html>
+
 
 
 
