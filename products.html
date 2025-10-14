@@ -6,6 +6,7 @@
 <title>VuTek - Products</title>
 <link rel="stylesheet" href="style.css" />
 <style>
+/* ===== 全局樣式 ===== */
 body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f4f6f8; color:#333; margin:0; padding:0; }
 a { text-decoration:none; color:inherit; }
 
@@ -48,9 +49,6 @@ footer .footer-info a:hover {
     margin:0 0 4px 0 !important;
   }
   footer .footer-info span::after { content: "" !important; }
-
-  /* 手機 slider 隱藏 */
-  #headerControlPanel { display:none; }
 }
 
 /* ===== 電腦版 footer ===== */
@@ -72,15 +70,15 @@ footer .footer-info a:hover {
     right: -16px;
   }
 
-  /* PC slider 隱藏 */
-  #headerControlPanel { display:none !important; }
-
   /* PC logo 固定 145px */
   header .logo { margin-left:145px; }
 }
+
+/* slider panel 完全隱藏 */
+#headerControlPanel { display:none; }
 </style>
 </head>
-<body>
+<body class="products-page">
 
 <header style="display:flex; justify-content:space-between; align-items:flex-end; background:#1a73e8; color:#fff; padding:12.75px 45px; position:sticky; top:0; z-index:1000;">
   <div class="logo" style="font-size:1.6rem; font-weight:bold; color:#fff; margin-left:145px;">
@@ -88,7 +86,7 @@ footer .footer-info a:hover {
   </div>
   <nav>
     <ul style="list-style:none; display:flex; margin:0; padding:0; gap:44px;">
-      <li><a href="products.html" style="color:#fff; font-weight:500;">Products</a></li>
+      <li style="margin-left:0;"><a href="products.html" style="color:#fff; font-weight:500;">Products</a></li>
       <li><a href="support.html" style="color:#fff; font-weight:500;">Support</a></li>
       <li><a href="about.html" style="color:#fff; font-weight:500;">About Us</a></li>
       <li><a href="contact.html" style="color:#fff; font-weight:500;">Contact Us</a></li>
@@ -97,11 +95,13 @@ footer .footer-info a:hover {
   </nav>
 </header>
 
-<!-- ======== 保留你的原本 body ======== -->
 <section>
   <h1>Products</h1>
+
   <p>Since the first iPhone in 2007, we have been in the iPhone business.</p>
+
   <p>For your pre-owned iPhone business, please provide the models, quantities, and grades you require – we’ll handle the rest.</p>
+
   <p>We are here to help you succeed. Our ready stock is prepared for global shipment – see below for reference.</p>
 
   <div class="stock-section">
@@ -111,7 +111,6 @@ footer .footer-info a:hover {
 
   <a href="contact.html" class="cta">Get Started Today</a>
 </section>
-<!-- ======== 結束 ======== -->
 
 <footer style="background:#1a73e8; color:#fff; text-align:center; padding:8px 0; margin-top:40px;">
   <div class="footer-info" style="margin-bottom:5px; font-size:0.95rem;">
@@ -151,3 +150,4 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </body>
 </html>
+
