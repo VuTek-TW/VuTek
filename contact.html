@@ -9,20 +9,23 @@
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #f4f6f8;
-      margin: 0; padding: 0; color:#333;
+      margin: 0; 
+      padding: 0;
+      color:#333;
     }
     a { text-decoration: none; color: inherit; }
 
-    /* ================== Header (同步其他頁面) ================== */
+    /* ================== Header (第一步修正) ================== */
     header {
       display: flex;
-      justify-content: flex-start;
+      justify-content: flex-start;       /* 與其他頁面一致 */
       align-items: center;
-      background:#1a73e8;
-      color:#fff;
-      padding:10px 145px; /* PC logo 左距 145px */
+      width: 100%;                       /* 撐滿全螢幕 */
+      background: #1a73e8;
+      color: #fff;
+      padding: 10px 145px;               /* PC 左距145px */
       position: sticky;
-      top:0;
+      top: 0;
       z-index: 1000;
     }
 
@@ -51,7 +54,7 @@
     }
 
     @media (max-width:768px){
-      header { padding:10px 190px; } /* 手機 logo 左距 190px */
+      header { padding:10px 190px; }     /* 手機左距190px */
       nav ul{
         display:none;
         flex-direction:column;
@@ -67,9 +70,11 @@
       .hamburger{ display:block; }
     }
 
-    /* ================== Contact Body CSS (保留原本) ================== */
+    /* ================== Contact Body CSS (保留原樣) ================== */
     section{
-      max-width: 700px; margin:40px auto; padding:0 20px;
+      max-width: 700px; 
+      margin:40px auto; 
+      padding:0 20px;
     }
     h1{ text-align:center; margin-bottom:30px; color:#1a1a1a; font-size:2rem; }
     form{ background:#fff; padding:30px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
@@ -94,7 +99,7 @@
       font-size:0.95rem; color:#555; line-height:1.4;
     }
 
-    /* ================== Footer (同步其他頁面) ================== */
+    /* ================== Footer (暫不改，保留原樣) ================== */
     footer{
       background:#1a73e8;
       color:#fff;
@@ -255,8 +260,3 @@
 
 </body>
 </html>
-
-
-
-
-
