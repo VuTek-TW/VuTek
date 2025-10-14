@@ -165,7 +165,9 @@
       <span class="optional">(optional)</span>
     </div>
     <div class="form-row">
-      <textarea id="message" name="message" placeholder="Message"></textarea>
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required></textarea>
+      <small>Please enter your message.</small>
     </div>
     <button type="submit">Send Message</button>
     <div class="msg-response success" id="successMsg">Thank you! Your message has been sent.</div>
@@ -191,70 +193,84 @@
 
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
-  emailjs.init("Jn60mp90NgrzsddCd");
+emailjs.init("Jn60mp90NgrzsddCd");
 
-  // 漢堡選單
-  const hamburger = document.querySelector('.hamburger');
-  const navUl = document.querySelector('nav ul');
-  hamburger.addEventListener('click', () => navUl.classList.toggle('show'));
+// 漢堡選單
+const hamburger = document.querySelector('.hamburger');
+const navUl = document.querySelector('nav ul');
+hamburger.addEventListener('click', () => navUl.classList.toggle('show'));
 
-  // Form submit
-  const form = document.getElementById('contactForm');
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    let valid = true;
-    form.querySelectorAll('input[required]').forEach(input=>{
-      if(!input.value.trim()){ 
-        valid=false; 
-        input.nextElementSibling.style.display='block';
-      } else { input.nextElementSibling.style.display='none'; }
+// Form submit
+const form = document.getElementById('contactForm');
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+  let valid = true;
+
+  // 檢查必填欄位
+  const requiredFields = [
+    {field: form.company, msg: "Please fill out this field."},
+    {field: form.name, msg: "Please fill out this field."},
+    {field: form.email, msg: "Please fill out a valid email."},
+    {field: form.message, msg: "Please enter your message."}
+  ];
+
+  requiredFields.forEach(item=>{
+    if(!item.field.value.trim()){
+      valid=false;
+      item.field.nextElementSibling.style.display='block';
+      item.field.nextElementSibling.textContent = item.msg;
+    } else {
+      item.field.nextElementSibling.style.display='none';
+    }
+  });
+
+  if(!valid) return;
+
+  const params = {
+    company: form.company.value,
+    name: form.name.value,
+    email: form.email.value,
+    whatsapp: form.whatsapp.value,
+    message: form.message.value
+  };
+
+  emailjs.send("service_nkes7ae", "template_yshiorn", params)
+    .then(() => {
+      document.getElementById('successMsg').style.display='block';
+      document.getElementById('errorMsg').style.display='none';
+      form.reset();
+    }, () => {
+      document.getElementById('successMsg').style.display='none';
+      document.getElementById('errorMsg').style.display='block';
     });
-    if(!valid) return;
+});
 
-    const params = {
-      company: form.company.value,
-      name: form.name.value,
-      email: form.email.value,
-      whatsapp: form.whatsapp.value,
-      message: form.message.value
-    };
+// Optional field label fade
+const whatsappInput = document.getElementById('whatsapp');
+const optionalSpan = whatsappInput.nextElementSibling;
+whatsappInput.addEventListener('input', ()=> {
+  optionalSpan.style.display = whatsappInput.value ? 'none':'inline';
+});
 
-    emailjs.send("service_nkes7ae", "template_yshiorn", params)
-      .then(() => {
-        document.getElementById('successMsg').style.display='block';
-        document.getElementById('errorMsg').style.display='none';
-        form.reset();
-      }, () => {
-        document.getElementById('successMsg').style.display='none';
-        document.getElementById('errorMsg').style.display='block';
-      });
+// WhatsApp button smooth follow scroll
+window.addEventListener('load', ()=>{
+  const btn = document.getElementById('whatsappBtn');
+  const messageField = document.getElementById('message');
+  let targetY = messageField.getBoundingClientRect().top + window.scrollY;
+  btn.style.top = targetY + "px";
+  setTimeout(()=> btn.classList.add('show'), 3000);
+
+  let currentY = targetY;
+  window.addEventListener('scroll', ()=>{
+    const desiredY = messageField.getBoundingClientRect().top + window.scrollY;
+    currentY += (desiredY - currentY) * 0.1;
+    btn.style.top = currentY + "px";
   });
-
-  // Optional field label fade
-  const whatsappInput = document.getElementById('whatsapp');
-  const optionalSpan = whatsappInput.nextElementSibling;
-  whatsappInput.addEventListener('input', ()=> {
-    optionalSpan.style.display = whatsappInput.value ? 'none':'inline';
-  });
-
-  // WhatsApp button smooth follow scroll
-  window.addEventListener('load', ()=>{
-    const btn = document.getElementById('whatsappBtn');
-    const messageField = document.getElementById('message');
-    let targetY = messageField.getBoundingClientRect().top + window.scrollY;
-    btn.style.top = targetY + "px";
-    setTimeout(()=> btn.classList.add('show'), 3000);
-
-    let currentY = targetY;
-    window.addEventListener('scroll', ()=>{
-      const desiredY = messageField.getBoundingClientRect().top + window.scrollY;
-      currentY += (desiredY - currentY) * 0.1;
-      btn.style.top = currentY + "px";
-    });
-  });
+});
 </script>
 
 </body>
 </html>
+
 
 
