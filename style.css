@@ -198,6 +198,20 @@ footer .footer-info {
     flex-wrap: wrap;
   }
 }
+/* ================== Contact Page 專屬樣式 ================== */
+.contact-page header {
+  /* 例如：只調整這一頁的 header 版位 */
+  padding: 10px 80px;
+}
+
+.contact-page .logo {
+  margin-left: 60px;
+}
+
+.contact-page footer {
+  background: #0f5cc2;
+  padding: 30px;
+}
 
 
 
