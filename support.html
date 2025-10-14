@@ -1,208 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VuTek - Support</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    /* ===== index 的 header/footer 共用樣式 (不會影響你的 FAQ 區) ===== */
-    body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f4f6f8; color:#333; margin:0; padding:0; }
-    a { text-decoration:none; color:inherit; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>VuTek - Support</title>
+<link rel="stylesheet" href="style.css" />
+<style>
+body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f4f6f8; color:#333; margin:0; padding:0; }
+a { text-decoration:none; color:inherit; }
 
-    /* ===== Footer 連結 Hover 效果 ===== */
-    footer .footer-info a {
-      color: #fff;
-      text-decoration: none;
-      transition: color 0.3s, border-bottom 0.3s;
-      border-bottom: 1px solid transparent;
-    }
-    footer .footer-info a:hover {
-      color: #ffeb3b;
-      border-bottom: 1px solid #ffeb3b;
-    }
+footer .footer-info a { color:#fff; text-decoration:none; transition: color 0.3s, border-bottom 0.3s; border-bottom:1px solid transparent; }
+footer .footer-info a:hover { color:#ffeb3b; border-bottom:1px solid #ffeb3b; }
 
-    /* ===== 手機專用 ===== */
-    @media (max-width:768px){
-      nav ul {
-        display:none !important;
-        flex-direction:column;
-        background:#1a73e8;
-        position:absolute;
-        top:50px;
-        right:20px;
-        border-radius:8px;
-        overflow:hidden;
-        gap:19px;
-        z-index:1000;
-      }
-      nav ul.show { display:flex !important; }
-      nav ul li { padding:10px 20px; margin-left:0; }
-      .hamburger { display:block; cursor:pointer; position:absolute; top:50%; transform:translateY(-50%); right:20px; }
+@media (max-width:768px){
+  nav ul { display:none !important; flex-direction:column; background:#1a73e8; position:absolute; top:50px; right:20px; border-radius:8px; overflow:hidden; gap:19px; z-index:1000; }
+  nav ul.show { display:flex !important; }
+  nav ul li { padding:10px 20px; margin-left:0; }
+  .hamburger { display:block; cursor:pointer; position:absolute; top:50%; transform:translateY(-50%); right:20px; }
 
-      footer .footer-info {
-        flex-direction: column !important;
-        gap: 0 !important;
-      }
-      footer .footer-info span {
-        display: block !important;
-        margin:0 0 4px 0 !important;
-      }
-      footer .footer-info span::after { content: "" !important; }
+  footer .footer-info { flex-direction: column !important; gap: 0 !important; }
+  footer .footer-info span { display: block !important; margin:0 0 4px 0 !important; }
+  footer .footer-info span::after { content: "" !important; }
+}
 
-      /* 手機 slider 隱藏 */
-      #headerControlPanel { display:none; }
-    }
+@media (min-width:769px){
+  footer .footer-info { display:flex; justify-content:center; align-items:center; }
+  footer .footer-info span { display:inline-block; margin-left:16px; margin-right:16px; position: relative; }
+  footer .footer-info span:not(:last-child)::after { content: "|"; position:absolute; right:-16px; }
+  header .logo { margin-left:145px; }
+}
 
-    /* ===== 電腦版 footer ===== */
-    @media (min-width:769px){
-      footer .footer-info {
-        display:flex;
-        justify-content:center;
-        align-items:center;
-      }
-      footer .footer-info span {
-        display:inline-block;
-        margin-left:16px;
-        margin-right:16px;
-        position: relative;
-      }
-      footer .footer-info span:not(:last-child)::after {
-        content: "|";
-        position: absolute;
-        right: -16px;
-      }
+#headerControlPanel { display:none; }
 
-      /* PC slider 隱藏 */
-      #headerControlPanel { display:none !important; }
-
-      /* PC logo 固定 145px */
-      header .logo { margin-left:145px; }
-    }
-
-    /* ===== 保留你原來 support.html 的樣式（FAQ、header 原始設計） ===== */
-    /* ================== Header (保留原設計的基礎排版) ================== */
-    header {
-      display: flex;
-      justify-content: center; /* 導航置中 */
-      align-items: center;
-      background: #1a73e8;
-      color: #fff;
-      padding: 10px 20px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .logo a {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #fff;
-      margin-right: 40px; /* logo 與第一個標籤距離 = 其他間距兩倍 */
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      margin: 0;
-      padding: 0;
-      gap: 20px; /* 標籤間距 */
-    }
-
-    nav ul li a {
-      color: #fff;
-      font-weight: 500;
-    }
-
-    .hamburger {
-      display: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      margin-left: 20px;
-    }
-
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-        flex-direction: column;
-        background: #1a73e8;
-        position: absolute;
-        top: 50px;
-        right: 20px;
-        border-radius: 8px;
-        overflow: hidden;
-      }
-      nav ul.show { display: flex; }
-      nav ul li { padding: 10px 20px; margin-left: 0; }
-      .hamburger { display: block; }
-    }
-
-    /* ================== FAQ / Section (完全保留你原本的樣式) ================== */
-    section {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-    h1 {
-      text-align: center;
-      margin-bottom: 30px;
-      color: #1a1a1a;
-      font-size: 2rem;
-    }
-    .faq-item {
-      background: #fff;
-      border-radius: 10px;
-      margin-bottom: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      overflow: hidden;
-      transition: transform 0.2s;
-    }
-    .faq-item:hover { transform: translateY(-2px); }
-    .faq-question {
-      cursor: pointer;
-      padding: 18px 24px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: background 0.3s, color 0.3s;
-      background: #f1f3f6;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .faq-question:hover { background: #e2e6eb; color: #000; }
-    .faq-item.active .faq-question { background: #d0e2ff; }
-    .faq-arrow { display: inline-block; transition: transform 0.3s; }
-    .faq-item.active .faq-arrow { transform: rotate(90deg); }
-    .faq-answer {
-      max-height: 0;
-      padding: 0 24px;
-      border-top: 1px solid #ddd;
-      background: #fff;
-      line-height: 1.6;
-      font-size: 0.98rem;
-      color: #555;
-      overflow: hidden;
-      transition: max-height 0.4s ease, padding 0.4s ease;
-    }
-    .faq-item.active .faq-answer { padding: 15px 24px; max-height: 500px; }
-    strong { color: #1a73e8; }
-    @media (max-width: 600px) {
-      .faq-question { font-size: 1rem; padding: 15px 18px; }
-      .faq-answer { padding: 12px 18px; font-size: 0.95rem; }
-    }
-
-    /* ================== Footer (保留 index 的 footer 呈現) ================== */
-    footer {
-      background: #1a73e8;
-      color: #fff;
-      text-align: center;
-      padding: 8px 0;
-      margin-top: 40px;
-    }
-    footer .footer-info { margin-bottom: 5px; font-size: 0.95rem; }
-  </style>
+/* FAQ */
+section { max-width:900px; margin:40px auto; padding:0 20px; }
+h1 { text-align:center; margin-bottom:30px; color:#1a1a1a; font-size:2rem; }
+.faq-item { background:#fff; border-radius:10px; margin-bottom:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08); overflow:hidden; transition:transform 0.2s; }
+.faq-item:hover { transform:translateY(-2px); }
+.faq-question { cursor:pointer; padding:18px 24px; font-weight:600; font-size:1.1rem; transition:background 0.3s, color 0.3s; background:#f1f3f6; display:flex; justify-content:space-between; align-items:center; }
+.faq-question:hover { background:#e2e6eb; color:#000; }
+.faq-item.active .faq-question { background:#d0e2ff; }
+.faq-arrow { display:inline-block; transition: transform 0.3s; }
+.faq-item.active .faq-arrow { transform:rotate(90deg); }
+.faq-answer { max-height:0; padding:0 24px; border-top:1px solid #ddd; background:#fff; line-height:1.6; font-size:0.98rem; color:#555; overflow:hidden; transition:max-height 0.4s ease, padding 0.4s ease; }
+strong { color:#1a73e8; }
+@media (max-width:600px){ .faq-question { font-size:1rem; padding:15px 18px; } .faq-answer { font-size:0.95rem; padding:0 18px; } }
+</style>
 </head>
-<body>
+<body class="support-page">
 
 <header style="display:flex; justify-content:space-between; align-items:flex-end; background:#1a73e8; color:#fff; padding:12.75px 45px; position:sticky; top:0; z-index:1000;">
   <div class="logo" style="font-size:1.6rem; font-weight:bold; color:#fff; margin-left:145px;">
@@ -210,7 +55,7 @@
   </div>
   <nav>
     <ul style="list-style:none; display:flex; margin:0; padding:0; gap:44px;">
-      <li><a href="products.html" style="color:#fff; font-weight:500;">Products</a></li>
+      <li style="margin-left:0;"><a href="products.html" style="color:#fff; font-weight:500;">Products</a></li>
       <li><a href="support.html" style="color:#fff; font-weight:500;">Support</a></li>
       <li><a href="about.html" style="color:#fff; font-weight:500;">About Us</a></li>
       <li><a href="contact.html" style="color:#fff; font-weight:500;">Contact Us</a></li>
@@ -223,78 +68,40 @@
   <h1>FAQ</h1>
 
   <div class="faq-item">
-    <div class="faq-question">
-      What is VuTek’s company background?
-      <span class="faq-arrow">&#9654;</span>
-    </div>
+    <div class="faq-question">What is VuTek’s company background? <span class="faq-arrow">&#9654;</span></div>
     <div class="faq-answer">
       VuTek is based in Taiwan, renowned for its dedication to quality and excellent service.<br><br>
       Taiwan produces over 95% of the world’s premium chips used by Apple, Tesla, Nvidia, Mercedes-Benz, BMW, and more, and manufactures around 80% of global AI servers for Microsoft, Google, Facebook, OpenAI, and others.<br><br>
       VuTek carries forward this spirit by offering high-quality Apple devices and attentive, reliable service to customers worldwide.
     </div>
   </div>
-
   <div class="faq-item">
-    <div class="faq-question">
-      When did VuTek start the iPhone business?
-      <span class="faq-arrow">&#9654;</span>
-    </div>
+    <div class="faq-question">When did VuTek start the iPhone business? <span class="faq-arrow">&#9654;</span></div>
     <div class="faq-answer">
       VuTek began its iPhone business with the very first generation in 2007.<br>
       We still keep an original iPhone 1 in our collection, along with shipment photos of iPhone 3GS orders from 2009.
     </div>
   </div>
-
   <div class="faq-item">
-    <div class="faq-question">
-      What is the ordering process?
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      Inquiry → Offer → Order Confirmation → Invoice → Payment → Shipment → Tracking → Order Completion
-    </div>
+    <div class="faq-question">What is the ordering process? <span class="faq-arrow">&#9654;</span></div>
+    <div class="faq-answer">Inquiry → Offer → Order Confirmation → Invoice → Payment → Shipment → Tracking → Order Completion</div>
   </div>
-
   <div class="faq-item">
-    <div class="faq-question">
-      Where will you make the shipment?
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      All shipments are made from <strong>Hong Kong</strong>.
-    </div>
+    <div class="faq-question">Where will you make the shipment? <span class="faq-arrow">&#9654;</span></div>
+    <div class="faq-answer">All shipments are made from <strong>Hong Kong</strong>.</div>
   </div>
-
   <div class="faq-item">
-    <div class="faq-question">
-      How do customers make the payment?
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      We accept <strong>PayPal</strong>, <strong>Western Union</strong>, or <strong>T/T in advance</strong>, whichever is most convenient and secure for the customer.
-    </div>
+    <div class="faq-question">How do customers make the payment? <span class="faq-arrow">&#9654;</span></div>
+    <div class="faq-answer">We accept <strong>PayPal</strong>, <strong>Western Union</strong>, or <strong>T/T in advance</strong>, whichever is most convenient and secure for the customer.</div>
   </div>
-
   <div class="faq-item">
-    <div class="faq-question">
-      Which courier do you use?
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      We use <strong>FedEx</strong>, <strong>DHL</strong>, or <strong>UPS</strong>, selecting the option that provides the best overall delivery solution for your region, taking into account speed, reliability, and cost.
-    </div>
+    <div class="faq-question">Which courier do you use? <span class="faq-arrow">&#9654;</span></div>
+    <div class="faq-answer">We use <strong>FedEx</strong>, <strong>DHL</strong>, or <strong>UPS</strong>, selecting the option that provides the best overall delivery solution for your region, taking into account speed, reliability, and cost.</div>
   </div>
-
   <div class="faq-item">
-    <div class="faq-question">
-      What warranty do you provide?
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      All goods include a <strong>60-day warranty</strong>.
-    </div>
+    <div class="faq-question">What warranty do you provide? <span class="faq-arrow">&#9654;</span></div>
+    <div class="faq-answer">All goods include a <strong>60-day warranty</strong>.</div>
   </div>
-
 </section>
 
 <footer style="background:#1a73e8; color:#fff; text-align:center; padding:8px 0; margin-top:40px;">
@@ -303,63 +110,55 @@
     <span><a href="mailto:info@vutek.com">Email: info@vutek.com</a></span>
     <span><a href="https://wa.me/886907903072" target="_blank">WhatsApp: +886 907903072</a></span>
   </div>
-  <p style="margin:0; font-size:0.9rem;">© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
+  <p class="copyright" style="margin:0; font-size:0.9rem;">© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
 </footer>
 
-<!-- slider panel 完全隱藏 -->
 <div id="headerControlPanel" style="display:none;"></div>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  // 漢堡選單 (safe: 只加 event listener 若元素存在)
   const hamburger = document.querySelector('.hamburger');
   const navMenu = document.querySelector('nav ul');
-  if (hamburger && navMenu) {
-    hamburger.addEventListener('click', () => { navMenu.classList.toggle('show'); });
-  }
-
-  // 設定 logo 左邊距 (依視窗大小切換)
   const logo = document.querySelector('header .logo');
-  if (logo) {
-    if(window.innerWidth <= 768){
-      logo.style.marginLeft = '190px'; // 手機 logo
-    } else {
-      logo.style.marginLeft = '145px'; // PC logo
-    }
-    // 在 resize 時也可視情況更新（選擇性）
-    window.addEventListener('resize', () => {
-      if(window.innerWidth <= 768){
-        logo.style.marginLeft = '190px';
-      } else {
-        logo.style.marginLeft = '145px';
-      }
-    });
-  }
 
-  // slider 隱藏（保險）
+  hamburger.addEventListener('click', () => { navMenu.classList.toggle('show'); });
+  if(window.innerWidth <= 768){ logo.style.marginLeft='190px'; }
+  if(window.innerWidth >= 769){ logo.style.marginLeft='145px'; }
+
   const sliderPanel = document.getElementById('headerControlPanel');
-  if(sliderPanel){
-    sliderPanel.style.display = 'none';
-  }
+  if(sliderPanel){ sliderPanel.style.display='none'; }
 
-  // ===== 原 support.html 的 FAQ 展開/收起 邏輯（完全保留原始行為） =====
+  // FAQ 動態 max-height
   const faqItems = document.querySelectorAll('.faq-item');
-  faqItems.forEach((item, index) => {
+  faqItems.forEach((item,index)=>{
     const question = item.querySelector('.faq-question');
-    question.addEventListener('click', () => {
-      faqItems.forEach(otherItem => {
-        if(otherItem !== item) otherItem.classList.remove('active');
+    const answer = item.querySelector('.faq-answer');
+    question.addEventListener('click',()=>{
+      faqItems.forEach(other=>{
+        if(other!==item){
+          other.classList.remove('active');
+          other.querySelector('.faq-answer').style.maxHeight='0';
+          other.querySelector('.faq-answer').style.padding='0 24px';
+        }
       });
       item.classList.toggle('active');
-      item.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if(item.classList.contains('active')){
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        answer.style.padding = '15px 24px';
+      }else{
+        answer.style.maxHeight = '0';
+        answer.style.padding = '0 24px';
+      }
     });
-    if(index === 0) item.classList.add('active'); // 預設展開第一個
+    // 預設展開第一個
+    if(index===0){ item.classList.add('active'); answer.style.maxHeight = answer.scrollHeight+'px'; answer.style.padding='15px 24px'; }
   });
 });
 </script>
 
-</body> 
+</body>
 </html>
+
 
 
 
