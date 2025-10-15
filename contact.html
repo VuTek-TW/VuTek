@@ -2,140 +2,70 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>VuTek - Contact Us</title>
 <style>
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f4f6f8;
-    color: #333;
-    margin: 0;
-    padding: 0;
-  }
-  a { text-decoration: none; color: inherit; }
+body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f4f6f8; color:#333; margin:0; padding:0; }
+a { text-decoration:none; color:inherit; }
 
-  /* ================== Header ================== */
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center; /* 與其他頁面統一 */
-    background: #1a73e8;
-    color: #fff;
-    padding: 10px 40px;
-    height: 70px; /* 與其他頁面統一 */
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-  .logo { margin-left: 0; }
-  .logo a { font-size: 1.5rem; font-weight: bold; color: #fff; line-height: 1; }
-  nav { flex: 1; display: flex; justify-content: flex-end; align-items: center; }
-  nav ul { list-style: none; display: flex; margin: 0; padding: 0; gap: 20px; }
-  nav ul li a { color: #fff; font-weight: 500; }
-  .hamburger { display: none; font-size: 1.5rem; cursor: pointer; }
+/* ===== Header ===== */
+header {
+  display:flex; justify-content:space-between; align-items:flex-end;
+  background:#1a73e8; color:#fff; padding:12.75px 45px; position:sticky; top:0; z-index:1000;
+}
+header .logo { font-size:1.6rem; font-weight:bold; color:#fff; margin-left:145px; }
+header .logo a { color:#fff; text-decoration:none; }
+nav ul { list-style:none; display:flex; margin:0; padding:0; gap:44px; }
+nav ul li a { color:#fff; font-weight:500; }
+.hamburger { display:none; font-size:1.5rem; cursor:pointer; }
 
-  @media (max-width: 768px) {
-    nav ul { display: none; flex-direction: column; background: #1a73e8; position: absolute; top: 70px; right: 20px; border-radius: 8px; overflow: hidden; }
-    nav ul.show { display: flex; }
-    nav ul li { padding: 10px 20px; }
-    .hamburger { display: block; }
-  }
+@media(max-width:768px){
+  nav ul { display:none !important; flex-direction:column; background:#1a73e8; position:absolute; top:70px; right:20px; border-radius:8px; overflow:hidden; gap:19px; z-index:1000; }
+  nav ul.show { display:flex !important; }
+  nav ul li { padding:10px 20px; margin-left:0; }
+  .hamburger { display:block; cursor:pointer; position:absolute; top:50%; transform:translateY(-50%); right:20px; }
+  header .logo { margin-left:190px; }
+}
 
-  /* ================== Form ================== */
-  section { max-width: 750px; margin: 50px auto; padding: 0 20px; }
-  h1 { text-align: center; color: #1a1a1a; margin-bottom: 25px; }
-  form { background: #fff; padding: 35px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+/* ===== Section / Form ===== */
+section { max-width:750px; margin:50px auto; padding:0 20px; }
+h1 { text-align:center; color:#1a1a1a; margin-bottom:25px; }
+form { background:#fff; padding:35px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
 
-  .form-row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    position: relative;
-    margin-bottom: 22px;
-  }
-  .form-row label {
-    width: 150px;
-    font-weight: 600;
-    margin-bottom: 0;
-  }
-  input, textarea {
-    flex: 1;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1rem;
-    box-sizing: border-box;
-  }
-  textarea { resize: vertical; min-height: 120px; line-height: 1.5; }
-  input::placeholder, textarea::placeholder { color: #aaa; font-size: 0.95rem; }
+.form-row { display:flex; flex-direction:row; align-items:center; position:relative; margin-bottom:22px; }
+.form-row label { width:150px; font-weight:600; margin-bottom:0; }
+input, textarea { flex:1; padding:12px; border:1px solid #ccc; border-radius:6px; font-size:1rem; box-sizing:border-box; }
+textarea { min-height:120px; resize:vertical; line-height:1.5; }
+input::placeholder, textarea::placeholder { color:#aaa; font-size:0.95rem; }
+small { position:absolute; bottom:-18px; left:0; color:red; display:none; font-size:0.85rem; }
 
-  small {
-    position: absolute;
-    bottom: -18px;
-    left: 0;
-    color: red;
-    display: none;
-    font-size: 0.85rem;
-  }
+button {
+  display:block; background:#1a73e8; color:#fff; padding:12px 25px; border:none; border-radius:5px;
+  cursor:pointer; font-weight:600; margin:25px auto 0; transition:background 0.3s;
+}
+button:hover { background:#155cb0; }
 
-  button {
-    display: block;
-    background: #1a73e8;
-    color: #fff;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 600;
-    margin: 25px auto 0;
-    transition: background 0.3s;
-  }
-  button:hover { background: #155cb0; }
+.msg-response { margin-top:15px; font-weight:600; display:none; text-align:center; }
+.success { color:green; }
+.error { color:red; }
 
-  .msg-response { margin-top: 15px; font-weight: 600; display: none; text-align: center; }
-  .success { color: green; }
-  .error { color: red; }
+@media(max-width:768px){
+  .form-row { flex-direction:column; align-items:stretch; }
+  .form-row label { width:100%; margin-bottom:6px; }
+  input, textarea { width:100%; }
+}
 
-  footer {
-    background: #1a73e8;
-    color: #fff;
-    text-align: center;
-    padding: 18px 10px 8px;
-    margin-top: 60px;
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
-  footer a { color: #fff; }
-  footer p { margin: 3px 0; }
-  footer .footer-info { margin-bottom: 3px; }
+/* ===== Footer ===== */
+footer { background:#1a73e8; color:#fff; text-align:center; padding:8px 0; margin-top:40px; }
+footer .footer-info { display:flex; justify-content:center; align-items:center; gap:16px; margin-bottom:5px; font-size:0.95rem; flex-wrap:wrap; }
+footer .footer-info span a { color:#fff; text-decoration:none; transition:color 0.3s, border-bottom 0.3s; border-bottom:1px solid transparent; }
+footer .footer-info span a:hover { color:#ffeb3b; border-bottom:1px solid #ffeb3b; }
+footer .footer-info span:not(:last-child)::after { content:"|"; margin-left:16px; margin-right:16px; }
 
-  .whatsapp-fixed {
-    position: fixed;
-    right: 20px;
-    background: #25D366;
-    color: #fff;
-    padding: 15px 20px;
-    border-radius: 50px;
-    font-weight: 600;
-    z-index: 1000;
-    text-decoration: none;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.5s, transform 0.5s;
-  }
-  .whatsapp-fixed.show { opacity: 1; transform: translateY(0); }
-  .whatsapp-fixed:hover { background: #1ebe5d; }
-
-  @media (max-width: 768px) {
-    .form-row { flex-direction: column; align-items: stretch; }
-    .form-row label { width: 100%; margin-bottom: 6px; }
-    input, textarea { width: 100%; }
-    footer { font-size: 0.9rem; line-height: 1.5; }
-  }
 </style>
 </head>
 <body>
+
 <header>
   <div class="logo"><a href="index.html">VuTek</a></div>
   <nav>
@@ -157,24 +87,20 @@
       <input type="text" id="company" name="company" placeholder="">
       <small>Please fill out this field.</small>
     </div>
-
     <div class="form-row">
       <label for="name">Your Name</label>
       <input type="text" id="name" name="name" placeholder="">
       <small>Please fill out this field.</small>
     </div>
-
     <div class="form-row">
       <label for="email">Email</label>
       <input type="email" id="email" name="email" placeholder="">
       <small>Please enter a valid email.</small>
     </div>
-
     <div class="form-row">
       <label for="whatsapp">WhatsApp</label>
       <input type="text" id="whatsapp" name="whatsapp" placeholder="(optional)">
     </div>
-
     <div class="form-row">
       <label for="message">Message</label>
       <textarea id="message" name="message"></textarea>
@@ -194,60 +120,47 @@
 
 <footer>
   <div class="footer-info">
-    <p>
-      Address: <a href="https://www.google.com/maps?q=123+Business+St,+Hong+Kong" target="_blank">123 Business St, Hong Kong</a> |
-      Email: <a href="mailto:vutek.inc@gmail.com">vutek.inc@gmail.com</a> |
-      WhatsApp: <a href="https://wa.me/886907903072" target="_blank">+886 907903072</a>
-    </p>
+    <span><a href="https://www.google.com/maps/search/?api=1&query=123+Business+St,+Hong+Kong" target="_blank">Address: 123 Business St, Hong Kong</a></span>
+    <span><a href="mailto:info@vutek.com">Email: info@vutek.com</a></span>
+    <span><a href="https://wa.me/886907903072" target="_blank">WhatsApp: +886 907903072</a></span>
   </div>
-  <p>© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
+  <p style="margin:0; font-size:0.9rem;">© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
 </footer>
-
-<a href="https://wa.me/886907903072" target="_blank" class="whatsapp-fixed" id="whatsappBtn">WhatsApp</a>
 
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
 emailjs.init("Jn60mp90NgrzsddCd");
 
-// Hamburger toggle
+// Hamburger
 const hamburger = document.querySelector('.hamburger');
 const navUl = document.querySelector('nav ul');
-hamburger.addEventListener('click', () => navUl.classList.toggle('show'));
+hamburger.addEventListener('click',()=>navUl.classList.toggle('show'));
 
-// Form validation & send
+// Form validation
 const form = document.getElementById('contactForm');
 form.addEventListener('submit', function(e){
   e.preventDefault();
   let valid = true;
 
-  form.querySelectorAll('input, textarea').forEach(input=>{
-    const small = input.parentElement.querySelector('small');
-    if(input.id !== "whatsapp" && !input.value.trim()){
-      small.style.display = 'block';
-      valid = false;
-    } else if(input.type === "email" && input.value.trim()){
-      const regex = /^\S+@\S+\.\S+$/;
-      if(!regex.test(input.value.trim())){
-        small.textContent = 'Please enter a valid email.';
-        small.style.display = 'block';
-        valid = false;
+  // 檢查 input / textarea
+  form.querySelectorAll('input, textarea').forEach(field=>{
+    const small = field.parentElement.querySelector('small');
+    if(field.id !== "whatsapp" && !field.value.trim()){
+      small.style.display='block';
+      valid=false;
+    } else if(field.type==="email" && field.value.trim()){
+      const regex=/^\S+@\S+\.\S+$/;
+      if(!regex.test(field.value.trim())){
+        small.textContent='Please enter a valid email.';
+        small.style.display='block';
+        valid=false;
       } else {
-        small.style.display = 'none';
+        small.style.display='none';
       }
     } else {
-      small.style.display = 'none';
+      small.style.display='none';
     }
   });
-
-  // Message 特別檢查
-  const msgField = document.getElementById('message');
-  const msgSmall = msgField.parentElement.querySelector('small');
-  if(!msgField.value.trim()){
-    msgSmall.style.display = 'block';
-    valid = false;
-  } else {
-    msgSmall.style.display = 'none';
-  }
 
   if(!valid) return;
 
@@ -259,25 +172,21 @@ form.addEventListener('submit', function(e){
     message: form.message.value
   };
 
-  emailjs.send("service_nkes7ae","template_yshiorn", params)
+  emailjs.send("service_nkes7ae","template_yshiorn",params)
     .then(()=>{
-      document.getElementById('successMsg').style.display = 'block';
-      document.getElementById('errorMsg').style.display = 'none';
+      document.getElementById('successMsg').style.display='block';
+      document.getElementById('errorMsg').style.display='none';
       form.reset();
     })
     .catch(()=>{
-      document.getElementById('successMsg').style.display = 'none';
-      document.getElementById('errorMsg').style.display = 'block';
+      document.getElementById('successMsg').style.display='none';
+      document.getElementById('errorMsg').style.display='block';
     });
 });
-
-// WhatsApp button
-window.addEventListener('load', ()=>{
-  const btn = document.getElementById('whatsappBtn');
-  setTimeout(()=> btn.classList.add('show'), 2500);
-});
 </script>
+
 </body>
 </html>
+
 
 
