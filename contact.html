@@ -6,7 +6,6 @@
 <title>VuTek - Contact Us</title>
 <link rel="stylesheet" href="style.css" />
 <style>
-/* ================== Contact Page 專屬 CSS ================== */
 body.contact-page {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #f4f6f8;
@@ -39,19 +38,15 @@ body.contact-page nav ul {
   gap:44px;
 }
 body.contact-page nav ul li a { color:#fff; font-weight:500; }
-body.contact-page .hamburger {
-  display:none;
-  cursor:pointer;
-  font-size:1.5rem;
-}
+body.contact-page .hamburger { display:none; cursor:pointer; font-size:1.5rem; }
 
 /* ================== Footer ================== */
 body.contact-page footer {
   background:#1a73e8;
   color:#fff;
   text-align:center;
-  padding:5px 0 5px 0; /* 壓低高度 */
-  line-height:1.4; /* 平均行距 */
+  padding:5px 0 5px 0;
+  line-height:1.4;
 }
 body.contact-page footer .footer-info {
   display:flex;
@@ -63,15 +58,9 @@ body.contact-page footer .footer-info {
   margin-bottom:2px;
 }
 body.contact-page footer .footer-info span a { color:#fff; }
-/* PC: 分隔 | */
 @media (min-width:769px){
-  body.contact-page footer .footer-info span:not(:last-child)::after {
-    content:"|";
-    margin-left:16px;
-    margin-right:16px;
-  }
+  body.contact-page footer .footer-info span:not(:last-child)::after { content:"|"; margin-left:16px; margin-right:16px; }
 }
-/* Mobile: 不顯示 | 並平均行距 */
 @media (max-width:768px){
   body.contact-page footer .footer-info span:not(:last-child)::after { content:""; }
   body.contact-page footer .footer-info { gap:8px; }
@@ -79,7 +68,7 @@ body.contact-page footer .footer-info span a { color:#fff; }
 
 /* ================== Contact Form ================== */
 body.contact-page section {
-  max-width:700px;
+  max-width:750px;  /* 輸入框寬度增加15% */
   margin:40px auto;
   padding:0 20px;
 }
@@ -94,10 +83,14 @@ body.contact-page form {
   padding:30px;
   border-radius:10px;
   box-shadow:0 2px 8px rgba(0,0,0,0.08);
+  display:flex;
+  flex-direction:column;
+  align-items:center; /* CTA置中 */
 }
 body.contact-page .form-row {
   display:flex;
   flex-wrap:wrap;
+  width:100%;
   margin-bottom:15px;
 }
 body.contact-page .form-row label {
@@ -116,11 +109,13 @@ body.contact-page .form-row textarea {
   border:1px solid #ccc;
   border-radius:5px;
   font-size:1rem;
+  box-sizing:border-box;
 }
-body.contact-page .form-row textarea { resize:vertical; min-height:100px; }
+body.contact-page .form-row textarea {
+  resize:vertical;
+  min-height:100px;
+}
 body.contact-page .form-row small { color:red; display:none; margin-top:5px; }
-body.contact-page .optional { color:#aaa; font-weight:400; margin-left:5px; }
-
 body.contact-page button {
   background:#1a73e8;
   color:#fff;
@@ -131,18 +126,22 @@ body.contact-page button {
   font-size:1rem;
   font-weight:600;
   transition: background 0.3s;
+  margin-top:20px;
 }
 body.contact-page button:hover { background:#155cb0; }
-
-body.contact-page .msg-response { margin-top:15px; font-weight:600; display:none; }
+body.contact-page .msg-response {
+  margin-top:15px;
+  font-weight:600;
+  display:block;
+  text-align:center;
+}
 body.contact-page .success { color:green; }
 body.contact-page .error { color:red; }
-
 body.contact-page .contact-note {
-  margin-top:40px;
+  margin-top:20px;
   font-size:0.95rem;
   color:#555;
-  line-height:1.4;
+  text-align:center;
 }
 
 /* ================== WhatsApp Floating Button ================== */
@@ -165,7 +164,9 @@ body.contact-page .whatsapp-fixed:hover { background:#1ebe5d; }
 
 /* ================== Responsive ================== */
 @media (max-width:768px){
-  body.contact-page .hamburger { display:block; position:absolute; top:50%; transform:translateY(-50%); right:20px; }
+  body.contact-page .hamburger {
+    display:block; position:absolute; top:50%; transform:translateY(-50%); right:20px;
+  }
   body.contact-page nav ul {
     display:none !important;
     flex-direction:column;
@@ -205,26 +206,26 @@ body.contact-page .whatsapp-fixed:hover { background:#1ebe5d; }
   <form id="contactForm">
     <div class="form-row">
       <label for="company">Company</label>
-      <input type="text" id="company" name="company" required>
+      <input type="text" id="company" name="company" required placeholder="Company">
       <small>Please fill out this field.</small>
     </div>
     <div class="form-row">
       <label for="name">Your Name</label>
-      <input type="text" id="name" name="name" required>
+      <input type="text" id="name" name="name" required placeholder="Your Name">
       <small>Please fill out this field.</small>
     </div>
     <div class="form-row">
       <label for="email">Email</label>
-      <input type="email" id="email" name="email" required>
+      <input type="email" id="email" name="email" required placeholder="Email">
       <small>Please fill out a valid email.</small>
     </div>
     <div class="form-row">
       <label for="whatsapp">WhatsApp</label>
-      <input type="text" id="whatsapp" name="whatsapp">
-      <span class="optional">(optional)</span>
+      <input type="text" id="whatsapp" name="whatsapp" placeholder="WhatsApp (optional)">
     </div>
     <div class="form-row">
-      <textarea id="message" name="message" placeholder="Message"></textarea>
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder=""></textarea>
     </div>
     <button type="submit">Send Message</button>
     <div class="msg-response success" id="successMsg">Thank you! Your message has been sent.</div>
@@ -250,12 +251,10 @@ body.contact-page .whatsapp-fixed:hover { background:#1ebe5d; }
 <script>
 emailjs.init("Jn60mp90NgrzsddCd");
 
-// Hamburger
 const hamburger = document.querySelector('.hamburger');
 const navUl = document.querySelector('nav ul');
 hamburger.addEventListener('click', ()=> navUl.classList.toggle('show'));
 
-// Form submit
 const form = document.getElementById('contactForm');
 form.addEventListener('submit', function(e){
   e.preventDefault();
@@ -287,12 +286,7 @@ form.addEventListener('submit', function(e){
   });
 });
 
-// Optional field label fade
-const whatsappInput = document.getElementById('whatsapp');
-const optionalSpan = whatsappInput.nextElementSibling;
-whatsappInput.addEventListener('input', ()=> { optionalSpan.style.display = whatsappInput.value?'none':'inline'; });
-
-// WhatsApp button smooth follow scroll
+// WhatsApp floating button
 window.addEventListener('load', ()=>{
   const btn = document.getElementById('whatsappBtn');
   const messageField = document.getElementById('message');
