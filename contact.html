@@ -4,111 +4,76 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>VuTek - Contact Us</title>
+<link rel="stylesheet" href="style.css" />
 <style>
-/* ================== Contact Page Body ================== */
 body.contact-page {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f4f6f8;
-  margin: 0; padding: 0; color:#333;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background:#f4f6f8; color:#333; margin:0; padding:0;
 }
 body.contact-page a { text-decoration:none; color:inherit; }
 
-/* ================== Header ================== */
+/* ===== Header 與 Nav 統一 ===== */
 header {
   display:flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  justify-content:space-between;
+  align-items:flex-end;
   background:#1a73e8;
   color:#fff;
   padding:12.75px 45px;
-  position: sticky;
-  top:0;
-  z-index:1000;
+  position:sticky;
+  top:0; z-index:1000;
 }
-header .logo {
-  font-size:1.6rem;
-  font-weight:bold;
-  color:#fff;
-  margin-left:145px;
-}
-@media (max-width:768px){
-  header .logo { margin-left:190px; }
-}
-
-nav ul {
-  list-style:none;
-  display:flex;
-  margin:0;
-  padding:0;
-  gap:44px;
-}
+header .logo { font-size:1.6rem; font-weight:bold; color:#fff; margin-left:145px; }
+nav ul { list-style:none; display:flex; margin:0; padding:0; gap:44px; }
 nav ul li a { color:#fff; font-weight:500; }
-.hamburger { display:none; font-size:1.5rem; cursor:pointer; }
-@media (max-width:768px){ .hamburger{ display:block; } }
+.hamburger { display:none; cursor:pointer; font-size:1.5rem; position:absolute; top:50%; transform:translateY(-50%); right:20px; }
 
-/* ================== Footer ================== */
-footer {
-  background:#1a73e8; 
-  color:#fff; 
-  text-align:center; 
-  padding:8px 0; 
-  margin-top:40px;
-}
+/* ===== Footer 統一 ===== */
+footer { background:#1a73e8; color:#fff; text-align:center; padding:8px 0; margin-top:40px; }
 footer .footer-info {
-  margin-bottom:5px; 
-  font-size:0.95rem; 
-  display:flex; 
-  justify-content:center; 
-  align-items:center; 
-  gap:16px;
+  display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:16px; margin-bottom:5px; font-size:0.95rem;
 }
-footer .footer-info span:not(:last-child)::after {
-  content: "|"; 
-  margin-left:16px;
-}
-footer a { color:#fff; text-decoration:none; }
-footer a:hover { color:#ffeb3b; }
+footer .footer-info span { position:relative; display:inline-block; }
+footer .footer-info span:not(:last-child)::after { content:"|"; position:absolute; right:-16px; }
 
-/* ================== Contact Body / Form ================== */
-section{ max-width: 700px; margin:40px auto; padding:0 20px; }
-h1{ text-align:center; margin-bottom:30px; color:#1a1a1a; font-size:2rem; }
-form{ background:#fff; padding:30px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
-.form-row{ display:flex; flex-wrap:wrap; margin-bottom:15px; }
-.form-row label{ width:30%; min-width:100px; padding-right:10px; font-weight:600; display:flex; align-items:center; justify-content:flex-end; }
-.form-row input, .form-row textarea{ flex:1; padding:10px; border:1px solid #ccc; border-radius:5px; font-size:1rem; }
-.form-row textarea{ resize:vertical; min-height:100px; }
-.form-row small{ color:red; display:none; margin-top:5px; }
-.optional{ color:#aaa; font-weight:400; margin-left:5px; }
+/* ===== Contact Body ===== */
+section.contact-body { max-width:700px; margin:40px auto; padding:0 20px; }
+section.contact-body h1 { text-align:center; margin-bottom:30px; color:#1a1a1a; font-size:2rem; }
+section.contact-body form { background:#fff; padding:30px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+section.contact-body .form-row { display:flex; flex-wrap:wrap; margin-bottom:15px; }
+section.contact-body .form-row label { width:30%; min-width:100px; padding-right:10px; font-weight:600; display:flex; align-items:center; justify-content:flex-end; }
+section.contact-body .form-row input, section.contact-body .form-row textarea { flex:1; padding:10px; border:1px solid #ccc; border-radius:5px; font-size:1rem; }
+section.contact-body .form-row textarea { resize:vertical; min-height:100px; }
+section.contact-body .form-row small { color:red; display:none; margin-top:5px; }
+section.contact-body .optional { color:#aaa; font-weight:400; margin-left:5px; }
+section.contact-body button { background:#1a73e8; color:#fff; padding:12px 25px; border:none; border-radius:5px; cursor:pointer; font-size:1rem; font-weight:600; transition: background 0.3s; }
+section.contact-body button:hover{ background:#155cb0; }
+section.contact-body .msg-response{ margin-top:15px; font-weight:600; display:none; }
+section.contact-body .success{ color:green; }
+section.contact-body .error{ color:red; }
+section.contact-body .contact-note{ margin-top:40px; font-size:0.95rem; color:#555; line-height:1.4; }
 
-button{
-  background:#1a73e8; color:#fff; padding:12px 25px; border:none; border-radius:5px; cursor:pointer; font-size:1rem; font-weight:600; transition: background 0.3s;
-}
-button:hover{ background:#155cb0; }
-
-.msg-response{ margin-top:15px; font-weight:600; display:none; }
-.success{ color:green; }
-.error{ color:red; }
-
-.contact-note{ margin-top:40px; font-size:0.95rem; color:#555; line-height:1.4; }
-
-/* ================== WhatsApp Floating Button ================== */
+/* ===== WhatsApp Floating Button ===== */
 .whatsapp-fixed{
-  position: fixed;
-  right: 20px;
-  background: #25D366;
-  color: #fff;
-  padding: 15px 20px;
-  border-radius: 50px;
-  font-weight: 600;
-  z-index: 1000;
-  text-decoration: none;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  opacity: 0; transform: translateY(50px);
-  transition: opacity 0.5s, transform 0.5s, top 0.2s;
+  position: fixed; right: 20px; background: #25D366; color: #fff;
+  padding: 15px 20px; border-radius:50px; font-weight:600; z-index:1000;
+  text-decoration:none; box-shadow:0 4px 8px rgba(0,0,0,0.2);
+  opacity:0; transform:translateY(50px); transition: opacity 0.5s, transform 0.5s, top 0.2s;
 }
 .whatsapp-fixed.show{ opacity:1; transform:translateY(0); }
 .whatsapp-fixed:hover{ background:#1ebe5d; }
 
+/* ===== Responsive ===== */
+@media (max-width:768px){
+  header .logo{ margin-left:190px; }
+  nav ul{ display:none !important; flex-direction:column; background:#1a73e8; position:absolute; top:50px; right:20px; border-radius:8px; overflow:hidden; gap:19px; z-index:1000; }
+  nav ul.show{ display:flex !important; }
+  nav ul li{ padding:10px 20px; margin-left:0; }
+  .hamburger{ display:block; }
+  footer .footer-info{ flex-direction:column; gap:0 !important; }
+  footer .footer-info span{ display:block !important; margin:0 0 4px 0 !important; }
+  footer .footer-info span::after{ content:"" !important; }
+}
 </style>
 </head>
 <body class="contact-page">
@@ -126,7 +91,7 @@ button:hover{ background:#155cb0; }
   </nav>
 </header>
 
-<section>
+<section class="contact-body">
   <h1>Contact Us</h1>
   <form id="contactForm">
     <div class="form-row">
@@ -176,7 +141,7 @@ button:hover{ background:#155cb0; }
 <script>
 emailjs.init("Jn60mp90NgrzsddCd");
 
-// Hamburger toggle
+// Hamburger
 const hamburger = document.querySelector('.hamburger');
 const navUl = document.querySelector('nav ul');
 hamburger.addEventListener('click', () => navUl.classList.toggle('show'));
@@ -193,7 +158,6 @@ form.addEventListener('submit', function(e){
     } else { input.nextElementSibling.style.display='none'; }
   });
   if(!valid) return;
-
   const params = {
     company: form.company.value,
     name: form.name.value,
@@ -201,7 +165,6 @@ form.addEventListener('submit', function(e){
     whatsapp: form.whatsapp.value,
     message: form.message.value
   };
-
   emailjs.send("service_nkes7ae", "template_yshiorn", params)
     .then(() => {
       document.getElementById('successMsg').style.display='block';
@@ -216,9 +179,7 @@ form.addEventListener('submit', function(e){
 // Optional field label fade
 const whatsappInput = document.getElementById('whatsapp');
 const optionalSpan = whatsappInput.nextElementSibling;
-whatsappInput.addEventListener('input', ()=> {
-  optionalSpan.style.display = whatsappInput.value ? 'none':'inline';
-});
+whatsappInput.addEventListener('input', ()=> { optionalSpan.style.display = whatsappInput.value ? 'none':'inline'; });
 
 // WhatsApp button smooth follow scroll
 window.addEventListener('load', ()=>{
@@ -227,7 +188,6 @@ window.addEventListener('load', ()=>{
   let targetY = messageField.getBoundingClientRect().top + window.scrollY;
   btn.style.top = targetY + "px";
   setTimeout(()=> btn.classList.add('show'), 3000);
-
   let currentY = targetY;
   window.addEventListener('scroll', ()=>{
     const desiredY = messageField.getBoundingClientRect().top + window.scrollY;
@@ -239,6 +199,7 @@ window.addEventListener('load', ()=>{
 
 </body>
 </html>
+
 
 
 
