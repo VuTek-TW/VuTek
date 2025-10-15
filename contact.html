@@ -25,18 +25,8 @@ body.contact-page header {
   top:0;
   z-index:1000;
 }
-body.contact-page .logo a {
-  font-size:1.6rem;
-  font-weight:bold;
-  color:#fff;
-}
-body.contact-page nav ul {
-  list-style:none;
-  display:flex;
-  margin:0;
-  padding:0;
-  gap:44px;
-}
+body.contact-page .logo a { font-size:1.6rem; font-weight:bold; color:#fff; }
+body.contact-page nav ul { list-style:none; display:flex; margin:0; padding:0; gap:44px; }
 body.contact-page nav ul li a { color:#fff; font-weight:500; }
 body.contact-page .hamburger { display:none; cursor:pointer; font-size:1.5rem; }
 
@@ -67,17 +57,8 @@ body.contact-page footer .footer-info span a { color:#fff; }
 }
 
 /* ================== Contact Form ================== */
-body.contact-page section {
-  max-width:750px;  /* 輸入框寬度增加15% */
-  margin:40px auto;
-  padding:0 20px;
-}
-body.contact-page h1 {
-  text-align:center;
-  margin-bottom:30px;
-  color:#1a1a1a;
-  font-size:2rem;
-}
+body.contact-page section { max-width:750px; margin:40px auto; padding:0 20px; }
+body.contact-page h1 { text-align:center; margin-bottom:30px; color:#1a1a1a; font-size:2rem; }
 body.contact-page form {
   background:#fff;
   padding:30px;
@@ -85,7 +66,7 @@ body.contact-page form {
   box-shadow:0 2px 8px rgba(0,0,0,0.08);
   display:flex;
   flex-direction:column;
-  align-items:center; /* CTA置中 */
+  align-items:center;
 }
 body.contact-page .form-row {
   display:flex;
@@ -114,6 +95,8 @@ body.contact-page .form-row textarea {
 body.contact-page .form-row textarea {
   resize:vertical;
   min-height:100px;
+  white-space:pre-wrap; /* 自動換行 */
+  word-wrap:break-word;
 }
 body.contact-page .form-row small { color:red; display:none; margin-top:5px; }
 body.contact-page button {
@@ -182,6 +165,9 @@ body.contact-page .whatsapp-fixed:hover { background:#1ebe5d; }
   body.contact-page nav ul.show { display:flex !important; }
   body.contact-page nav ul li { padding:10px 20px; margin-left:0; }
   body.contact-page .logo { margin-left:190px; }
+  body.contact-page .form-row label { width:100%; justify-content:flex-start; margin-bottom:5px; }
+  body.contact-page .form-row input,
+  body.contact-page .form-row textarea { width:100%; }
 }
 @media (min-width:769px){ body.contact-page .logo { margin-left:145px; } }
 </style>
@@ -206,26 +192,27 @@ body.contact-page .whatsapp-fixed:hover { background:#1ebe5d; }
   <form id="contactForm">
     <div class="form-row">
       <label for="company">Company</label>
-      <input type="text" id="company" name="company" required placeholder="Company">
+      <input type="text" id="company" name="company" required>
       <small>Please fill out this field.</small>
     </div>
     <div class="form-row">
       <label for="name">Your Name</label>
-      <input type="text" id="name" name="name" required placeholder="Your Name">
+      <input type="text" id="name" name="name" required>
       <small>Please fill out this field.</small>
     </div>
     <div class="form-row">
       <label for="email">Email</label>
-      <input type="email" id="email" name="email" required placeholder="Email">
+      <input type="email" id="email" name="email" required>
       <small>Please fill out a valid email.</small>
     </div>
     <div class="form-row">
       <label for="whatsapp">WhatsApp</label>
-      <input type="text" id="whatsapp" name="whatsapp" placeholder="WhatsApp (optional)">
+      <input type="text" id="whatsapp" name="whatsapp" placeholder="(optional)">
     </div>
     <div class="form-row">
       <label for="message">Message</label>
-      <textarea id="message" name="message" placeholder=""></textarea>
+      <textarea id="message" name="message" required></textarea>
+      <small>Please fill out this field.</small>
     </div>
     <button type="submit">Send Message</button>
     <div class="msg-response success" id="successMsg">Thank you! Your message has been sent.</div>
@@ -259,15 +246,14 @@ const form = document.getElementById('contactForm');
 form.addEventListener('submit', function(e){
   e.preventDefault();
   let valid = true;
-  form.querySelectorAll('input[required]').forEach(input=>{
-    if(!input.value.trim()){ 
+  form.querySelectorAll('input, textarea').forEach(input=>{
+    if(input.hasAttribute('required') && !input.value.trim()){ 
       valid=false;
       input.nextElementSibling.style.display='block';
-    }else{
-      input.nextElementSibling.style.display='none';
-    }
+    } else { input.nextElementSibling.style.display='none'; }
   });
   if(!valid) return;
+
   const params = {
     company: form.company.value,
     name: form.name.value,
@@ -303,5 +289,6 @@ window.addEventListener('load', ()=>{
 </script>
 </body>
 </html>
+
 
 
