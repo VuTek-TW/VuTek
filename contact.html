@@ -50,7 +50,7 @@ body.contact-page footer {
   background:#1a73e8;
   color:#fff;
   text-align:center;
-  padding:8px 0;
+  padding:5px 0 8px 0; /* 壓低整體高度 */
 }
 body.contact-page footer .footer-info {
   display:flex;
@@ -59,7 +59,7 @@ body.contact-page footer .footer-info {
   font-size:0.95rem;
   gap:16px;
   flex-wrap:wrap;
-  margin-bottom:5px;
+  margin-bottom:2px; /* 壓低第一行與第二行間距 */
 }
 body.contact-page footer .footer-info span a { color:#fff; }
 body.contact-page footer .footer-info span:not(:last-child)::after {
@@ -239,7 +239,7 @@ body.contact-page .whatsapp-fixed:hover { background:#1ebe5d; }
     <span><a href="mailto:vutek.inc@gmail.com">Email: vutek.inc@gmail.com</a></span>
     <span><a href="https://wa.me/886907903072" target="_blank">WhatsApp: +886 907903072</a></span>
   </div>
-  <p>© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
+  <p style="margin:0; line-height:1.2;">© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
 </footer>
 
 <a href="https://wa.me/886907903072" target="_blank" class="whatsapp-fixed" id="whatsappBtn">WhatsApp</a>
@@ -308,4 +308,5 @@ window.addEventListener('load', ()=>{
 
 </body>
 </html>
+
 
