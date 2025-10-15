@@ -1,373 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VuTek - Contact Us</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f4f6f8;
-      color: #333;
-      margin: 0;
-      padding: 0;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact Us</title>
+<style>
+/* ========== Global ========== */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f6f8;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+/* ========== Header ========== */
+header {
+  background: white;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 8%;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
 
-    /* ================== Header ================== */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      background: #1a73e8;
-      color: #fff;
-      padding: 10px 40px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+header img {
+  height: 50px;
+}
 
-    .logo {
-      margin-left: 20px;
-    }
+/* ========== Contact Section ========== */
+.contact-container {
+  max-width: 900px;
+  margin: 60px auto;
+  background: #fff;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-    .logo a {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #fff;
-    }
+.contact-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
 
-    nav {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-    }
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      margin: 0;
-      padding: 0;
-      gap: 20px;
-    }
+label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  display: block;
+  text-align: left;
+  margin-left: 5px;
+}
 
-    nav ul li:first-child {
-      margin-left: 40px;
-    }
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  box-sizing: border-box;
+}
 
-    nav ul li a {
-      color: #fff;
-      font-weight: 500;
-    }
+input::placeholder,
+textarea::placeholder {
+  color: #aaa;
+}
 
-    .hamburger {
-      display: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
+textarea {
+  height: 120px;
+  resize: none;
+}
 
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-        flex-direction: column;
-        background: #1a73e8;
-        position: absolute;
-        top: 50px;
-        right: 20px;
-        border-radius: 8px;
-        overflow: hidden;
-      }
-      nav ul.show {
-        display: flex;
-      }
-      nav ul li {
-        padding: 10px 20px;
-        margin-left: 0;
-      }
-      .hamburger {
-        display: block;
-      }
-    }
+/* Floating error message inside input box */
+.input-container {
+  position: relative;
+}
 
-    /* ================== Form ================== */
-    section {
-      max-width: 750px;
-      margin: 50px auto;
-      padding: 0 20px;
-    }
+.error-message {
+  position: absolute;
+  bottom: -18px;
+  left: 10px;
+  font-size: 13px;
+  color: red;
+  display: none;
+}
 
-    h1 {
-      text-align: center;
-      color: #1a1a1a;
-      margin-bottom: 25px;
-    }
+button {
+  background-color: #0078d7;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  padding: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 180px;
+  margin: 20px auto 0;
+  display: block;
+}
 
-    form {
-      background: #fff;
-      padding: 35px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
+button:hover {
+  background-color: #005fa3;
+}
 
-    .form-row {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 22px;
-    }
+#statusMessage {
+  text-align: center;
+  margin-top: 15px;
+  font-weight: 600;
+  display: none;
+}
 
-    label {
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
+/* ========== Footer ========== */
+footer {
+  background: #111;
+  color: white;
+  text-align: center;
+  padding: 15px 5%;
+  font-size: 14px;
+}
 
-    input, textarea {
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1rem;
-      width: 115%; /* 增加寬度 */
-      max-width: 100%;
-      box-sizing: border-box;
-    }
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 6px;
+}
 
-    textarea {
-      resize: vertical;
-      min-height: 100px;
-      line-height: 1.5;
-    }
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  position: relative;
+}
 
-    input::placeholder, textarea::placeholder {
-      color: #aaa;
-      font-size: 0.95rem;
-    }
+.footer-links a::after {
+  content: " |";
+  margin-left: 6px;
+}
 
-    small {
-      position: absolute;
-      bottom: 5px;
-      right: 10px;
-      color: red;
-      display: none;
-      font-size: 0.85rem;
-    }
+.footer-links a:last-child::after {
+  content: "";
+}
 
-    button {
-      display: block;
-      background: #1a73e8;
-      color: #fff;
-      padding: 12px 25px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: 600;
-      margin: 25px auto 0;
-      transition: background 0.3s;
-    }
+footer p {
+  margin: 0;
+  font-size: 13px;
+  padding-bottom: 3px;
+}
 
-    button:hover {
-      background: #155cb0;
-    }
-
-    .msg-response {
-      margin-top: 15px;
-      font-weight: 600;
-      display: none;
-      text-align: center;
-    }
-
-    .success { color: green; }
-    .error { color: red; }
-
-    /* ================== Footer ================== */
-    footer {
-      background: #1a73e8;
-      color: #fff;
-      text-align: center;
-      padding: 18px 10px 8px;
-      margin-top: 60px;
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    footer a {
-      color: #fff;
-    }
-
-    footer p {
-      margin: 3px 0;
-    }
-
-    footer .footer-info {
-      margin-bottom: 3px;
-    }
-
-    /* ================== WhatsApp Floating ================== */
-    .whatsapp-fixed {
-      position: fixed;
-      right: 20px;
-      background: #25D366;
-      color: #fff;
-      padding: 15px 20px;
-      border-radius: 50px;
-      font-weight: 600;
-      z-index: 1000;
-      text-decoration: none;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 0.5s, transform 0.5s;
-    }
-
-    .whatsapp-fixed.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .whatsapp-fixed:hover {
-      background: #1ebe5d;
-    }
-
-    @media (max-width: 768px) {
-      input, textarea {
-        width: 100%;
-      }
-      footer {
-        font-size: 0.9rem;
-        line-height: 1.5;
-      }
-    }
-  </style>
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+  header {
+    padding: 10px 6%;
+  }
+  .contact-container {
+    margin: 30px 5%;
+    padding: 25px;
+  }
+  label {
+    margin-left: 0;
+  }
+  input, textarea {
+    font-size: 14px;
+  }
+  button {
+    width: 160px;
+  }
+}
+</style>
 </head>
-
 <body>
-  <header>
-    <div class="logo"><a href="index.html">VuTek</a></div>
-    <nav>
-      <ul>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="support.html">Support</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-      </ul>
-      <div class="hamburger">&#9776;</div>
-    </nav>
-  </header>
 
-  <section>
-    <h1>Contact Us</h1>
-    <form id="contactForm">
-      <div class="form-row">
-        <label for="company">Company</label>
-        <input type="text" id="company" name="company">
-        <small>Please fill out this field.</small>
-      </div>
+<header>
+  <img src="images/logo.png" alt="Logo">
+</header>
 
-      <div class="form-row">
-        <label for="name">Your Name</label>
-        <input type="text" id="name" name="name">
-        <small>Please fill out this field.</small>
-      </div>
-
-      <div class="form-row">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email">
-        <small>Please enter a valid email.</small>
-      </div>
-
-      <div class="form-row">
-        <label for="whatsapp">WhatsApp</label>
-        <input type="text" id="whatsapp" name="whatsapp" placeholder="(optional)">
-      </div>
-
-      <div class="form-row">
-        <label for="message">Message</label>
-        <textarea id="message" name="message"></textarea>
-        <small>Please fill out this field.</small>
-      </div>
-
-      <button type="submit">Send Message</button>
-
-      <div class="msg-response success" id="successMsg">Thank you! Your message has been sent.</div>
-      <div class="msg-response error" id="errorMsg">Oops! Something went wrong. Please try again.</div>
-    </form>
-  </section>
-
-  <footer>
-    <div class="footer-info">
-      <p>
-        Address: <a href="https://www.google.com/maps?q=123+Business+St,+Hong+Kong" target="_blank">123 Business St, Hong Kong</a> |
-        Email: <a href="mailto:vutek.inc@gmail.com">vutek.inc@gmail.com</a> |
-        WhatsApp: <a href="https://wa.me/886907903072" target="_blank">+886 907903072</a>
-      </p>
+<div class="contact-container">
+  <h2>Contact Us</h2>
+  <form id="contactForm" novalidate>
+    <div class="input-container">
+      <label for="company">Company</label>
+      <input type="text" id="company" name="company" placeholder="">
+      <span class="error-message">Please fill out this field.</span>
     </div>
-    <p>© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
-  </footer>
 
-  <a href="https://wa.me/886907903072" target="_blank" class="whatsapp-fixed" id="whatsappBtn">WhatsApp</a>
+    <div class="input-container">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" placeholder="">
+      <span class="error-message">Please fill out this field.</span>
+    </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-  <script>
-    emailjs.init("Jn60mp90NgrzsddCd");
+    <div class="input-container">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="">
+      <span class="error-message">Please enter a valid email.</span>
+    </div>
 
-    // Hamburger
-    const hamburger = document.querySelector('.hamburger');
-    const navUl = document.querySelector('nav ul');
-    hamburger.addEventListener('click', () => navUl.classList.toggle('show'));
+    <div class="input-container">
+      <label for="whatsapp">WhatsApp</label>
+      <input type="text" id="whatsapp" name="whatsapp" placeholder="(optional)">
+    </div>
 
-    // Form validation and send
-    const form = document.getElementById('contactForm');
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      let valid = true;
+    <div class="input-container">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder=""></textarea>
+      <span class="error-message">Please fill out this field.</span>
+    </div>
 
-      form.querySelectorAll('input, textarea').forEach(input => {
-        const small = input.parentElement.querySelector('small');
-        if (input.id !== "whatsapp" && !input.value.trim()) {
-          small.style.display = 'block';
-          valid = false;
-        } else {
-          small.style.display = 'none';
-        }
-      });
+    <button type="submit">Send Message</button>
+    <p id="statusMessage"></p>
+  </form>
+</div>
 
-      if (!valid) return;
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/852XXXXXXXX" target="_blank" 
+   style="position:fixed; bottom:20px; right:20px; background:#25D366; color:white;
+   border-radius:50%; width:55px; height:55px; display:flex; align-items:center; 
+   justify-content:center; font-size:28px; text-decoration:none;">💬</a>
 
-      const params = {
-        company: form.company.value,
-        name: form.name.value,
-        email: form.email.value,
-        whatsapp: form.whatsapp.value,
-        message: form.message.value
-      };
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="about.html">About</a>
+    <a href="support.html">Support</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <p>©2025 VuTek. All rights reserved.</p>
+</footer>
 
-      emailjs.send("service_nkes7ae", "template_yshiorn", params)
-        .then(() => {
-          document.getElementById('successMsg').style.display = 'block';
-          document.getElementById('errorMsg').style.display = 'none';
-          form.reset();
-        })
-        .catch(() => {
-          document.getElementById('successMsg').style.display = 'none';
-          document.getElementById('errorMsg').style.display = 'block';
-        });
-    });
+<script>
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  const form = e.target;
+  const inputs = form.querySelectorAll("input[required], textarea[required]");
+  let valid = true;
+  const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 
-    // WhatsApp floating button
-    window.addEventListener('load', () => {
-      const btn = document.getElementById('whatsappBtn');
-      setTimeout(() => btn.classList.add('show'), 2500);
-    });
-  </script>
+  form.querySelectorAll(".error-message").forEach(msg => msg.style.display = "none");
+
+  // Validate required fields
+  ["company", "name", "email", "message"].forEach(id => {
+    const field = document.getElementById(id);
+    const msg = field.parentNode.querySelector(".error-message");
+    if (id === "email") {
+      if (!emailPattern.test(field.value.trim())) {
+        msg.style.display = "block";
+        valid = false;
+      }
+    } else {
+      if (field.value.trim() === "") {
+        msg.style.display = "block";
+        valid = false;
+      }
+    }
+  });
+
+  const status = document.getElementById("statusMessage");
+  status.style.display = "block";
+  if (valid) {
+    status.textContent = "Thank you! Your message has been sent.";
+    status.style.color = "green";
+    form.reset();
+    setTimeout(() => { status.style.display = "none"; }, 4000);
+  } else {
+    status.textContent = "Oops! Something went wrong. Please try again.";
+    status.style.color = "red";
+    setTimeout(() => { status.style.display = "none"; }, 4000);
+  }
+});
+</script>
+
 </body>
 </html>
-
-
-
-
-
 
