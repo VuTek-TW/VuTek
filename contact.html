@@ -84,6 +84,7 @@ body.contact-page .form-row{
   display:flex;
   width:100%;
   margin-bottom:15px;
+  justify-content:center;
 }
 body.contact-page .form-row label{
   width:30%;
@@ -202,7 +203,7 @@ body.contact-page .whatsapp-fixed:hover{ background:#1ebe5d; }
     </div>
     <div class="form-row">
       <label for="message">Message</label>
-      <textarea id="message" name="message" placeholder="Your message here"></textarea>
+      <textarea id="message" name="message"></textarea>
     </div>
     <button type="submit">Send Message</button>
     <div class="msg-response success" id="successMsg">Thank you! Your message has been sent.</div>
@@ -243,6 +244,7 @@ form.addEventListener('submit', function(e){
   form.querySelectorAll('input[required]').forEach(input=>{
     if(!input.value.trim()){ 
       valid=false; 
+      input.nextElementSibling.textContent='Please fill out this field.';
       input.nextElementSibling.style.display='block';
     } else { input.nextElementSibling.style.display='none'; }
   });
@@ -286,4 +288,5 @@ window.addEventListener('load', ()=>{
 
 </body>
 </html>
+
 
