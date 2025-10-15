@@ -4,16 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VuTek - Contact Us</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css" />
 <style>
-/* ================== Contact Page 專屬 CSS ================== */
 body.contact-page {
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background:#f4f6f8; color:#333; margin:0; padding:0;
+  background:#f4f6f8;
+  margin:0;
+  padding:0;
+  color:#333;
 }
 body.contact-page a { text-decoration:none; color:inherit; }
 
-/* ================== Header ================== */
+/* Header */
 body.contact-page header {
   display:flex;
   justify-content:space-between;
@@ -25,52 +27,13 @@ body.contact-page header {
   top:0;
   z-index:1000;
 }
-body.contact-page .logo a {
-  font-size:1.6rem;
-  font-weight:bold;
-  color:#fff;
-}
-body.contact-page nav ul {
-  list-style:none;
-  display:flex;
-  margin:0;
-  padding:0;
-  gap:44px;
-}
+body.contact-page .logo { font-size:1.6rem; font-weight:bold; color:#fff; margin-left:145px; }
+body.contact-page nav ul { list-style:none; display:flex; margin:0; padding:0; gap:44px; }
 body.contact-page nav ul li a { color:#fff; font-weight:500; }
 body.contact-page .hamburger { display:none; cursor:pointer; font-size:1.5rem; }
-
-/* ================== Footer ================== */
-body.contact-page footer {
-  background:#1a73e8;
-  color:#fff;
-  text-align:center;
-  padding:8px 0;
-}
-body.contact-page footer a { color:#fff; }
-body.contact-page footer .footer-info {
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-wrap:wrap;
-  font-size:0.95rem;
-  margin-bottom:5px;
-}
-body.contact-page footer .footer-info span {
-  display:inline-block;
-  margin:0 16px;
-  position:relative;
-}
-body.contact-page footer .footer-info span:not(:last-child)::after {
-  content:"|";
-  position:absolute;
-  right:-16px;
-}
-
-/* ================== 手機版 Header / Footer ================== */
 @media (max-width:768px){
   body.contact-page nav ul{
-    display:none !important;
+    display:none;
     flex-direction:column;
     background:#1a73e8;
     position:absolute;
@@ -78,106 +41,115 @@ body.contact-page footer .footer-info span:not(:last-child)::after {
     right:20px;
     border-radius:8px;
     overflow:hidden;
-    gap:12px;
+    gap:19px;
     z-index:1000;
   }
-  body.contact-page nav ul.show{ display:flex !important; }
+  body.contact-page nav ul.show{ display:flex; }
   body.contact-page nav ul li{ padding:10px 20px; margin-left:0; }
   body.contact-page .hamburger{ display:block; }
-  body.contact-page footer .footer-info {
-    flex-direction:column;
-    gap:4px;
-  }
-  body.contact-page footer .footer-info span {
-    display:block;
-    margin:0;
-  }
-  body.contact-page footer .footer-info span::after{ content:"" !important; }
 }
 
-/* ================== Form ================== */
-.contact-section{
-  max-width:800px;
-  margin:40px auto;
-  padding:0 20px;
-  text-align:center;
-}
-.contact-section h1{ margin-bottom:30px; font-size:2rem; color:#1a1a1a; }
-form.contact-form{
-  background:#fff;
-  padding:30px;
-  border-radius:10px;
+/* Contact form */
+body.contact-page section{ max-width:805px; margin:40px auto; padding:0 20px; }
+body.contact-page h1{ text-align:center; margin-bottom:30px; color:#1a1a1a; font-size:2rem; }
+
+body.contact-page form{
+  background:#fff; 
+  padding:30px; 
+  border-radius:10px; 
   box-shadow:0 2px 8px rgba(0,0,0,0.08);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
 }
-.form-row{
-  display:flex;
-  flex-direction:row;
-  width:100%;
-  margin-bottom:15px;
-}
-.form-row label{
-  width:25%;
-  min-width:100px;
-  padding-right:10px;
-  font-weight:600;
-  display:flex;
-  align-items:center;
+body.contact-page .form-row{ display:flex; flex-wrap:wrap; align-items:flex-start; margin-bottom:15px; }
+body.contact-page .form-row label{
+  width:30%; min-width:100px; 
+  padding-right:10px; 
+  font-weight:600; 
+  display:flex; 
+  align-items:center; 
   justify-content:flex-end;
 }
-.form-row input, .form-row textarea{
-  flex:1;
-  padding:10px;
-  border:1px solid #ccc;
-  border-radius:5px;
+body.contact-page .form-row input, 
+body.contact-page .form-row textarea{
+  flex:1; 
+  padding:10px; 
+  border:1px solid #ccc; 
+  border-radius:5px; 
   font-size:1rem;
 }
-.form-row input.optional-input::placeholder{ color:#aaa; }
-textarea#message{
+body.contact-page .form-row input::placeholder{ color:#aaa; }
+body.contact-page .form-row textarea{ resize:vertical; min-height:100px; }
+
+body.contact-page .floating-msg{
+  position:absolute;
+  left:0; top:0;
+  padding:0 5px;
+  font-size:0.85rem;
+  color:red;
+  pointer-events:none;
+  transform: translate(10px, 10px);
+  display:none;
+}
+
+body.contact-page .form-row-wrapper{
+  position:relative;
   width:100%;
-  margin-bottom:15px;
-  resize:vertical;
-  min-height:100px;
-  padding:10px;
 }
 
-/* 提示文字 */
-.form-row small{ color:red; display:none; margin-top:5px; text-align:left; }
+body.contact-page button{
+  background:#1a73e8; 
+  color:#fff; 
+  padding:12px 25px; 
+  border:none; 
+  border-radius:5px; 
+  cursor:pointer; 
+  font-size:1rem; 
+  font-weight:600; 
+  transition: background 0.3s;
+  display:block;
+  margin:20px auto 10px auto;
+}
+body.contact-page button:hover{ background:#155cb0; }
 
-/* CTA */
-.contact-section button{
-  background:#1a73e8; color:#fff; padding:12px 25px; border:none; border-radius:5px;
-  cursor:pointer; font-size:1rem; font-weight:600; transition:background 0.3s;
+body.contact-page .contact-note{
   margin-top:10px;
+  font-size:0.95rem; 
+  color:#555; 
+  text-align:center;
 }
-.contact-section button:hover{ background:#155cb0; }
-.contact-section .contact-note{ font-size:0.95rem; color:#555; margin-top:15px; }
 
-/* 成功 / 失敗訊息 */
-.msg-response{ display:none; font-weight:600; margin-top:10px; }
-
-/* ================== WhatsApp floating ================== */
-.whatsapp-fixed{
-  position:fixed; right:20px; background:#25D366; color:#fff;
-  padding:15px 20px; border-radius:50px; font-weight:600; z-index:1000;
-  text-decoration:none; box-shadow:0 4px 8px rgba(0,0,0,0.2);
-  opacity:0; transform:translateY(50px);
-  transition: opacity 0.5s, transform 0.5s;
+/* Footer */
+body.contact-page footer{
+  background:#1a73e8; 
+  color:#fff; 
+  text-align:center; 
+  padding:8px 0;
 }
-.whatsapp-fixed.show{ opacity:1; transform:translateY(0); }
-.whatsapp-fixed:hover{ background:#1ebe5d; }
-
-/* 手機版對齊自動換行 */
-@media (max-width:600px){
-  .form-row{
-    flex-direction:column;
-    align-items:flex-start;
-  }
-  .form-row label{ width:100%; margin-bottom:5px; justify-content:flex-start; }
-  textarea#message{ width:100%; }
+body.contact-page footer .footer-info{
+  display:flex; 
+  justify-content:center; 
+  align-items:center; 
+  flex-wrap:wrap;
+  font-size:0.95rem;
+  margin-bottom:5px;
 }
+body.contact-page footer .footer-info span{
+  display:inline-block;
+  margin:0 16px;
+  position:relative;
+}
+body.contact-page footer .footer-info span:not(:last-child)::after{
+  content:"|";
+  position:absolute;
+  right:-16px;
+}
+body.contact-page footer p.copyright{
+  margin:0;
+  font-size:0.9rem;
+  line-height:1.2;
+}
+
+/* Hide slider */
+#headerControlPanel { display:none; }
 </style>
 </head>
 <body class="contact-page">
@@ -195,34 +167,35 @@ textarea#message{
   </nav>
 </header>
 
-<section class="contact-section">
+<section>
   <h1>Contact Us</h1>
-  <form id="contactForm" class="contact-form">
-    <div class="form-row">
+  <form id="contactForm" novalidate>
+    <div class="form-row form-row-wrapper">
       <label for="company">Company</label>
       <input type="text" id="company" name="company" placeholder="">
-      <small>Please fill out this field.</small>
+      <span class="floating-msg">Please fill out this field.</span>
     </div>
-    <div class="form-row">
+    <div class="form-row form-row-wrapper">
       <label for="name">Your Name</label>
       <input type="text" id="name" name="name" placeholder="">
-      <small>Please fill out this field.</small>
+      <span class="floating-msg">Please fill out this field.</span>
     </div>
-    <div class="form-row">
+    <div class="form-row form-row-wrapper">
       <label for="email">Email</label>
       <input type="email" id="email" name="email" placeholder="">
-      <small>Please enter a valid email.</small>
+      <span class="floating-msg">Please fill out a valid email.</span>
     </div>
-    <div class="form-row">
+    <div class="form-row form-row-wrapper">
       <label for="whatsapp">WhatsApp</label>
-      <input type="text" id="whatsapp" name="whatsapp" class="optional-input" placeholder="(optional)">
+      <input type="text" id="whatsapp" name="whatsapp" placeholder="(optional)">
+      <span class="floating-msg">Please fill out this field.</span>
     </div>
-    <textarea id="message" name="message" placeholder="Message"></textarea>
-    <small id="messageAlert">Please fill out this field.</small>
-
+    <div class="form-row form-row-wrapper">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder=""></textarea>
+      <span class="floating-msg">Please fill out this field.</span>
+    </div>
     <button type="submit">Send Message</button>
-    <div class="msg-response success" id="successMsg">Thank you! Your message has been sent.</div>
-    <div class="msg-response error" id="errorMsg">Oops! Something went wrong. Please try again.</div>
     <div class="contact-note">If you like, you can also contact us via Email or WhatsApp anytime.</div>
   </form>
 </section>
@@ -230,13 +203,11 @@ textarea#message{
 <footer>
   <div class="footer-info">
     <span><a href="https://www.google.com/maps?q=123+Business+St,+Hong+Kong" target="_blank">Address: 123 Business St, Hong Kong</a></span>
-    <span><a href="mailto:info@vutek.com">Email: info@vutek.com</a></span>
+    <span><a href="mailto:vutek.inc@gmail.com">Email: vutek.inc@gmail.com</a></span>
     <span><a href="https://wa.me/886907903072" target="_blank">WhatsApp: +886 907903072</a></span>
   </div>
-  <p>© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
+  <p class="copyright">© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
 </footer>
-
-<a href="https://wa.me/886907903072" target="_blank" class="whatsapp-fixed" id="whatsappBtn">WhatsApp</a>
 
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
@@ -245,30 +216,31 @@ emailjs.init("Jn60mp90NgrzsddCd");
 // Hamburger
 const hamburger = document.querySelector('.hamburger');
 const navUl = document.querySelector('nav ul');
-hamburger.addEventListener('click',()=>navUl.classList.toggle('show'));
+hamburger.addEventListener('click', () => navUl.classList.toggle('show'));
 
 // Form submit
 const form = document.getElementById('contactForm');
 form.addEventListener('submit', function(e){
   e.preventDefault();
   let valid = true;
-
-  // Reset alerts
-  document.querySelectorAll('form small').forEach(s=>s.style.display='none');
-
-  // Check required
-  ['company','name','email','message'].forEach(id=>{
-    const input = document.getElementById(id);
-    if(!input.value.trim()){
+  form.querySelectorAll('.form-row-wrapper').forEach(row=>{
+    const input = row.querySelector('input, textarea');
+    const msg = row.querySelector('.floating-msg');
+    if(!input.value.trim() && input.id!=='whatsapp'){ 
       valid=false;
-      if(id==='message'){
-        document.getElementById('messageAlert').style.display='block';
-      } else {
-        input.nextElementSibling.style.display='block';
+      msg.style.display='block';
+    } else {
+      msg.style.display='none';
+    }
+    // Email check
+    if(input.type==='email' && input.value){
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if(!emailPattern.test(input.value)){
+        valid=false;
+        msg.style.display='block';
       }
     }
   });
-
   if(!valid) return;
 
   const params = {
@@ -279,35 +251,19 @@ form.addEventListener('submit', function(e){
     message: form.message.value
   };
 
-  emailjs.send("service_nkes7ae","template_yshiorn",params)
-  .then(()=>{
-    document.getElementById('successMsg').style.display='block';
-    document.getElementById('errorMsg').style.display='none';
-    form.reset();
-  },()=>{
-    document.getElementById('successMsg').style.display='none';
-    document.getElementById('errorMsg').style.display='block';
-  });
-});
-
-// WhatsApp floating
-window.addEventListener('load',()=>{
-  const btn = document.getElementById('whatsappBtn');
-  const messageField = document.getElementById('message');
-  let targetY = messageField.getBoundingClientRect().top + window.scrollY;
-  btn.style.top = targetY+"px";
-  setTimeout(()=>btn.classList.add('show'),3000);
-
-  let currentY = targetY;
-  window.addEventListener('scroll',()=>{
-    const desiredY = messageField.getBoundingClientRect().top + window.scrollY;
-    currentY += (desiredY-currentY)*0.1;
-    btn.style.top = currentY+"px";
-  });
+  emailjs.send("service_nkes7ae", "template_yshiorn", params)
+    .then(() => {
+      alert("Thank you! Your message has been sent.");
+      form.reset();
+    }, () => {
+      alert("Oops! Something went wrong. Please try again.");
+    });
 });
 </script>
+
 </body>
 </html>
+
 
 
 
