@@ -59,13 +59,22 @@ body.contact-page footer .footer-info {
   font-size:0.95rem;
   gap:16px;
   flex-wrap:wrap;
-  margin-bottom:2px; /* 壓低第一行與第二行間距 */
+  margin-bottom:2px;
 }
 body.contact-page footer .footer-info span a { color:#fff; }
-body.contact-page footer .footer-info span:not(:last-child)::after {
-  content:"|";
-  margin-left:16px;
-  margin-right:16px;
+/* PC: 分隔 | */
+@media (min-width:769px){
+  body.contact-page footer .footer-info span:not(:last-child)::after {
+    content:"|";
+    margin-left:16px;
+    margin-right:16px;
+  }
+}
+/* Mobile: 不顯示 | */
+@media (max-width:768px){
+  body.contact-page footer .footer-info span:not(:last-child)::after {
+    content:"";
+  }
 }
 
 /* ================== Contact Form ================== */
@@ -174,8 +183,6 @@ body.contact-page .whatsapp-fixed:hover { background:#1ebe5d; }
   }
   body.contact-page nav ul.show { display:flex !important; }
   body.contact-page nav ul li { padding:10px 20px; margin-left:0; }
-
-  /* Header logo margin */
   body.contact-page .logo { margin-left:190px; }
 }
 @media (min-width:769px){
@@ -295,18 +302,17 @@ window.addEventListener('load', ()=>{
   const btn = document.getElementById('whatsappBtn');
   const messageField = document.getElementById('message');
   let targetY = messageField.getBoundingClientRect().top + window.scrollY;
-  btn.style.top = targetY + "px";
+  btn.style.top = targetY+"px";
   setTimeout(()=> btn.classList.add('show'),3000);
   let currentY = targetY;
   window.addEventListener('scroll', ()=>{
     const desiredY = messageField.getBoundingClientRect().top + window.scrollY;
-    currentY += (desiredY-currentY)*0.1;
-    btn.style.top = currentY + "px";
+    currentY += (desiredY - currentY)*0.1;
+    btn.style.top = currentY+"px";
   });
 });
 </script>
 
 </body>
 </html>
-
 
