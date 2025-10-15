@@ -78,13 +78,14 @@ body.contact-page form{
   box-shadow:0 2px 8px rgba(0,0,0,0.08);
   display:flex;
   flex-direction:column;
-  align-items:center;
+  align-items:flex-start;
+  margin-left:30%;
 }
 body.contact-page .form-row{
   display:flex;
   width:100%;
   margin-bottom:15px;
-  justify-content:center;
+  justify-content:flex-start;
 }
 body.contact-page .form-row label{
   width:30%;
@@ -184,17 +185,17 @@ body.contact-page .whatsapp-fixed:hover{ background:#1ebe5d; }
   <form id="contactForm">
     <div class="form-row">
       <label for="company">Company</label>
-      <input type="text" id="company" name="company" required>
+      <input type="text" id="company" name="company">
       <small>Please fill out this field.</small>
     </div>
     <div class="form-row">
       <label for="name">Your Name</label>
-      <input type="text" id="name" name="name" required>
+      <input type="text" id="name" name="name">
       <small>Please fill out this field.</small>
     </div>
     <div class="form-row">
       <label for="email">Email</label>
-      <input type="email" id="email" name="email" required>
+      <input type="email" id="email" name="email">
       <small>Please fill out a valid email.</small>
     </div>
     <div class="form-row">
@@ -241,13 +242,15 @@ const form = document.getElementById('contactForm');
 form.addEventListener('submit', function(e){
   e.preventDefault();
   let valid = true;
-  form.querySelectorAll('input[required]').forEach(input=>{
+
+  form.querySelectorAll('input[id="company"], input[id="name"], input[id="email"]').forEach(input=>{
     if(!input.value.trim()){ 
       valid=false; 
       input.nextElementSibling.textContent='Please fill out this field.';
       input.nextElementSibling.style.display='block';
     } else { input.nextElementSibling.style.display='none'; }
   });
+
   if(!valid) return;
 
   const params = {
@@ -288,5 +291,6 @@ window.addEventListener('load', ()=>{
 
 </body>
 </html>
+
 
 
