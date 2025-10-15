@@ -9,75 +9,30 @@
 body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f4f6f8; color:#333; margin:0; padding:0; }
 a { text-decoration:none; color:inherit; }
 
-/* ===== Footer 連結 Hover 效果 ===== */
-footer .footer-info a {
-  color: #fff;
-  text-decoration: none;
-  transition: color 0.3s, border-bottom 0.3s;
-  border-bottom: 1px solid transparent;
-}
-footer .footer-info a:hover {
-  color: #ffeb3b;
-  border-bottom: 1px solid #ffeb3b;
-}
+/* Footer 連結 Hover */
+footer .footer-info a { color:#fff; text-decoration:none; transition: color 0.3s, border-bottom 0.3s; border-bottom:1px solid transparent; }
+footer .footer-info a:hover { color:#ffeb3b; border-bottom:1px solid #ffeb3b; }
 
-/* ===== 手機專用 ===== */
 @media (max-width:768px){
-  nav ul {
-    display:none !important;
-    flex-direction:column;
-    background:#1a73e8;
-    position:absolute;
-    top:50px;
-    right:20px;
-    border-radius:8px;
-    overflow:hidden;
-    gap:19px;
-    z-index:1000;
-  }
+  nav ul { display:none !important; flex-direction:column; background:#1a73e8; position:absolute; top:50px; right:20px; border-radius:8px; overflow:hidden; gap:19px; z-index:1000; }
   nav ul.show { display:flex !important; }
   nav ul li { padding:10px 20px; margin-left:0; }
   .hamburger { display:block; cursor:pointer; position:absolute; top:50%; transform:translateY(-50%); right:20px; }
 
-  footer .footer-info {
-    flex-direction: column !important;
-    gap: 0 !important;
-  }
-  footer .footer-info span {
-    display: block !important;
-    margin:0 0 4px 0 !important;
-  }
+  footer .footer-info { flex-direction: column !important; gap: 0 !important; }
+  footer .footer-info span { display: block !important; margin:0 0 4px 0 !important; }
   footer .footer-info span::after { content: "" !important; }
-
-  /* 手機 slider 隱藏 */
-  #headerControlPanel { display:none; }
 }
 
-/* ===== 電腦版 footer ===== */
 @media (min-width:769px){
-  footer .footer-info {
-    display:flex;
-    justify-content:center;
-    align-items:center;
-  }
-  footer .footer-info span {
-    display:inline-block;
-    margin-left:16px;
-    margin-right:16px;
-    position: relative;
-  }
-  footer .footer-info span:not(:last-child)::after {
-    content: "|";
-    position: absolute;
-    right: -16px;
-  }
-
-  /* PC slider 隱藏 */
-  #headerControlPanel { display:none !important; }
-
-  /* PC logo 固定 145px */
+  footer .footer-info { display:flex; justify-content:center; align-items:center; }
+  footer .footer-info span { display:inline-block; margin-left:16px; margin-right:16px; position: relative; }
+  footer .footer-info span:not(:last-child)::after { content: "|"; position:absolute; right:-16px; }
   header .logo { margin-left:145px; }
 }
+
+/* slider panel 隱藏 */
+#headerControlPanel { display:none; }
 </style>
 </head>
 <body class="contact-page">
@@ -108,8 +63,7 @@ footer .footer-info a:hover {
   <p class="copyright" style="margin:0; font-size:0.9rem;">© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
 </footer>
 
-<!-- slider panel 完全隱藏 -->
-<div id="headerControlPanel" style="display:none;"></div>
+<div id="headerControlPanel"></div>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
@@ -118,25 +72,17 @@ document.addEventListener("DOMContentLoaded", function() {
   const logo = document.querySelector('header .logo');
 
   hamburger.addEventListener('click', () => { navMenu.classList.toggle('show'); });
+  if(window.innerWidth <= 768){ logo.style.marginLeft='190px'; }
+  if(window.innerWidth >= 769){ logo.style.marginLeft='145px'; }
 
-  if(window.innerWidth <= 768){
-    logo.style.marginLeft = '190px'; // 手機 logo
-  }
-
-  if(window.innerWidth >= 769){
-    logo.style.marginLeft = '145px'; // PC logo
-  }
-
-  // slider 隱藏
   const sliderPanel = document.getElementById('headerControlPanel');
-  if(sliderPanel){
-    sliderPanel.style.display = 'none';
-  }
+  if(sliderPanel){ sliderPanel.style.display='none'; }
 });
 </script>
 
 </body>
 </html>
+
 
 
 
