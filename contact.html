@@ -13,10 +13,7 @@
       padding: 0;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+    a { text-decoration: none; color: inherit; }
 
     /* ================== Header ================== */
     header {
@@ -30,102 +27,28 @@
       top: 0;
       z-index: 1000;
     }
-
-    .logo {
-      margin-left: 20px;
-    }
-
-    .logo a {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #fff;
-    }
-
-    nav {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      margin: 0;
-      padding: 0;
-      gap: 20px;
-    }
-
-    nav ul li:first-child {
-      margin-left: 40px;
-    }
-
-    nav ul li a {
-      color: #fff;
-      font-weight: 500;
-    }
-
-    .hamburger {
-      display: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
+    .logo { margin-left: 20px; }
+    .logo a { font-size: 1.5rem; font-weight: bold; color: #fff; }
+    nav { flex: 1; display: flex; justify-content: center; align-items: flex-end; }
+    nav ul { list-style: none; display: flex; margin: 0; padding: 0; gap: 20px; }
+    nav ul li:first-child { margin-left: 40px; }
+    nav ul li a { color: #fff; font-weight: 500; }
+    .hamburger { display: none; font-size: 1.5rem; cursor: pointer; }
 
     @media (max-width: 768px) {
-      nav ul {
-        display: none;
-        flex-direction: column;
-        background: #1a73e8;
-        position: absolute;
-        top: 50px;
-        right: 20px;
-        border-radius: 8px;
-        overflow: hidden;
-      }
-      nav ul.show {
-        display: flex;
-      }
-      nav ul li {
-        padding: 10px 20px;
-        margin-left: 0;
-      }
-      .hamburger {
-        display: block;
-      }
+      nav ul { display: none; flex-direction: column; background: #1a73e8; position: absolute; top: 50px; right: 20px; border-radius: 8px; overflow: hidden; }
+      nav ul.show { display: flex; }
+      nav ul li { padding: 10px 20px; margin-left: 0; }
+      .hamburger { display: block; }
     }
 
     /* ================== Form ================== */
-    section {
-      max-width: 750px;
-      margin: 50px auto;
-      padding: 0 20px;
-    }
+    section { max-width: 750px; margin: 50px auto; padding: 0 20px; }
+    h1 { text-align: center; color: #1a1a1a; margin-bottom: 25px; }
+    form { background: #fff; padding: 35px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
 
-    h1 {
-      text-align: center;
-      color: #1a1a1a;
-      margin-bottom: 25px;
-    }
-
-    form {
-      background: #fff;
-      padding: 35px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
-
-    .form-row {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 22px;
-    }
-
-    label {
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-
+    .form-row { position: relative; display: flex; flex-direction: column; margin-bottom: 22px; }
+    label { font-weight: 600; margin-bottom: 6px; }
     input, textarea {
       padding: 12px;
       border: 1px solid #ccc;
@@ -135,17 +58,8 @@
       max-width: 100%;
       box-sizing: border-box;
     }
-
-    textarea {
-      resize: vertical;
-      min-height: 100px;
-      line-height: 1.5;
-    }
-
-    input::placeholder, textarea::placeholder {
-      color: #aaa;
-      font-size: 0.95rem;
-    }
+    textarea { resize: vertical; min-height: 100px; line-height: 1.5; }
+    input::placeholder, textarea::placeholder { color: #aaa; font-size: 0.95rem; }
 
     small {
       position: absolute;
@@ -168,18 +82,9 @@
       margin: 25px auto 0;
       transition: background 0.3s;
     }
+    button:hover { background: #155cb0; }
 
-    button:hover {
-      background: #155cb0;
-    }
-
-    .msg-response {
-      margin-top: 15px;
-      font-weight: 600;
-      display: none;
-      text-align: center;
-    }
-
+    .msg-response { margin-top: 15px; font-weight: 600; display: none; text-align: center; }
     .success { color: green; }
     .error { color: red; }
 
@@ -193,18 +98,9 @@
       font-size: 0.95rem;
       line-height: 1.6;
     }
-
-    footer a {
-      color: #fff;
-    }
-
-    footer p {
-      margin: 3px 0;
-    }
-
-    footer .footer-info {
-      margin-bottom: 3px;
-    }
+    footer a { color: #fff; }
+    footer p { margin: 3px 0; }
+    footer .footer-info { margin-bottom: 3px; }
 
     /* ================== WhatsApp Floating ================== */
     .whatsapp-fixed {
@@ -222,24 +118,12 @@
       transform: translateY(50px);
       transition: opacity 0.5s, transform 0.5s;
     }
-
-    .whatsapp-fixed.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .whatsapp-fixed:hover {
-      background: #1ebe5d;
-    }
+    .whatsapp-fixed.show { opacity: 1; transform: translateY(0); }
+    .whatsapp-fixed:hover { background: #1ebe5d; }
 
     @media (max-width: 768px) {
-      input, textarea {
-        width: 100%;
-      }
-      footer {
-        font-size: 0.9rem;
-        line-height: 1.5;
-      }
+      input, textarea { width: 100%; }
+      footer { font-size: 0.9rem; line-height: 1.5; }
     }
   </style>
 </head>
@@ -263,19 +147,19 @@
     <form id="contactForm">
       <div class="form-row">
         <label for="company">Company</label>
-        <input type="text" id="company" name="company">
+        <input type="text" id="company" name="company" placeholder="">
         <small>Please fill out this field.</small>
       </div>
 
       <div class="form-row">
         <label for="name">Your Name</label>
-        <input type="text" id="name" name="name">
+        <input type="text" id="name" name="name" placeholder="">
         <small>Please fill out this field.</small>
       </div>
 
       <div class="form-row">
         <label for="email">Email</label>
-        <input type="email" id="email" name="email">
+        <input type="email" id="email" name="email" placeholder="">
         <small>Please enter a valid email.</small>
       </div>
 
@@ -294,6 +178,10 @@
 
       <div class="msg-response success" id="successMsg">Thank you! Your message has been sent.</div>
       <div class="msg-response error" id="errorMsg">Oops! Something went wrong. Please try again.</div>
+
+      <p style="text-align:center; margin-top:15px;">
+        If you like, you can also contact us via Email or WhatsApp anytime.
+      </p>
     </form>
   </section>
 
@@ -327,11 +215,22 @@
 
       form.querySelectorAll('input, textarea').forEach(input => {
         const small = input.parentElement.querySelector('small');
-        if (input.id !== "whatsapp" && !input.value.trim()) {
+        if ((input.id !== "whatsapp") && !input.value.trim()) {
           small.style.display = 'block';
           valid = false;
         } else {
-          small.style.display = 'none';
+          if (input.type === "email" && input.value) {
+            const regex = /^\S+@\S+\.\S+$/;
+            if (!regex.test(input.value.trim())) {
+              small.textContent = 'Please enter a valid email.';
+              small.style.display = 'block';
+              valid = false;
+            } else {
+              small.style.display = 'none';
+            }
+          } else {
+            small.style.display = 'none';
+          }
         }
       });
 
@@ -365,5 +264,6 @@
   </script>
 </body>
 </html>
+
 
 
