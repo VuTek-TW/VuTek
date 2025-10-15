@@ -50,7 +50,8 @@ body.contact-page footer {
   background:#1a73e8;
   color:#fff;
   text-align:center;
-  padding:5px 0 8px 0; /* 壓低整體高度 */
+  padding:5px 0 5px 0; /* 壓低高度 */
+  line-height:1.4; /* 平均行距 */
 }
 body.contact-page footer .footer-info {
   display:flex;
@@ -70,11 +71,10 @@ body.contact-page footer .footer-info span a { color:#fff; }
     margin-right:16px;
   }
 }
-/* Mobile: 不顯示 | */
+/* Mobile: 不顯示 | 並平均行距 */
 @media (max-width:768px){
-  body.contact-page footer .footer-info span:not(:last-child)::after {
-    content:"";
-  }
+  body.contact-page footer .footer-info span:not(:last-child)::after { content:""; }
+  body.contact-page footer .footer-info { gap:8px; }
 }
 
 /* ================== Contact Form ================== */
@@ -117,10 +117,7 @@ body.contact-page .form-row textarea {
   border-radius:5px;
   font-size:1rem;
 }
-body.contact-page .form-row textarea {
-  resize:vertical;
-  min-height:100px;
-}
+body.contact-page .form-row textarea { resize:vertical; min-height:100px; }
 body.contact-page .form-row small { color:red; display:none; margin-top:5px; }
 body.contact-page .optional { color:#aaa; font-weight:400; margin-left:5px; }
 
@@ -185,9 +182,7 @@ body.contact-page .whatsapp-fixed:hover { background:#1ebe5d; }
   body.contact-page nav ul li { padding:10px 20px; margin-left:0; }
   body.contact-page .logo { margin-left:190px; }
 }
-@media (min-width:769px){
-  body.contact-page .logo { margin-left:145px; }
-}
+@media (min-width:769px){ body.contact-page .logo { margin-left:145px; } }
 </style>
 </head>
 <body class="contact-page">
@@ -312,7 +307,7 @@ window.addEventListener('load', ()=>{
   });
 });
 </script>
-
 </body>
 </html>
+
 
