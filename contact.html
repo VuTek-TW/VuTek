@@ -19,26 +19,25 @@
     header {
       display: flex;
       justify-content: space-between;
-      align-items: flex-end;
+      align-items: center;
       background: #1a73e8;
       color: #fff;
-      padding: 10px 40px;
+      padding: 10px 145px; /* 與其他頁面一致 */
       position: sticky;
       top: 0;
       z-index: 1000;
     }
-    .logo { margin-left: 20px; }
     .logo a { font-size: 1.5rem; font-weight: bold; color: #fff; }
-    nav { flex: 1; display: flex; justify-content: center; align-items: flex-end; }
+    nav { flex: 1; display: flex; justify-content: center; }
     nav ul { list-style: none; display: flex; margin: 0; padding: 0; gap: 20px; }
-    nav ul li:first-child { margin-left: 40px; }
     nav ul li a { color: #fff; font-weight: 500; }
     .hamburger { display: none; font-size: 1.5rem; cursor: pointer; }
 
     @media (max-width: 768px) {
+      header { padding: 10px 20px; }
       nav ul { display: none; flex-direction: column; background: #1a73e8; position: absolute; top: 50px; right: 20px; border-radius: 8px; overflow: hidden; }
       nav ul.show { display: flex; }
-      nav ul li { padding: 10px 20px; margin-left: 0; }
+      nav ul li { padding: 10px 20px; }
       .hamburger { display: block; }
     }
 
@@ -47,28 +46,54 @@
     h1 { text-align: center; color: #1a1a1a; margin-bottom: 25px; }
     form { background: #fff; padding: 35px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
 
-    .form-row { position: relative; display: flex; flex-direction: column; margin-bottom: 22px; }
-    label { font-weight: 600; margin-bottom: 6px; }
+    /* form row PC 同行 */
+    @media (min-width: 769px) {
+      .form-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        margin-bottom: 22px;
+      }
+
+      .form-row label {
+        width: 150px; /* 固定寬度，可調整 */
+        margin-bottom: 0;
+        text-align: right;
+        padding-top: 12px;
+      }
+
+      .form-row input,
+      .form-row textarea {
+        flex: 1;
+      }
+
+      .form-row small {
+        margin-left: 10px;
+        align-self: center;
+        white-space: nowrap;
+      }
+    }
+
+    /* 手機版上下排列 */
+    @media (max-width: 768px) {
+      .form-row {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .form-row label { width: auto; margin-bottom: 6px; text-align: left; }
+      .form-row small { margin-left: 0; margin-top: 2px; }
+    }
+
     input, textarea {
       padding: 12px;
       border: 1px solid #ccc;
       border-radius: 6px;
       font-size: 1rem;
-      width: 115%; /* 增加寬度 */
-      max-width: 100%;
       box-sizing: border-box;
     }
     textarea { resize: vertical; min-height: 100px; line-height: 1.5; }
     input::placeholder, textarea::placeholder { color: #aaa; font-size: 0.95rem; }
-
-    small {
-      position: absolute;
-      bottom: 5px;
-      right: 10px;
-      color: red;
-      display: none;
-      font-size: 0.85rem;
-    }
 
     button {
       display: block;
@@ -120,11 +145,6 @@
     }
     .whatsapp-fixed.show { opacity: 1; transform: translateY(0); }
     .whatsapp-fixed:hover { background: #1ebe5d; }
-
-    @media (max-width: 768px) {
-      input, textarea { width: 100%; }
-      footer { font-size: 0.9rem; line-height: 1.5; }
-    }
   </style>
 </head>
 
@@ -147,19 +167,19 @@
     <form id="contactForm">
       <div class="form-row">
         <label for="company">Company</label>
-        <input type="text" id="company" name="company" placeholder="">
+        <input type="text" id="company" name="company">
         <small>Please fill out this field.</small>
       </div>
 
       <div class="form-row">
         <label for="name">Your Name</label>
-        <input type="text" id="name" name="name" placeholder="">
+        <input type="text" id="name" name="name">
         <small>Please fill out this field.</small>
       </div>
 
       <div class="form-row">
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="">
+        <input type="email" id="email" name="email">
         <small>Please enter a valid email.</small>
       </div>
 
@@ -216,21 +236,20 @@
       form.querySelectorAll('input, textarea').forEach(input => {
         const small = input.parentElement.querySelector('small');
         if ((input.id !== "whatsapp") && !input.value.trim()) {
+          small.textContent = input.id === "email" ? "Please enter a valid email." : "Please fill out this field.";
           small.style.display = 'block';
           valid = false;
-        } else {
-          if (input.type === "email" && input.value) {
-            const regex = /^\S+@\S+\.\S+$/;
-            if (!regex.test(input.value.trim())) {
-              small.textContent = 'Please enter a valid email.';
-              small.style.display = 'block';
-              valid = false;
-            } else {
-              small.style.display = 'none';
-            }
+        } else if (input.type === "email" && input.value.trim()) {
+          const regex = /^\S+@\S+\.\S+$/;
+          if (!regex.test(input.value.trim())) {
+            small.textContent = 'Please enter a valid email.';
+            small.style.display = 'block';
+            valid = false;
           } else {
             small.style.display = 'none';
           }
+        } else {
+          small.style.display = 'none';
         }
       });
 
@@ -264,6 +283,7 @@
   </script>
 </body>
 </html>
+
 
 
 
