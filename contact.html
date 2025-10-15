@@ -46,27 +46,54 @@
     h1 { text-align: center; color: #1a1a1a; margin-bottom: 25px; }
     form { background: #fff; padding: 35px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
 
-    .form-row { position: relative; display: flex; flex-direction: column; margin-bottom: 22px; }
-    label { font-weight: 600; margin-bottom: 6px; }
+    /* form row PC 同行 */
+    @media (min-width: 769px) {
+      .form-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        margin-bottom: 22px;
+      }
+
+      .form-row label {
+        width: 150px; /* 固定寬度，可調整 */
+        margin-bottom: 0;
+        text-align: right;
+        padding-top: 12px;
+      }
+
+      .form-row input,
+      .form-row textarea {
+        flex: 1;
+      }
+
+      .form-row small {
+        margin-left: 10px;
+        align-self: center;
+        white-space: nowrap;
+      }
+    }
+
+    /* 手機版上下排列 */
+    @media (max-width: 768px) {
+      .form-row {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .form-row label { width: auto; margin-bottom: 6px; text-align: left; }
+      .form-row small { margin-left: 0; margin-top: 2px; }
+    }
+
     input, textarea {
       padding: 12px;
       border: 1px solid #ccc;
       border-radius: 6px;
       font-size: 1rem;
-      width: 100%;
       box-sizing: border-box;
     }
     textarea { resize: vertical; min-height: 100px; line-height: 1.5; }
     input::placeholder, textarea::placeholder { color: #aaa; font-size: 0.95rem; }
-
-    small {
-      position: absolute;
-      bottom: -18px;
-      left: 0;
-      color: red;
-      display: none;
-      font-size: 0.85rem;
-    }
 
     button {
       display: block;
@@ -118,10 +145,6 @@
     }
     .whatsapp-fixed.show { opacity: 1; transform: translateY(0); }
     .whatsapp-fixed:hover { background: #1ebe5d; }
-
-    @media (max-width: 768px) {
-      footer { font-size: 0.9rem; line-height: 1.5; }
-    }
   </style>
 </head>
 
@@ -260,3 +283,4 @@
   </script>
 </body>
 </html>
+
