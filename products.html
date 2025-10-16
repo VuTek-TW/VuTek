@@ -111,6 +111,21 @@ section .cta {
   display: block;
   margin-bottom: 10px;
 }
+
+/* ===== iPhone 庫存圖片排版 ===== */
+.stock-gallery {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 15px;
+  flex-wrap: wrap; /* ✅ 手機版會自動換行 */
+}
+.stock-gallery img {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 10px;
+  display: block;
+}
 </style>
 </head>
 <body class="products-page">
@@ -139,9 +154,13 @@ section .cta {
 
   <p>We are here to help you succeed. Our ready stock is prepared for global shipment – see below for reference.</p>
 
+  <!-- ✅ 三張 iPhone 圖片 -->
   <div class="stock-section">
-    <img src="images/stock-sample.jpg" alt="Pre-owned iPhone stock">
-    <p>Ready stock for global shipment</p>
+    <div class="stock-gallery">
+      <img src="images/iphone-stock-01.jpg" alt="iPhone stock 1">
+      <img src="images/iphone-stock-02.jpg" alt="iPhone stock 2">
+      <img src="images/iphone-stock-03.jpg" alt="iPhone stock 3">
+    </div>
   </div>
 
   <a href="contact.html" class="cta">Get Started Today →</a>
@@ -185,6 +204,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </body>
 </html>
+
 
 
 
