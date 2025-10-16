@@ -112,19 +112,35 @@ section .cta {
   margin-bottom: 10px;
 }
 
-/* ===== iPhone 庫存圖片排版 ===== */
+/* ===== iPhone 庫存圖片排版：方法 3 （統一比例） ===== */
 .stock-gallery {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   gap: 15px;
-  flex-wrap: wrap; /* ✅ 手機版會自動換行 */
+  flex-wrap: wrap; /* 手機版會自動換行 */
 }
 .stock-gallery img {
   width: 100%;
-  max-width: 280px;
+  max-width: 280px;     /* 每張圖在大螢幕的最大寬度 */
+  aspect-ratio: 4 / 3;  /* 統一顯示比例（方法 3） */
+  object-fit: cover;    /* 自動裁切溢出部分，保持不變形 */
   border-radius: 10px;
   display: block;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+/* 小互動效果（可留或刪） */
+.stock-gallery img:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+/* 手機版調整：讓圖片最大寬度為容器 90% */
+@media (max-width: 768px) {
+  .stock-gallery img {
+    max-width: 90%;
+  }
 }
 </style>
 </head>
@@ -154,7 +170,7 @@ section .cta {
 
   <p>We are here to help you succeed. Our ready stock is prepared for global shipment – see below for reference.</p>
 
-  <!-- ✅ 三張 iPhone 圖片 -->
+  <!-- 三張 iPhone 圖片（方法 3） -->
   <div class="stock-section">
     <div class="stock-gallery">
       <img src="images/iphone-stock-01.jpg" alt="iPhone stock 1">
@@ -204,6 +220,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </body>
 </html>
+
 
 
 
