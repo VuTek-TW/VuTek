@@ -168,6 +168,16 @@ body.contact-page footer .footer-info span:not(:last-child)::after { content:"|"
   body.contact-page footer .footer-info span::after {
     content: none !important;
   }
+
+  /* ===== 手機版 header logo 與 hamburger 間距調整 ===== */
+  body.contact-page header {
+    padding-left: 20px;  /* 左邊距，讓 logo 不貼邊 */
+    padding-right: 20px; /* 右邊距，讓 hamburger 不貼邊 */
+  }
+
+  body.contact-page .logo a {
+    margin-left: 0; /* 手機版取消原本大左距 */
+  }
 }
 
 /* ================== WhatsApp Floating Button ================== */
@@ -310,6 +320,7 @@ window.addEventListener('load', ()=>{
 
 </body>
 </html>
+
 
 
 
