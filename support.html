@@ -43,6 +43,8 @@ h1 { text-align:center; margin-bottom:30px; color:#1a1a1a; font-size:2rem; }
 .faq-arrow { display:inline-block; transition: transform 0.3s; }
 .faq-item.active .faq-arrow { transform:rotate(90deg); }
 .faq-answer { max-height:0; padding:0 24px; border-top:1px solid #ddd; background:#fff; line-height:1.6; font-size:0.98rem; color:#555; overflow:hidden; transition:max-height 0.4s ease, padding 0.4s ease; }
+.faq-photos { display:flex; gap:12px; margin-top:15px; flex-wrap:wrap; }
+.faq-photos img { width:30%; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.15); }
 strong { color:#1a73e8; }
 @media (max-width:600px){ .faq-question { font-size:1rem; padding:15px 18px; } .faq-answer { font-size:0.95rem; padding:0 18px; } }
 </style>
@@ -75,33 +77,46 @@ strong { color:#1a73e8; }
       VuTek carries forward this spirit by offering high-quality Apple devices and attentive, reliable service to customers worldwide.
     </div>
   </div>
+
   <div class="faq-item">
     <div class="faq-question">When did VuTek start the iPhone business? <span class="faq-arrow">&#9654;</span></div>
     <div class="faq-answer">
       VuTek began its iPhone business with the very first generation in 2007.<br>
       We even still have an iPhone 1 on hand and photos of the iPhone 3Gs shipment from 2009, see below:
+
+      <div class="faq-photos">
+        <img src="iphone3gs-01.jpg" alt="iPhone 3Gs 01">
+        <img src="iphone3gs-02.jpg" alt="iPhone 3Gs 02">
+        <img src="iphone3gs-03.jpg" alt="iPhone 3Gs 03">
+      </div>
     </div>
   </div>
+
   <div class="faq-item">
     <div class="faq-question">What is the ordering process? <span class="faq-arrow">&#9654;</span></div>
     <div class="faq-answer">Inquiry → Offer → Order Confirmation → Invoice → Payment → Shipment → Tracking → Order Completion</div>
   </div>
+
   <div class="faq-item">
     <div class="faq-question">Where will you make the shipment? <span class="faq-arrow">&#9654;</span></div>
     <div class="faq-answer">All shipments are made from <strong>Hong Kong</strong>.</div>
   </div>
+
   <div class="faq-item">
     <div class="faq-question">How do customers make the payment? <span class="faq-arrow">&#9654;</span></div>
     <div class="faq-answer">We accept <strong>PayPal</strong>, <strong>Western Union</strong>, or <strong>T/T in advance</strong>, whichever is most convenient and secure for the customer.</div>
   </div>
+
   <div class="faq-item">
     <div class="faq-question">Which courier do you use? <span class="faq-arrow">&#9654;</span></div>
     <div class="faq-answer">We use <strong>FedEx</strong>, <strong>DHL</strong>, or <strong>UPS</strong>, selecting the option that provides the best overall delivery solution for your region, taking into account speed, reliability, and cost.</div>
   </div>
+
   <div class="faq-item">
     <div class="faq-question">What warranty do you provide? <span class="faq-arrow">&#9654;</span></div>
     <div class="faq-answer">All goods include a <strong>60-day warranty</strong>.</div>
   </div>
+
 </section>
 
 <footer style="background:#1a73e8; color:#fff; text-align:center; padding:8px 0; margin-top:40px;">
@@ -158,14 +173,4 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
 
