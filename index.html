@@ -6,7 +6,17 @@
 <title>VuTek - Home</title>
 <link rel="stylesheet" href="style.css" />
 <style>
-body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f4f6f8; color:#333; margin:0; padding:0; }
+body {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: 
+    linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.75)),
+    url('images/global-trade.jpg') center/cover no-repeat fixed;
+  color:#333;
+  margin:0;
+  padding:0;
+  background-attachment: fixed;
+  backdrop-filter: blur(5px);
+}
 a { text-decoration:none; color:inherit; }
 
 /* ===== Footer 連結 Hover 效果 ===== */
@@ -55,7 +65,6 @@ footer .footer-info a:hover {
   }
   footer .footer-info span::after { content: "" !important; }
 
-  /* 手機 slider 隱藏 */
   #headerControlPanel { display:none; }
 }
 
@@ -78,10 +87,7 @@ footer .footer-info a:hover {
     right: -16px;
   }
 
-  /* PC slider 隱藏 */
   #headerControlPanel { display:none !important; }
-
-  /* PC logo 固定 145px */
   header .logo { margin-left:145px; }
 }
 </style>
@@ -127,7 +133,6 @@ footer .footer-info a:hover {
     </div>
     <p style="margin-top:10px; text-align:left;">Grow with us. Together, we thrive in booming markets and achieve long-term success.</p>
 
-    <!-- ✅ Only this part changed: center CTA -->
     <div style="text-align:center; margin-top:20px;">
       <a href="contact.html" class="cta" data-bg="#1a73e8" style="display:inline-block; background:#1a73e8; color:#fff; padding:12px 25px; border-radius:5px; font-weight:600; transition:background 0.3s; text-decoration:none;">
         Get Started Today →
@@ -145,7 +150,6 @@ footer .footer-info a:hover {
   <p class="copyright" style="margin:0; font-size:0.9rem;">© <script>document.write(new Date().getFullYear());</script> VuTek Inc.</p>
 </footer>
 
-<!-- slider panel 完全隱藏 -->
 <div id="headerControlPanel" style="display:none;"></div>
 
 <script>
@@ -157,14 +161,12 @@ document.addEventListener("DOMContentLoaded", function() {
   hamburger.addEventListener('click', () => { navMenu.classList.toggle('show'); });
 
   if(window.innerWidth <= 768){
-    logo.style.marginLeft = '190px'; // 手機 logo
+    logo.style.marginLeft = '190px';
   }
-
   if(window.innerWidth >= 769){
-    logo.style.marginLeft = '145px'; // PC logo
+    logo.style.marginLeft = '145px';
   }
 
-  // slider 隱藏
   const sliderPanel = document.getElementById('headerControlPanel');
   if(sliderPanel){
     sliderPanel.style.display = 'none';
@@ -174,9 +176,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </body>
 </html>
-
-
-
 
 
 
