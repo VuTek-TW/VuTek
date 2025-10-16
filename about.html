@@ -69,7 +69,7 @@ section {
   text-align: left; /* 預設整段靠左 */
   max-width: 900px;
   margin: 0 auto;
-  padding: 25px 20px; /* ✅ 調整標題上方距離，與 index.html / products.html 一致 */
+  padding: 25px 20px; /* 標題上方距離 */
 }
 section h1 {
   text-align: center; /* 標題置中 */
@@ -87,16 +87,20 @@ section .cta {
   margin: 40px auto 0 auto;
   width: fit-content;
 }
+
+/* ===== Stock 圖片水平排列 ===== */
 .stock-section {
-  text-align: left; /* 圖片段落保持靠左 */
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap; /* 手機版自動換行 */
   margin: 30px 0;
 }
 .stock-section img {
   width: 100%;
-  max-width: 500px;
+  max-width: 250px;
   border-radius: 10px;
   display: block;
-  margin-bottom: 10px;
 }
 </style>
 </head>
@@ -121,11 +125,12 @@ section .cta {
   <h1>About Us</h1>
 
   <p>Since the first iPhone in 2007, we’ve been in the iPhone business.</p>
-  <p>We even still have an iPhone 1 on hand and photos of the iPhone 3Gs shipment from 2009, as follows:</p>
+  <p>We even still have an iPhone 1 on hand and photos of the iPhone 3Gs shipment from 2009, see below:</p>
 
   <div class="stock-section">
-    <img src="images/stock-sample.jpg" alt="Pre-owned iPhone stock">
-    <p>Ready stock for global shipment</p>
+    <img src="iphone3gs-01.jpg" alt="iPhone 3Gs 01">
+    <img src="iphone3gs-02.jpg" alt="iPhone 3Gs 02">
+    <img src="iphone3gs-03.jpg" alt="iPhone 3Gs 03">
   </div>
 
   <p>In the early days of the iPhone, all markets were focused on new iPhones. At that time, Steve Jobs humbly said that he hoped the iPhone could achieve just 1% market share someday. Later, we all witnessed the incredible success of the iPhone.</p>
@@ -173,6 +178,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </body>
 </html>
+
 
 
 
