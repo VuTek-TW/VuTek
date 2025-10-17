@@ -6,8 +6,21 @@
 <title>VuTek - About Us</title>
 <link rel="stylesheet" href="style.css" />
 <style>
+/* ===== 全局樣式 ===== */
 body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f4f6f8; color:#333; margin:0; padding:0; }
 a { text-decoration:none; color:inherit; }
+
+/* ===== Footer 連結 Hover 效果 ===== */
+footer .footer-info a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s, border-bottom 0.3s;
+  border-bottom: 1px solid transparent;
+}
+footer .footer-info a:hover {
+  color: #ffeb3b;
+  border-bottom: 1px solid #ffeb3b;
+}
 
 /* ===== 手機專用 ===== */
 @media (max-width:768px){
@@ -66,18 +79,18 @@ a { text-decoration:none; color:inherit; }
 
 /* ===== Section 對齊控制 ===== */
 section {
-  text-align: left; /* 預設整段靠左 */
+  text-align: left;
   max-width: 900px;
   margin: 0 auto;
-  padding: 25px 20px; /* 標題上方距離 */
+  padding: 25px 20px;
 }
 section h1 {
-  text-align: center; /* 標題置中 */
+  text-align: center;
   margin-bottom: 30px;
 }
 section .cta {
   display: block;
-  text-align: center; /* CTA 置中 */
+  text-align: center;
   background-color: #1a73e8;
   color: #fff;
   padding: 12px 28px;
@@ -88,19 +101,30 @@ section .cta {
   width: fit-content;
 }
 
-/* ===== Stock 圖片水平排列 ===== */
-.stock-section {
+/* ===== iPhone 庫存圖片排版：方法 3 （統一比例） ===== */
+.stock-gallery {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap; /* 手機版自動換行 */
-  margin: 30px 0;
+  align-items: flex-start;
+  gap: 15px;
+  flex-wrap: wrap;
 }
-.stock-section img {
+.stock-gallery img {
   width: 100%;
-  max-width: 250px;
+  max-width: 280px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
   border-radius: 10px;
   display: block;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.stock-gallery img:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+@media (max-width: 768px) {
+  .stock-gallery img { max-width: 90%; }
 }
 </style>
 </head>
@@ -127,17 +151,24 @@ section .cta {
   <p>Since the first iPhone in 2007, we’ve been in the iPhone business.</p>
   <p>We even still have an iPhone 1 on hand and old photos of the iPhone 3Gs shipment from 2009 (at that time, only black and white color for iPhone), photos as follows:</p>
 
-  <div class="stock-section">
-    <img src="iphone3gs-01.jpg" alt="iPhone 3Gs 01">
-    <img src="iphone3gs-02.jpg" alt="iPhone 3Gs 02">
-    <img src="iphone3gs-03.jpg" alt="iPhone 3Gs 03">
+  <div class="stock-gallery">
+    <img src="images/iphone3gs-01.jpg" alt="iPhone 3Gs 01">
+    <img src="images/iphone3gs-02.jpg" alt="iPhone 3Gs 02">
+    <img src="images/iphone3gs-03.jpg" alt="iPhone 3Gs 03">
   </div>
 
   <p>In the early days of the iPhone, all markets were focused on new iPhones. At that time, Steve Jobs humbly said that he hoped the iPhone could achieve just 1% market share someday. Later, we all witnessed the incredible success of the iPhone.</p>
 
-  <p><strong>As the market matured, VuTek evolved — shifting from new iPhones in the early years to today’s focus on premium pre-owned iPhones for global partners.</strong></p>
+  <p><strong>As the market matured, VuTek evolved — shifting from new iPhones in the early years to today’s focus on premium pre-owned iPhones for global partners, photos as shown below.</strong></p>
 
   <p>Today, iPhones help us in many ways every day, and pre-owned iPhones can reach even more people. The pre-owned iPhone market is booming, and we look forward to cooperating with long-term partners to create win–win opportunities that benefit people and the environment. Together, we are excited to achieve great success!</p>
+
+  <!-- 與 products.html 相同的三張圖 -->
+  <div class="stock-gallery">
+    <img src="images/iphone-stock-01.jpg" alt="iPhone stock 1">
+    <img src="images/iphone-stock-02.jpg" alt="iPhone stock 2">
+    <img src="images/iphone-stock-03.jpg" alt="iPhone stock 3">
+  </div>
 
   <a href="contact.html" class="cta">Get Started Today →</a>
 </section>
@@ -163,14 +194,13 @@ document.addEventListener("DOMContentLoaded", function() {
   hamburger.addEventListener('click', () => { navMenu.classList.toggle('show'); });
 
   if(window.innerWidth <= 768){
-    logo.style.marginLeft = '190px'; // 手機 logo
+    logo.style.marginLeft = '190px';
   }
 
   if(window.innerWidth >= 769){
-    logo.style.marginLeft = '145px'; // PC logo
+    logo.style.marginLeft = '145px';
   }
 
-  // slider 隱藏
   const sliderPanel = document.getElementById('headerControlPanel');
   if(sliderPanel){
     sliderPanel.style.display = 'none';
@@ -180,6 +210,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </body>
 </html>
+
 
 
 
